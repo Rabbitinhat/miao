@@ -31,6 +31,7 @@
     <a href="https://www.jd.com/" target="_blank">在新窗口打开京东</a>
     <!-- mail -->
     <a href="mailto:fakename@hotmail.com">点击给我发邮件</a>
+    <a href="#footer">跳转到本页的底部</a>
     <a href="https://drscdn.500px.org/photo/229389427/m%3D1170/v2?user_id=7012987&webp=true&sig=196fa0c161aa562478d08571764872f7d69a346c3c0b2e12aa00e2c6414eb28b"
       download="grape">点我可以下载一个文件</a><br>
     <img
@@ -164,6 +165,59 @@
     <button type="reset">重置</button>
   </form>
   <hr>
+  <table border=1>
+    <!-- ?col & span -->
+    <col span="2" bk="red">
+    <caption>货品列表</caption>
+    <thead><tr>
+      <th>编号</th>
+      <th>品名</th>
+      <th>进价</th>
+      <th>出价</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>001</th>
+      <td>苹果</td>
+      <td rowspan="2">5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>001</th>
+      <td>桔子</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>001</th>
+      <td>香蕉</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>001</th>
+      <td>山竹</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+  </table>
+  <hr>
+  <img src="https://drscdn.500px.org/photo/174778125/m%3D1170_k%3D1/2841ccf2a3720e8e794a6a6930f6ff2c" width=300 usemap="#bird">
+  <map name="bird">
+    <area shape="rect" coords="58,119,180,164" href="https://www.mi.com/" target="_blank" alt="first">
+    <area shape="circle" coords="138,258,46" href="#header" target="_blank" alt="second">
+    <area shape="poly" coords="57,81,194,76,203,145,193,185,226,241,165,386,18,276,60,185" href="https://www.google.com/" alt="third">
+  </map>
+  <hr>
+  <div id="footer"><a href="https://www.mi.com/" target="xiaomi">点击我会在下面的frame里面打开小米商场, 但为什么打不开呢?</a><br>
+  <!-- 因为小米网站的HTTP Head设置了'X-Frame-Options'的值为'sameorigin', 只允许同源的网站嵌套-->
+  <iframe src="https://nodejs.org/zh-cn/" frameborder="0" width=500 height=200 name="xiaomi"></iframe>
+  <p>怎样　　　　在这两个字之间空这么大呢?<!-- 全角空格 -->
+  <br>怎样在页面中显示下面的内容呢?
+  <pre><code>&lt;span&gt;&lt;/span&gt;</code></pre>
+</p>
+</div>
 </body>
 
 </html>
