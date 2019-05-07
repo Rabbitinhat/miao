@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Homework2-HTML练习</title>
-  <meta http-equiv="X-UA-Compible" content="IE=Edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width,initial=1.0">
   <meta name="author" content="Rabbitinhat">
 </head>
@@ -41,8 +41,9 @@
   <hr>
 
 
+  <marquee>飘~~~</marquee>
   <div class="text">
-    <marquee>飘~~~</marquee>
+    
     <i>这几种强调</i><b>有什么区别呢?</b> <u>这个呢?</u> <i>这个呢?</i>
     <br>&lt;!--这段注释需要出现在页面里面--&gt;
     <p>html的注释怎么写?</p>
@@ -94,13 +95,13 @@
   <div class="search">
     <h3>Google搜索</h3>
     <form action="https://www.google.com/search" target="_blank" method="GET">
-      <input type="text" tpye="search" name="q"
+      <input type="search" name="q"
         placeholder="请输入想要搜索的内容"> <input type="submit" value="在新窗口打开搜索结果">
     </form>
   </div>
   <hr>
   <form>
-    <legend>个人信息调查表</legend>
+    <label>个人信息调查表</label>
     <dl>
       <dt>性别</dt>
       <dd>
@@ -109,7 +110,7 @@
       </dd>
       <dt>年龄</dt>
       <dd>
-        <select name="age" id="">
+        <select name="age">
           
           <optgroup label="少年">
             <!-- ? -->
@@ -129,11 +130,11 @@
       </dd>
       <dt>生日</dt>
       <dd>
-        <input type="date" value="mm/dd/yyyy" name="birth">
+        <input type="date"  name="birth">
       </dd>
       <dt>生辰</dt>
       <dd>
-        <input type="time" value="--:-- --" name="time">
+        <input type="time" name="time">
       </dd>
       <dt>照片</dt>
       <dd>
@@ -146,7 +147,7 @@
       </dd>
       <dt>自我介绍</dt>
       <dd>
-        <textarea name="self" id="" cols="30" rows="10">&lt;/textarea>
+        <textarea name="self" cols="30" rows="10">&lt;/textarea>
       </textarea>
       </dd>
     </dl>
