@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Postion Menu</title>
+  <style rel="stylesheet">
+    /*   .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  /* 垂直选项列表 */
+   .second {
+      display: none;
+    }
+
+    .third {
+      display: none;
+    }
+
+    .menu [class^="option"]:hover .second {
+      display: block;
+    }
+
+    /* NOTE li元素display:block 会失去border-style */
+
+   [class^="second-"]:hover .third {
+      display: block;
+    }
+    body, ul {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+
+    body {
+      font-family: "Microsoft YaHei", serif;
+      font-size: 12px;
+    }
+
+    .clearfix:after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .menu {
+      min-width: 600px/*  */;
+      background-color: #333;
+      color: #ccc;
+    }
+
+    .menu>ul {
+      width: 600px
+    }
+    .menu [class^="option"] {
+      float: left;
+      
+      width: 20%;
+      height: 35px;
+      text-align: center;
+      line-height: 35px;
+    }
+    /* hover时改变选项的背景颜色 */
+    .menu [class^="option"]:hover {
+      background-color: #999;
+    }
+
+    /* 二级列表样式 */
+    .menu [class^="option"]>ul {
+      text-align: left;
+      width: 150%;
+      background-color: #333;
+      color: #ccc;
+      box-shadow: -1px 2px 2px #000;
+    }
+
+    [class^="second-"] {
+      padding: 5% 10%;
+      position: relative;
+    }
+    /* 二级列表hover时, 改变背景颜色 */
+    [class^="second-"]:hover {
+      background-color: #999;
+      
+    }
+
+    /* 添加 二级列表项快捷键显示和箭头 */
+    .new-file:after {
+      content: "Ctrl+N";
+      position: absolute;
+      right: 10%;
+    }
+
+    .open-file:after {
+      content: ">";
+      font-weight: 900;
+      position: absolute;
+      right: 10%;
+    }
+    /* 三级列表样式 */
+    [class^="second-"]>ul {
+      position: absolute;
+      top: -5px;
+      left: 100%;
+      width: 100%;
+      background-color: #333;
+      color: #ccc;
+      box-shadow: -1px 2px 2px #000;
+    }
+    [class^="third-"] {
+      padding: 5% 10%;
+    }
+    [class^="third-"]:hover {
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 用定位实现菜单 -->
+  <div class="menu">
+    <ul class="clearfix">
+      <li class="option1">
+        <div>选项</div>
+        <ul class="second">
+          <li class="second-option1 new-file">
+            New File
+          </li>
+          <li class="second-option2">
+            New Window
+          </li>
+          <li class="second-option3">
+            <div class="open-file">Open File...</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option4">
+            Open Folder...
+          </li>
+          <li class="second-option5">
+            Open Workspace...
+          </li>
+        </ul>
+      </li>
+      <li class="option2">
+        <div>选项</div>
+        <ul class="second">
+          <li class="second-option1">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option2">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option3">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option4">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option5">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="option3">
+        <div>选项</div>
+        <ul class="second">
+          <li class="second-option1">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option2">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option3">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option4">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option5">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="option4">
+        <div>选项</div>
+        <ul class="second">
+          <li class="second-option1">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option2">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option3">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option4">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option5">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="option5">
+        <div>选项</div>
+        <ul class="second">
+          <li class="second-option1">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option2">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option3">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option4">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+          <li class="second-option5">
+            <div>选项</div>
+            <ul class="third">
+              <li class="third-option1">选项</li>
+              <li class="third-option2">选项</li>
+              <li class="third-option3">选项</li>
+              <li class="third-option4">选项</li>
+              <li class="third-option5">选项</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

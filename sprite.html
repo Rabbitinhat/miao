@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sprite Animation</title>
+  <style rel="stylesheet">
+  .one {
+    width: 129px;
+    height: 190px;
+    background-image: url(./img/DSsheet-adrian.png);
+    background-position: left 0 top -216px;
+  }
+
+  .one:hover {
+    background-position: calc(12 * -129px) -216px;
+    transition: background-position 1.2s steps(12);
+  }
+  </style>
+</head>
+<body>
+  <div class="one"></div>
+  <div class="two"></div>
+  <div class="three"></div>
+</body>
+</html>

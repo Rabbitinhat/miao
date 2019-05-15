@@ -1,0 +1,60 @@
+<!--
+  * 使用margin负外边距实现行列布局
+  * May-14-2019
+  * Visual Formatting Model homework
+-->
+<style rel="stylesheet">
+/* CSS样式 */
+.layout {
+  margin: 15px 0
+}
+.layout>div {
+  box-sizing: border-box;
+  width: 180px;
+  height: 40px;
+  margin-bottom: 15px;
+  border: 3px solid #333;
+  text-align: center;
+  line-height: 34px;
+  background-color: rgb(255, 192, 213);
+}
+.layout>div:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.layout>div:nth-child(3n+2){
+  margin-top: -55px;
+  margin-left: 210px;
+}
+
+.layout>div:nth-child(3n+3){
+  margin-top: -55px;
+  margin-left: 420px;
+}
+.link>div:not(:last-child) {
+  box-sizing: border-box;
+  border-bottom: 1px dotted #333;
+}
+</style>
+<!-- HTML结构 -->
+<div class="layout">
+    <div>宽180高40(包含边框)</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>水平间隙30px</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>垂直间隙15px</div>
+    <div>产品</div>
+    <div>产品</div>
+    <div>边框宽度3px</div>
+    <div>产品</div>
+    <div>产品</div>
+  </div>
+  <div class="link">
+    <div>link</div>
+    <div>link</div>
+    <div>link</div>
+    <div>link</div>
+    <div>link</div>
+  </div>

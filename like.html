@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Like Button</title>
+  <style rel="stylesheet">
+    /* label span 是inline element */
+    /* :checked 选择选中状态的按钮 */
+    /* 单纯制作图标按钮, 则可以只是用label填充背景图片*/
+    /* 若要制作同时存在图标和文字时, 则使用label包裹checkbox和一个span, 使用span填充背景图片, 作为图标使用 */
+    .like {
+      width: 100px;
+    }
+  #heart {
+    display: none;
+  }
+  #heart + label {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-image: url(./img/heart_animation.png);
+    background-position: 0px 0px;
+
+  }
+
+  #heart:checked + label {
+    background-position: -2800px 0px;
+    transition: background-position 3s steps(28);
+  }
+  </style>
+</head>
+<body>
+  <div class="like">
+      <input id="heart" type="checkbox" name="like" value="like">
+      <label for="heart"></label>
+      <label></label>
+  </div>
+</body>
+</html>
