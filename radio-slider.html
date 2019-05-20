@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>slide show</title>
+  <style rel="stylesheet">
+    body {
+      font-size: 14px;
+    }
+    /* 轮播样式-暴力版 start */
+    /* 图片 */
+  .slide-show {
+    width: 1227px;
+    height: 460px;
+    margin: 0 auto;
+
+  }
+  label {
+    display: block;
+    width: 1227px;
+    height: 460px;
+    display: none;
+
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+  }
+  label:nth-of-type(1) {
+    background-image: url(./img/content1.jpg);
+  }
+  label:nth-of-type(2) {
+    background-image: url(./img/content2.jpg);
+  }
+  label:nth-of-type(3) {
+    background-image: url(./img/content3.jpg);
+  }
+  label:nth-of-type(4) {
+    background-image: url(./img/content4.jpg);
+  }
+  label:nth-of-type(5) {
+    background-image: url(./img/content5.jpg);
+  }
+
+  /* 按钮 */
+  [type="radio"]:checked + label {
+    display: block;
+  }
+
+  /* 移动按钮 */
+  /* 按钮大小 10px 10px 间距 10px */
+  .slide-show {
+    position: relative;
+  }
+  input {
+    position: absolute;
+    bottom: 20px;
+    cursor: pointer;
+  }
+  #content1 {
+    right: 116px;
+  }
+
+  #content2 {
+    right: 96px;
+  }
+
+  #content3 {
+    right: 76px;
+  }
+
+  #content4 {
+    right: 56px;
+  }
+
+  #content5 {
+    right: 36px;
+  }
+/* end */
+/* 箭头样式 */
+
+
+.left,
+.right {
+  position: absolute;
+  width: 40px;
+  height: 70px;
+  background-color: transparent;
+  color: #ccc;
+  font-size: 2em;
+  text-align: center;
+  line-height: 70px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.left:hover,
+.right:hover {
+  background-color: rgba(051, 051, 051, 0.7);
+}
+
+.left {
+  left: 230px;
+  top: calc(50% - 35px);
+}
+
+.right {
+  right: 0;
+  top: calc(50% - 35px);
+}
+/* 箭头样式 end */
+
+/* 网格式列表 strat*/
+/* 布局 start*/
+.list > ul {
+  position: relative;
+}
+.list li > ul {
+ display: none;
+}
+.list li:hover > ul {
+  display: block;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+[class^="option"] > ul {
+  position: absolute;
+  left: 230px;
+  top: 0;
+}
+[class^="second-"]{
+  display: block;
+  
+}
+[class^="second-"]:nth-child(7){
+  margin-top: -460px;
+  
+}
+
+/* nth-child(7+n) 无效 */
+[class^="second-"]:nth-child(n+7){
+  margin-left: calc(997px / 4);
+}
+
+[class^="second-"]:nth-child(13){
+  margin-top: -460px;
+}
+[class^="second-"]:nth-child(n+13){
+  margin-left: calc((997px / 4) * 2);
+}
+
+[class^="second-"]:nth-child(19){
+  margin-top: -460px;
+}
+[class^="second-"]:nth-child(n+19){
+  margin-left: calc((997px / 4) * 3);
+}
+/* 布局 end */
+/* 列表样式 */
+.list>ul {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 230px;
+  height: 460px;
+  background-color: rgba(051, 051, 051, 0.7);
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.list>ul>li {
+  box-sizing: border-box;
+  height: 42px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.list>ul>li:after {
+  content: ">";
+  height: 100%;
+  line-height: 42px;
+  float: right;
+}
+
+.list>ul>li>div {
+  float: left;
+  height: 100%;
+  line-height: 42px;
+}
+
+.list>ul>li:hover {
+  background-color: rgb(250, 103, 0);
+}
+/* 列表样式 end */
+/* 二级列表样式 start */
+[class^="option"] > ul {
+  background-color: orange;
+  color: #333;
+  overflow: hidden;
+}
+
+[class^="second-option"] {
+  width: calc((1227px - 230px) / 4);
+  height: calc(460px / 6);
+}
+
+[class^="second-option"]>a {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(460px / 6);
+  text-align: center;
+  line-height: calc(460px / 6 - 42px);
+  padding-top: 21px;
+  padding-bottom: 21px;
+}
+
+  </style>
+</head>
+<body>
+    <div class="slide-show">
+    <input type="radio" name="slide" id="content1" checked />
+    <label for="content1"></label>
+    <input type="radio" name="slide" id="content2" />
+    <label for="content2"></label>
+    <input type="radio" name="slide" id="content3" />
+    <label for="content3"></label>
+    <input type="radio" name="slide" id="content4" />
+    <label for="content4"></label>
+    <input type="radio" name="slide" id="content5" />
+    <label for="content5"></label>
+      <div class="left">&lt;</div>
+      <div class="right">&gt;</div>
+      <div class="list">
+        <ul>
+          <li class="option1"><div>手机 电话卡</div>
+            <ul>
+              <li class="second-option1"> <a>小米9</a></li>
+              <li class="second-option2"> <a>小米9</a></li>
+              <li class="second-option3"> <a>小米9</a></li>
+              <li class="second-option4"> <a>小米9</a></li>
+              <li class="second-option5"> <a>小米9</a></li>
+              <li class="second-option6"> <a>小米9</a></li>
+              <li class="second-option7"> <a>小米9</a></li>
+              <li class="second-option8"> <a>小米9</a></li>
+              <li class="second-option9"> <a>小米9</a></li>
+              <li class="second-option10"><a>小米9</a></li>
+              <li class="second-option11"><a>小米9</a></li>
+              <li class="second-option12"><a>小米9</a></li>
+              <li class="second-option13"><a>小米9</a></li>
+              <li class="second-option14"><a>小米9</a></li>
+              <li class="second-option15"><a>小米9</a></li>
+              <li class="second-option16"><a>小米9</a></li>
+              <li class="second-option17"><a>小米9</a></li>
+              <li class="second-option18"><a>小米9</a></li>
+              <li class="second-option19"><a>小米9</a></li>
+              <li class="second-option20"><a>小米9</a></li>
+              <li class="second-option21"><a>小米9</a></li>
+              <li class="second-option22"><a>小米9</a></li>
+              <li class="second-option23"><a>小米9</a></li>
+              <li class="second-option24"><a>小米9</a></li>
+            </ul>
+          </li>
+          <li class="option2"><div>电视 盒子</div>
+            <ul>
+                <li class="second-option1"> <a>小米8</a></li>
+                <li class="second-option2"> <a>小米8</a></li>
+                <li class="second-option3"> <a>小米8</a></li>
+                <li class="second-option4"> <a>小米8</a></li>
+                <li class="second-option5"> <a>小米8</a></li>
+                <li class="second-option6"> <a>小米8</a></li>
+                <li class="second-option7"> <a>小米8</a></li>
+                <li class="second-option8"> <a>小米8</a></li>
+                <li class="second-option9"> <a>小米8</a></li>
+                <li class="second-option10"><a>小米8</a></li>
+                <li class="second-option11"><a>小米8</a></li>
+                <li class="second-option12"><a>小米8</a></li>
+                <li class="second-option13"><a>小米8</a></li>
+                <li class="second-option14"><a>小米8</a></li>
+                <li class="second-option15"><a>小米8</a></li>
+                <li class="second-option16"><a>小米8</a></li>
+                <li class="second-option17"><a>小米8</a></li>
+                <li class="second-option18"><a>小米8</a></li>
+                <li class="second-option19"><a>小米8</a></li>
+                <li class="second-option20"><a>小米8</a></li>
+                <li class="second-option21"><a>小米8</a></li>
+                <li class="second-option22"><a>小米8</a></li>
+                <li class="second-option23"><a>小米8</a></li>
+                <li class="second-option24"><a>小米8</a></li>
+              </ul>
+          </li>
+          <li class="option3"><div>笔记本 平板</div>
+            <ul>
+                <li class="second-option1"> <a>小米7</a></li>
+                <li class="second-option2"> <a>小米7</a></li>
+                <li class="second-option3"> <a>小米7</a></li>
+                <li class="second-option4"> <a>小米7</a></li>
+                <li class="second-option5"> <a>小米7</a></li>
+                <li class="second-option6"> <a>小米7</a></li>
+                <li class="second-option7"> <a>小米7</a></li>
+                <li class="second-option8"> <a>小米7</a></li>
+                <li class="second-option9"> <a>小米7</a></li>
+                <li class="second-option10"><a>小米7</a></li>
+                <li class="second-option11"><a>小米7</a></li>
+                <li class="second-option12"><a>小米7</a></li>
+                <li class="second-option13"><a>小米7</a></li>
+                <li class="second-option14"><a>小米7</a></li>
+                <li class="second-option15"><a>小米7</a></li>
+                <li class="second-option16"><a>小米7</a></li>
+                <li class="second-option17"><a>小米7</a></li>
+                <li class="second-option18"><a>小米7</a></li>
+                <li class="second-option19"><a>小米7</a></li>
+                <li class="second-option20"><a>小米7</a></li>
+              </ul>
+          </li>
+          <li class="option4"><div>家电 插线板</div>
+            <ul>
+                <li class="second-option1"> <a>小米6</a></li>
+                <li class="second-option2"> <a>小米6</a></li>
+                <li class="second-option3"> <a>小米6</a></li>
+                <li class="second-option4"> <a>小米6</a></li>
+                <li class="second-option5"> <a>小米6</a></li>
+                <li class="second-option6"> <a>小米6</a></li>
+                <li class="second-option7"> <a>小米6</a></li>
+
+              </ul></li>
+          <li class="option5"><div>出行 穿戴</div></li>
+          <li class="option6"><div>智能 路由器</div></li>
+          <li class="option7"><div>电源 配件</div></li>
+          <li class="option8"><div>健康 儿童</div></li>
+          <li class="option9"><div>耳机 音箱</div></li>
+          <li class="option10"><div>生活 箱包</div></li>
+        </ul>
+      </div>
+    </div>
+</body>
+</html>
