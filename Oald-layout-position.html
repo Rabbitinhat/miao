@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="chyon">
+  <title>Oald-layout</title>
+  <style rel="stylesheet">
+    /* show part start */
+    /* layout */
+    body {
+      margin: 0;
+      font-family: "Averia Serif Libre", "Milonga", "Segoe UI", "Tahoma", sans-serif;
+      font-size: 16px;
+    }
+
+    main {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    main > section {
+      position: absolute;
+      height: 100vh;
+      top: 0;
+    }
+
+    .search,
+    .vocabulary,
+    .history {
+      width: 227px;
+      background-color:  rgb(234, 238, 243);
+    }
+
+    .search {
+      left: 0;
+    }
+
+    .show {
+      width: calc(100% - (227px * 3));
+      left: 227px;
+      background-color:aqua;
+    }
+
+    .vocabulary {
+      right: 227px;
+    }
+
+    .history {
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="show">
+      <div>
+        <header class="header">
+          <!-- 用<a>? -->
+          <input type="button" name="" id="" value="+">
+          <input type="button" name="" id="" value="♬">
+          <h2>batman</h2>
+          <input type="button" name="" id="" value="Tools">
+          <input type="button" name="" id="" value="Settings">
+          <input type="button" name="" id="" value="Help">
+          <input type="button" name="" id="" value="Donate">
+        </header>
+        <div class="explain">
+        </div>
+      </div>
+    </section>
+    <section class="search">
+      <header class="header">
+        <h1>OALD Se7en</h1>
+        <input type="search" name="search" id="search">
+        <!-- input button ?-->
+        <input type="button">
+      </header>
+      <div class="showwords">
+      </div>
+    </section>
+    <section class="vocabulary">
+      <header class="header">
+        <h2>Vocabulary</h2>
+        <input type="search" name="vocabulary" value="Search Vocabulary">
+      </header>
+      <div class="showVoca">
+
+      </div>
+    </section>
+    <section class="history">
+      <header class="header">
+        <input type="button" value="Clear">
+        <h2>History</h2>
+        <input type="search" value="Search History" name="history">
+      </header>
+      <div class="showhistory"></div>
+    </section>
+  </main>
+</body>
+
+</html>
