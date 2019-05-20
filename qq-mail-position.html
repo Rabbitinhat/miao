@@ -1,0 +1,52 @@
+<!-- QQ邮箱布局 position实现 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>QQ-Mail-Layout</title>
+  <style rel="stylesheet">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  .header {
+    width: 100%;
+    height: 67px;
+    background-color: rgb(48, 69, 93);
+  }
+
+  main {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 67px);
+  }
+
+  .left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 188px;
+    height: 100%;
+    background-color: rgb(232, 235, 239);
+  }
+
+  .article {
+    position: absolute;
+    left: 188px;
+    top: 0;
+    height: 100%;
+    width: calc(100% - 188px);
+    background-color: #fff;
+  }
+  </style>
+</head>
+<body>
+  <header class="header"></header>
+  <main>
+    <aside class="left"></aside>
+    <div class="article"></div>
+  </main>
+</body>
+</html>
