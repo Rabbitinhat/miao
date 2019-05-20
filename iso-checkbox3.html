@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IOS-checkbox</title>
+  <style rel="stylesheet">
+  /* 无效时的外观 inactive look */
+  .apple-switch {
+    position: relative;
+    /* 修改默认外观 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    outline:none;
+    width: 50px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #D9DADC;
+    border-radius: 50px;
+/*     box-shadow: inset -20px 0 0 0 rgba(192, 192, 192, 1); */
+    /* ? */
+    transition-duration: 200ms;
+  }
+
+/*   .apple-switch:after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, .2);
+  } */
+
+  .apple-switch:checked {
+    border-color: #4ED164;
+    /* box-shadow: inset 20px 0 0 0 #4ED164; */
+  }
+
+  .apple-switch:checked:after {
+/*     left: 20px; */
+    box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.5);
+  }
+  </style>
+</head>
+<body>
+  <input type="checkbox" class="apple-switch">
+</body>
+</html>

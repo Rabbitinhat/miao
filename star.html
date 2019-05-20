@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Star</title>
+  <style rel="stylesheet">
+    .container {
+      width: 100px;
+
+      margin: 0 auto;
+      margin-top: 100px;
+      background-color: orange;
+    }
+
+    .container div {
+      width: 0;
+      position: absolute;
+      border-top: 30px solid transparent;
+      border-left: 0px solid transparent;
+      border-right: 21px solid blue;
+      border-bottom: 30px solid transparent;
+    }
+
+    .top {
+      transform: rotate(216deg);
+    }
+
+    .middle {
+      transform: rotate(144deg);
+    }
+
+    .bottom {
+      transform: rotate(288deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top"></div>
+    <div class="middle"></div>
+    <div class="bottom"></div>
+  </div>
+</body>
+</html>
