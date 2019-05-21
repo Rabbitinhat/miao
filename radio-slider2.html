@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Radio-Selector</title>
+  <style rel="stylesheet">
+    /* 基本样式 */
+    /* 清除浮动 */
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    
+    [type="radio"] {
+      display: none;
+    }
+
+    .pic {
+      position: relative;
+      width: 1227px;
+      height: 460px;
+      transition: background-image 1s;
+    }
+
+    .button {
+      position: absolute;
+      right: 36px;
+      bottom: 20px;
+    }
+
+    .button label {
+      display: block;
+      box-sizing: border-box;
+      float: left;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      border: 2px solid rgb(184, 184, 184);
+      background-color: rgb(135, 135, 135);
+    }
+
+    .button label:not(:nth-last-of-type(1)) {
+      margin-right: 10px;
+    }
+
+    label:hover {
+      background-color: rgb(237, 237, 237);
+      border-color: rgb(145, 145, 145);
+    }
+
+    /* 按钮选中样式 */
+    input#one01:checked~.pic [for="one01"] {
+      background-color: rgb(237, 237, 237);
+      border-color: rgb(145, 145, 145);
+    }
+
+    input#one02:checked~.pic [for="one02"] {
+      background-color: rgb(237, 237, 237);
+      border-color: rgb(145, 145, 145);
+    }
+
+    input#one03:checked~.pic [for="one03"] {
+      background-color: rgb(237, 237, 237);
+      border-color: rgb(145, 145, 145);
+    }
+
+    input#one04:checked~.pic [for="one04"] {
+      background-color: rgb(237, 237, 237);
+      border-color: rgb(145, 145, 145);
+    }
+
+    input#one05:checked~.pic [for="one05"] {
+      background-color: rgb(237, 237, 237);
+      border-color: rgb(145, 145, 145);
+    }
+
+    /* 图片切换 */
+    /* 如果trasition执行时, 再切换背景, 会中断变换效果 */
+    #one01:checked ~ div.pic {
+      background-image: url(./img/content1.jpg);
+      transition: background-image .5s;
+    }
+
+    #one02:checked ~ div.pic {
+      background-image: url(./img/content2.jpg);
+      transition: background-image .5s;
+    }
+
+    #one03:checked ~ div.pic {
+      background-image: url(./img/content3.jpg);
+      transition: background-image .5s;
+    }
+
+    #one04:checked ~ div.pic {
+      background-image: url(./img/content4.jpg);
+      transition: background-image .5s;
+    }
+
+    #one05:checked ~ div.pic {
+      background-image: url(./img/content5.jpg);
+      transition: background-image .5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slide-show">
+    <input type="radio" name="show" id="one01" checked>
+    <input type="radio" name="show" id="one02">
+    <input type="radio" name="show" id="one03">
+    <input type="radio" name="show" id="one04">
+    <input type="radio" name="show" id="one05">
+    <div class="pic">
+      <div class="button clearfix">
+        <label for="one01"></label>
+        <label for="one02"></label>
+        <label for="one03"></label>
+        <label for="one04"></label>
+        <label for="one05"></label>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
