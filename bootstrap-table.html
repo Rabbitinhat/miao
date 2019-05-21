@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bootstrap-Table</title>
+  <style rel="stylesheet">
+  .container {
+    width: 50%;
+  }
+  /* 基础表格样式 */
+  .table {
+    /* 不添加border-collapse, 边框属性不显示 */
+    border-collapse: collapse;
+/*     table-layout: fixed; */
+    width: 100%;
+    text-align: left;
+    font-family: "Helvetica", Arial, "Segoe UI", sans-serif;
+  }
+  .table thead tr {
+    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    line-height: 3em;
+    font-weight: 800;
+  }
+
+  .table tr:not(:nth-last-child(1)) {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .table td {
+    line-height: 3em;
+    padding: 0;
+    padding-left: 1em;
+    width: 28.88%;
+  }
+
+  .table th {
+    padding-left: 1em;
+    width: 14.44%;
+  }
+  /* .table-dark 样式*/
+  .table-dark {
+    background-color: #343a40;
+    color: #fff;
+  }
+
+  .table.table-dark tr {
+    border-color: rgb(69, 77, 85);
+  }
+  /* Table head options */
+  .thead-light tr {
+    background-color: rgb(233, 236, 239);
+    border-color: #dee2e6;
+    color: rgb(73, 80, 87);
+  }
+  .thead-dark tr {
+    background-color: rgb(52, 58, 64);
+    border-color: #454d55;
+    color: #fff;
+  }
+
+  /* table-striped style*/
+  .table.table-striped tbody tr:nth-child(odd){
+    background-color: rgba(0, 0, 0, .05);
+  }
+
+  .table.table-striped.table-dark thead,
+  .table.table-striped.table-dark tbody tr:nth-child(odd){
+    background-color: inherit;
+  }
+  .table.table-striped.table-dark thead,
+  .table.table-striped.table-dark tbody tr:nth-child(even){
+    background-color: rgba(0, 0, 0, .05);
+  }
+  /* bordered table */
+  .table.table-bordered {
+    border: 1px solid #ccc;
+  }
+
+  .table.table-bordered td,
+  .table.table-bordered th {
+    border: 1px solid #ccc;
+  }
+
+  .table.table-bordered.table-dark {
+    border-color: #454d55;
+  }
+
+  .table.table-bordered.table-dark td,
+  .table.table-bordered.table-dark th {
+    border-color: #454d55;
+  }
+  /* borderless table */
+  .table.table-borderless thead,
+  .table.table-borderless tr {
+    border: none;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <table class="table table-borderless table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>
