@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Table</title>
+  <style rel="stylesheet">
+.tableTest {
+  width: 300px;
+}
+.cal {
+/*  表格边框重叠 collapse/separate */
+  border-collapse: collapse;
+/*  表格单元格大小 fixed/auto 基于col/colgroup/第一行单元格  */
+  table-layout: fixed;
+  width: 100%;
+  max-width: 25em;
+  font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+  text-align: center;
+}
+
+/* 表格标题 */
+.cal caption {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  line-height: 2;
+  font-size: 1.5em;
+}
+
+.cal-weekend {
+  background-color: #fef0f0;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+
+/* 设置单元格大小, 去掉默认内边距, 添加边框 */
+.cal th,
+.cal td {
+  line-height: 3;
+  padding: 0;
+/*  1/7  */
+  width: 14.285%;
+}
+
+/* 区分表头和内容 */
+.cal thead {
+  border-bottom: 3px solid #666
+}
+
+/* 装饰链接 */
+.cal a {
+  display: block;
+  text-decoration: none;
+  color: #2f273c;
+}
+
+.cal a:hover,
+.cal a:focus {
+/*  后备颜色  */
+  background-color: #cde7ca;
+  background-color: rgba(167, 240, 210, 0.3);
+}
+
+/* 使用不同透明度区分不同日期 */
+.cal-inactive {
+  background-color: #efefef;
+  color: #aaa;
+/*  不允许点击  */
+  cursor: not-allowed;
+}
+/* 设置当天的样式 */
+.cal-current {
+  background-color: #7d5977;
+  background-color: rgba(71, 14, 62, .6);
+}
+.cal-current a {
+  color: #fff;
+}
+  </style>
+</head>
+<body>
+  <!-- scope -->
+<div class="tableTest">
+    <table class="cal">
+      <caption><strong>January</strong> 2015</caption>
+      <colgroup>
+        <col class="cal-mon">
+        <col class="cal-tue">
+        <col class="cal-wen">
+        <col class="cal-thu">
+        <col class="cal-fri">
+        <col class="cal-sat cal-weekend">
+        <col class="cal-sun cal-weekend">
+      </colgroup>
+      <thead>
+        <tr>
+    <!--   表明每个th为一列的表头    scope="col" -->
+          <th scope="col">Mon</th>
+          <th scope="col">Tue</th>
+          <th scope="col">Wen</th>
+          <th scope="col">Thu</th>
+          <th scope="col">Fri</th>
+          <th scope="col">Sat</th>
+          <th scope="col">Sun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cal-inacitve">29</td>
+          <td class="cal-inacitve">30</td>
+          <td class="cal-inacitve">31</td>
+          <td><a href="#">1</a></td>
+          <td><a href="#">2</a></td>
+          <td><a href="#">3</a></td>
+          <td><a href="#">4</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">6</a></td>
+          <td><a href="#">7</a></td>
+          <td><a href="#">8</a></td>
+          <td><a href="#">9</a></td>
+          <td><a href="#">10</a></td>
+          <td><a href="#">11</a></td>
+          <td><a href="#">12</a></td>
+        </tr>
+            <tr>
+          <td><a href="#">13</a></td>
+          <td><a href="#">14</a></td>
+          <td><a href="#">15</a></td>
+          <td><a href="#">16</a></td>
+          <td><a href="#">17</a></td>
+          <td><a href="#">18</a></td>
+          <td><a href="#">19</a></td>
+        </tr>
+            <tr>
+          <td><a href="#">20</a></td>
+          <td><a href="#">21</a></td>
+          <td><a href="#">22</a></td>
+          <td><a href="#">23</a></td>
+          <td><a href="#">24</a></td>
+          <td><a href="#">25</a></td>
+          <td><a href="#">26</a></td>
+        </tr>
+            <tr>
+          <td class="cal-current"><a href="#">27</a></td>
+          <td><a href="#">28</a></td>
+          <td><a href="#">29</a></td>
+          <td><a href="#">30</a></td>
+          <td><a href="#">31</a></td>
+          <td class="cal-inactive"><a href="#">1</a></td>
+              <td class="cal-inactive"><a href="#">2</a></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</body>
+</html>

@@ -11,17 +11,18 @@
   }
   /* 基础表格样式 */
   .table {
+    position: relative;
     /* 不添加border-collapse, 边框属性不显示 */
     border-collapse: collapse;
 /*     table-layout: fixed; */
     width: 100%;
     text-align: left;
     font-family: "Helvetica", Arial, "Segoe UI", sans-serif;
+    line-height: 3em;
   }
   .table thead tr {
     border-top: 1px solid #ccc;
     border-bottom: 2px solid #ccc;
-    line-height: 3em;
     font-weight: 800;
   }
 
@@ -30,15 +31,16 @@
   }
 
   .table td {
-    line-height: 3em;
     padding: 0;
     padding-left: 1em;
     width: 28.88%;
   }
 
   .table th {
+    padding: 0;
     padding-left: 1em;
     width: 14.44%;
+
   }
   /* .table-dark 样式*/
   .table-dark {
@@ -97,11 +99,58 @@
   .table.table-borderless tr {
     border: none;
   }
+  /* Hoverable rows */
+  .table.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, .05);
+  }
+
+  .table.table-hover.table-dark tbody tr:hover {
+    background-color: rgba(255, 255, 255, .05);
+  }
+  /* Small table */
+  .table.table-sm {
+    line-height: 2em;
+  }
+  /* Contextual classes Style */
+  .table-active {
+    background-color: rgba(0, 0, 0, .075);
+  }
+  .table-primary {
+    background-color: #b8daff;
+  }
+  .table-secondary {
+    background-color: #d6d8db;
+  }
+  .table-success {
+    background-color: #c3e6cb;
+  }
+  .table-danger {
+    background-color: #f5c6cb;
+  }
+  .table-warning {
+    background-color: #ffeeba;
+  }
+  .table-info {
+    background-color: #bee5eb;
+  }
+  .table-light {
+    background-color: #fdfdfe;
+  }
+  .table-dark {
+    background-color: #c6c8ca;
+  }
+  /* captions? */
+.table-responsive {
+  display: block;
+  overflow-x: scroll;
+}
+
   </style>
 </head>
 <body>
   <div class="container">
-    <table class="table table-borderless table-dark">
+    <table class="table-responsive">
+      <caption>List of users</caption>
         <thead>
           <tr>
             <th scope="col">#</th>
