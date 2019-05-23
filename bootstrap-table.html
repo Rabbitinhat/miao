@@ -18,6 +18,7 @@
     width: 100%;
     text-align: left;
     font-family: "Helvetica", Arial, "Segoe UI", sans-serif;
+    /* 用padding 调整单元格大小 */
     line-height: 3em;
   }
   .table thead tr {
@@ -101,7 +102,7 @@
   }
   /* Hoverable rows */
   .table.table-hover tbody tr:hover {
-    background-color: rgba(0, 0, 0, .05);
+    background-color: rgba(0, 0, 0, .075);
   }
 
   .table.table-hover.table-dark tbody tr:hover {
@@ -115,41 +116,78 @@
   .table-active {
     background-color: rgba(0, 0, 0, .075);
   }
+  .table.table-hover .table-active:hover {
+
+  }
   .table-primary {
     background-color: #b8daff;
+  }
+  .table.table-hover .table-primary:hover {
+    background-color: #9fcdff;
   }
   .table-secondary {
     background-color: #d6d8db;
   }
+  .table.table-hover .table-secondary {
+    background-color: #c8cbcf;
+  }
   .table-success {
     background-color: #c3e6cb;
+  }
+  .table.table-hover .table-success:hover {
+    background-color: #b1dfbb;
   }
   .table-danger {
     background-color: #f5c6cb;
   }
+  .table.table-hover .table-danger:hover {
+    background-color: #f1b0b7;
+  }
   .table-warning {
     background-color: #ffeeba;
+  }
+  .table.table-hover .table-warning:hover {
+    background-color: #ffe8a1;
   }
   .table-info {
     background-color: #bee5eb;
   }
+  .table.table-hover .table-info:hover {
+    background-color: #abdde5;
+  }
   .table-light {
     background-color: #fdfdfe;
+  }
+  .table.table-hover .table-light:hover {
+    background-color: #ececf6;
   }
   .table-dark {
     background-color: #c6c8ca;
   }
+  .table.table-hover .table-dark:hover {
+    background-color: #b9bbbe;
+  }
   /* captions? */
-.table-responsive {
-  display: block;
-  overflow-x: scroll;
+.table caption {
+  caption-side: bottom;
+  line-height: 3em;
+  color: #999;
+  text-align: left;
 }
+
+/* table-responsive */
+.table-responsive {
+  width: 100%;
+  overflow-x: scroll; 
+}
+
 
   </style>
 </head>
 <body>
   <div class="container">
-    <table class="table-responsive">
+  <div class="table-responsive">
+    <table class="table table-hover">
       <caption>List of users</caption>
         <thead>
           <tr>
@@ -157,29 +195,62 @@
             <th scope="col">First</th>
             <th scope="col">Last</th>
             <th scope="col">Handle</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
+            <th scope="col">Heading</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="table-primary">
             <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
             <td>Thornton</td>
             <td>@fat</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Larry</td>
             <td>the Bird</td>
             <td>@twitter</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
+            <td>Cell</td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
 </body>
 </html>
