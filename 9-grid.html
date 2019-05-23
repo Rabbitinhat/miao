@@ -1,0 +1,158 @@
+<!-- May-23-2019 -->
+<!-- 九个格子, 有统一的边框和背景颜色, 当鼠标hover中一个格子时, 改变它的边框颜色 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>9element table</title>
+  <style rel="stylesheet">
+    div {
+      margin-bottom: 30px;
+    }
+    /* table 实现 */
+    .table {
+      width: 30em;
+    }
+
+    .table table {
+      box-sizing: border-box;
+      width: 15em;
+      background-color: #ccc;
+      text-align: center;
+      line-height: 4em;
+      border-collapse: collapse;
+    }
+
+    .table tr {
+      border: 1px solid #00f;
+    }
+
+    .table col {
+      border: 1px solid #00f;
+    }
+
+    .table td:hover {
+      border: 1px solid #f00;
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* float 实现 */
+    .float {
+      font-size: 0;
+      width: 114px;
+      background-color: orange;
+    }
+
+    .float::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .float .content {
+      float: left;
+      position: relative;
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      margin-left: -2px;
+      margin-top: -2px;
+      border: 2px solid #333;
+      background-color: #ccc;
+    }
+
+    .float .content:hover {
+      border-color: rgba(0, 0, 255, .5);
+      background-color: #999;
+      color: #fff;
+      z-index: 1;
+    }
+
+    /* inline-block 实现 */
+    .inline-block {
+      font-size: 0;
+      width: 114px;
+      background-color: orange;
+    }
+
+    .inline-block .content {
+      display: inline-block;
+      position: relative;
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      margin-left: -2px;
+      margin-top: -2px;
+      border: 2px solid #333;
+      background-color: #ccc;
+    }
+
+    .inline-block .content:hover {
+      border-color: rgba(0, 0, 255, .5);
+      background-color: #999;
+      color: #fff;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- table come true -->
+  <h2>table 实现</h2>
+  <div class="table">
+    <table>
+      <colgroup>
+        <col>
+        <col>
+        <col>
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2>float 实现</h2>
+  <div class="float">
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+  </div>
+  <h2>inline-block 实现</h2>
+  <div class="inline-block">
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+    <span class="content"></span>
+  </div>
+</body>
+
+</html>
