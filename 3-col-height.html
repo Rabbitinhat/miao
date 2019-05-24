@@ -1,0 +1,80 @@
+<!-- May-23-2019 -->
+<!-- 实现三列等高布局 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3-col-height</title>
+  <style rel="stylesheet">
+    .container {
+      color: #333;
+      background-color: cadetblue;
+      overflow: hidden;
+    }
+
+    .clearfix:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .container div {
+      padding: 10px;
+      padding-bottom: 9999px;
+      margin-bottom: -9999px;
+    }
+
+    .container .main {
+      box-sizing: border-box;
+      background-color: tan;
+      padding-left: 0;
+      padding-right: 0;
+      overflow: hidden;
+    }
+
+    .container .left {
+      width: 200px;
+      float: left;
+      background-color: bisque;
+    }
+
+    .container .right {
+      width: 220px;
+      float: right;
+      background-color: chocolate;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container clearfix">
+    <div class="left">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      Aspernatur doloremque sed vel quidem provident? Facere culpa laborum
+      delectus odio beatae quibusdam ab quidem, recusandae quae nostrum
+      voluptatibus eveniet corrupti ipsam!</div>
+    <div class="right">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Quidem culpa, architecto error recusandae facilis, voluptatibus adipisci
+      aperiam maiores possimus est magnam officia nostrum quasi! Provident at
+      porro soluta exercitationem aperiam!
+      Ipsum dolor suscipit eos ullam officia iure, necessitatibus voluptas
+      labore ea perferendis numquam veritatis impedit. Architecto voluptatibus
+      quaerat reprehenderit amet illum illo nulla, necessitatibus repellendus
+      veniam aut error nam asperiores!
+      Eum cupiditate dolorum dolores! Veritatis aut ipsam illum error,
+      recusandae culpa dignissimos voluptas, architecto sapiente voluptatem
+      vitae corporis animi! Nesciunt obcaecati itaque ipsum distinctio amet
+      error iste dolor nobis ullam?</div>
+    <div class="main">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Praesentium dolores et ad suscipit magnam? Sint modi tempore ad,
+      aspernatur, sequi temporibus nulla atque quia est illo delectus ab neque
+      magni?Saepe recusandae quod laboriosam illum, doloremque magnam quae
+      officia minus iusto ipsam tempore molestias sed quaerat pariatur non,
+      asperiores error neque in perferendis aspernatur sit? Voluptatem iure
+      nobis cum. Natus.</div>
+  </div>
+</body>
+
+</html>
