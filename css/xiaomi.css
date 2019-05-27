@@ -284,6 +284,9 @@ button:focus {
 }
 
 /* 轮播图 */
+.slide-show {
+  position: relative;
+}
 .slide-show input {
   display: none;
 }
@@ -329,7 +332,7 @@ button:focus {
 }
 
 .slide-show .left {
-  left: 0;
+  left: 235px;
 }
 
 .slide-show .right {
@@ -417,4 +420,117 @@ button:focus {
 .slide-show #content05:checked ~ .pic > .button label:nth-child(5) {
   border:2px solid rgb(145, 145, 145);
   background-color: rgb(237, 237, 237);
+}
+
+/* 轮播图列表样式 */
+.list {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 235px;
+  height: 460px;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 999;
+}
+
+
+/* 设置hover列表显示二级列表 */
+.list li:hover > div {
+  display: block;
+}
+
+/* 设置第一级列表样式 */
+.option1 {
+  width: 100%;
+  height: calc((460px - 40px) / 10);
+}
+
+.option1 a {
+  /* ? */
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  line-height: 42px;
+  padding: 0 24px;
+  text-align: left;
+  color: #fff;
+}
+
+/* 使用图标 */
+.option1 a i {
+  display: block;
+  float: right;
+  /* 垂直居中 */
+  line-height: 42px;
+  color: rgba(255, 255, 255, .5);
+}
+
+.option1:hover {
+  background-color: #ff6700;
+}
+
+/* 二级列表样式 */
+.option2-list {
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  left: 235px;
+  top: 0;
+  padding: 2px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-left: none;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, .18);
+}
+.option2 {
+  width: 248px;
+  height: 76px;
+  background-color: tan;
+}
+
+.option2 a {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 76px;
+  padding-left: 24px;
+  color: #333;
+}
+
+.option2 a:hover {
+  color: #ff6700;
+}
+
+.option2 a img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  padding-right: 15px;
+}
+
+/* 排列二级列表 */
+/* 第二列 */
+.option2:nth-child(7) {
+  margin-top: -456px;
+}
+.option2:nth-child(n + 7) {
+  margin-left: 248px;
+}
+/* 第三列 */
+.option2:nth-child(13) {
+  margin-top: -456px;
+}
+.option2:nth-child(n + 13) {
+  margin-left: 496px;
+}
+/* 第四列 */
+.option2:nth-child(19) {
+  margin-top: -456px;
+}
+.option2:nth-child(n + 19) {
+  margin-left: 744px;
 }

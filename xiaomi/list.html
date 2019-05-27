@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <style rel="stylesheet">
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    a {
+    text-decoration: none;
+    }
+  
+  .list {
+    position: relative;
+    box-sizing: border-box;
+    width: 235px;
+    height: 460px;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+
+  /* 设置hover列表显示二级列表 */
+  .list li:hover > ul{
+    display: block;
+  }
+
+  /* 设置第一级列表样式 */
+  .option1 {
+    width: 100%;
+    height: calc((460px - 40px) / 10);
+  }
+
+  .option1 a {
+    /* ? */
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    line-height: 42px;
+    padding: 0 24px;
+    text-align: left;
+    color: #fff;
+  }
+
+  /* 使用图标 */
+  .option1 a i {
+    display: block;
+    float: right;
+    /* 垂直居中 */
+    line-height: 42px;
+    color: rgba(255, 255, 255, .5);
+  }
+
+  .option1:hover {
+    background-color: #ff6700;
+  }
+
+  /* 二级列表样式 */
+  .option2-list {
+    display: none;
+    position: absolute;
+    left: 235px;
+    top: 0;
+    padding: 2px 0;
+    background-color: #fff;
+  }
+  .option2 {
+    width: 248px;
+    height: 76px;
+    background-color: tan;
+  }
+
+  .option2 a {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 76px;
+    padding-left: 24px;
+    color: #333;
+  }
+
+  .option2 a:hover {
+    color: #ff6700;
+  }
+
+  .option2 a img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    padding-right: 15px;
+  }
+
+  /* 排列二级列表 */
+  /* 第二列 */
+  .option2:nth-child(7) {
+    margin-top: -456px;
+  }
+  .option2:nth-child(n + 7) {
+    margin-left: 248px;
+  }
+  /* 第三列 */
+  .option2:nth-child(13) {
+    margin-top: -456px;
+  }
+  .option2:nth-child(n + 13) {
+    margin-left: 496px;
+  }
+  /* 第四列 */
+  .option2:nth-child(19) {
+    margin-top: -456px;
+  }
+  .option2:nth-child(n + 19) {
+    margin-left: 744px;
+  }
+  </style>
+
+</head>
+<body>
+  <ul class="list">
+    <li class="option1"><a>手机 电话卡<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+    <li class="option1"><a>电视 盒子<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+    <li class="option1"><a>笔记本 平板<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+    <li class="option1"><a>家电 插线板<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+    <li class="option1"><a>出行 穿戴<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+    <li class="option1"><a>智能 路由器<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+    <li class="option1"><a>电源 配件<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+         </ul>
+    </li>
+    <li class="option1"><a>健康 儿童<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+    <li class="option1"><a>耳机 音箱<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+        </ul>
+    </li>
+    <li class="option1"><a>生活 箱包<i class="fas fa-chevron-right"></i></a>
+      <ul class="option2-list">
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+          <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      </ul>
+    </li>
+  </ul>
+
+<!--   <ul class="option2-list">
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+      <li class="option2"><a href="https://www.mi.com/mi9/"><img src="../img/xiaomi/80x80.png" alt="">商品名称</a></li>
+  </ul> -->
+</body>
+</html>
