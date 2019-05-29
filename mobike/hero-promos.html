@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style rel="stylesheet">
+    @import '../css/cssreset.css';
+  
+  a {
+  text-decoration: none;
+  color: #fff;
+  }
+
+  body {
+  font-size: 16px;
+  line-height: 1.5em;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+  font-weight: normal;
+  }
+
+  .clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+  }
+
+  .hero-promos {
+    overflow: hidden;
+  }
+
+  .hero-promos div {
+    margin-left: -4px;
+    margin-right: -4px;
+    box-sizing: border-box;
+    padding: 2px;
+  }
+  .hero-promos a {
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    width: 25%;
+    height: 260px;
+    padding-top: 34px;
+    border: 2px solid #fff;
+    text-align: center;
+    background-size: cover;
+  }
+
+  /* media query */
+  @media (max-width: 1080px) and (min-width: 640px) {
+    .hero-promos a {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-promos a {
+      width: 100%;
+    }
+  }
+
+  .hero-promos a:nth-child(1) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg);
+  }
+
+  .hero-promos a:nth-child(2) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg);
+  }
+
+  .hero-promos a:nth-child(3) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg);
+  }
+  .hero-promos a:nth-child(4) {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg);
+  }
+  </style>
+</head>
+<body>
+  <section class="hero-promos">
+    <div class="clearfix">
+    <a href="">大国品牌</a>
+    <a href="">摩拜科技</a>
+    <a href="">摩拜生活</a>
+    <a href="">摩拜校招</a>
+  </div>
+  </section>
+</body>
+</html>

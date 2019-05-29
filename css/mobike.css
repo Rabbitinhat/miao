@@ -1,0 +1,267 @@
+@import './cssreset.css';
+/* Mobike首页 第一版 纯css实现 */
+
+
+/* hero-landing-wrap 部分 start */
+.hero-landing-wrap header {
+  width: 100%;
+  height: 762px;
+  position: relative;
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-6.jpg);
+  background-size: cover;
+}
+
+
+/* topbar */
+.hero-landing-wrap .top {
+  box-sizing: border-box;
+  width: 82%;
+  margin: 0 auto;
+  padding: 25px 0;
+  background-color: rgba(255, 0, 0, .5);
+}
+
+/* 利用属性选择器 */
+[float="left"] {
+  float: left;
+}
+
+[float="right"] {
+  float: right;
+  position: relative;
+  padding-left: 10px;
+}
+
+.logo {
+  display: block;
+}
+
+/* 右侧导航栏 */
+[float="right"] > input {
+  /* 修改默认样式 */
+  display: none;
+}
+[float="right"] > ul > li {
+  float: left;
+  height: 44px;
+}
+
+[float="right"] > ul > li:first-child, 
+[float="right"] > ul > li > a {
+  display: block;   
+  padding: .5em 20px;
+}
+
+/* 弹出框样式 */
+.outpop {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 40px;
+  box-sizing: border-box;
+  width: 240px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  text-align: left;
+  background-color: #fff;
+}
+
+/* 箭头 */
+.outpop::after {
+  content: "";
+  display: block;
+  border: 10px solid transparent;
+  border-bottom-color: #fff;
+  position: absolute;
+  top: -20px;
+  left: 30px;
+}
+.outpop li {
+  display: block;
+}
+
+.outpop li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.outpop li a {
+  font-size: 20px;
+  color: #000;
+}
+
+.outpop li a:hover {
+  color: #e23d0e;
+}
+
+.outpop li p {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 弹出框动态效果 */
+[float="right"] li:hover > ul {
+  display: block;
+}
+
+.hero-landing-wrap h1 {
+  font-size: 4rem;
+  line-height: 1.7;
+  font-weight: 600;
+  color: #fff;
+}
+.hero-landing-wrap .center {
+  width: 82%;
+  margin: 0 auto;
+  position: absolute;
+  left: 9%;
+  top: calc((762px - 1.7 * 4rem - (40px + 1.5rem)) / 2);
+}
+
+.hero-landing-wrap .center a {
+  display: block;
+  box-sizing: border-box;
+  width: 294px;
+  border-radius: 7px;
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, .5);
+}
+/* 底栏news start */
+.hero-landing-wrap .bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 9px 0;
+  background-color: rgba(59, 54, 48, 0.4);
+}
+
+.hero-landing-wrap .bottom a {
+  display: block;
+  width: 82%;
+  margin: 0 auto;
+}
+
+.hero-landing-wrap .bottom a::before {
+  content: "NEWS";
+  display: block;
+  float: left;
+  padding: 0 8px;
+  border-radius: 5px;
+  color: #fff;
+  background: linear-gradient(to bottom, #ec614f 0%, #ff2e2e 100%);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+}
+
+/* hero-landing-wrap 部分 end */
+
+/* hero-promos start */
+.hero-promos {
+  overflow: hidden;
+}
+
+.hero-promos div {
+  margin-left: -4px;
+  margin-right: -4px;
+  box-sizing: border-box;
+  padding: 2px;
+}
+.hero-promos a {
+  display: block;
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  height: 260px;
+  padding-top: 34px;
+  border: 2px solid #fff;
+  text-align: center;
+  background-size: cover;
+}
+
+/* media query */
+@media (max-width: 1080px) and (min-width: 640px) {
+  .hero-promos a {
+    width: 50%;
+  }
+
+  
+  .hero-landing-wrap .top {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-landing-wrap h1 {
+    font-size: 3em;
+  }
+
+  .hero-landing-wrap header {
+    height: 470px;
+  }
+
+  .hero-landing-wrap .center {
+    top: calc((470px - 1.7 * 3rem - (40px + 1.5rem)) / 2);
+  }
+
+  [float="right"] > input {
+    display: block;
+  }
+
+  [float="right"] > ul {
+    display: none;
+  }
+
+  /* 图标点击效果 */
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none; 
+   padding: .5em 20px;
+}
+
+input::before,
+input::after {
+ display: block;
+ content: "";
+ width: 20px;
+ height: 5px;
+ border-radius: 2px;
+ background-color: #000;
+}
+
+input::before {
+ margin-bottom: 10px;
+}
+
+input:checked::before {
+ transform: rotate(45edge);
+}
+
+input:checked::after {
+ transform: rotate(-45edge);
+}
+}
+
+@media (max-width: 640px) {
+  .hero-promos a {
+    width: 100%;
+  }
+}
+
+.hero-promos a:nth-child(1) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg);
+}
+
+.hero-promos a:nth-child(2) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg);
+}
+
+.hero-promos a:nth-child(3) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg);
+}
+.hero-promos a:nth-child(4) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg);
+}
+
+/* hero-promos end */
