@@ -11,14 +11,44 @@
   background-size: cover;
 }
 
+/* 页面缩小时导航栏变为图标 */
+input[type="checkbox"] {
+  /* 修改默认样式 */
+  display: none;  
+}
+/* 折叠导航栏样式 */
+.small-list {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: rgba(226, 61, 14, .9);
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, .3);
+  color: #fff;
+  overflow: hidden;
+  position: absolute;
+  /* NOTE  */
+  top: 94px;
+  left: 0;
+  z-index: 10;
+}
 
+.small-list li {
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+.small-list a {
+  display: block;
+  padding: 1rem 20px;
+  border: 1px solid rgba(0, 0, 0, .3);;
+}
 /* topbar */
 .hero-landing-wrap .top {
   box-sizing: border-box;
   width: 82%;
   margin: 0 auto;
   padding: 25px 0;
-  background-color: rgba(255, 0, 0, .5);
 }
 
 /* 利用属性选择器 */
@@ -37,10 +67,7 @@
 }
 
 /* 右侧导航栏 */
-[float="right"] > input {
-  /* 修改默认样式 */
-  display: none;
-}
+
 [float="right"] > ul > li {
   float: left;
   height: 44px;
@@ -179,13 +206,224 @@
   background-size: cover;
 }
 
+.hero-promos a:nth-child(1) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg);
+}
+
+.hero-promos a:nth-child(2) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg);
+}
+
+.hero-promos a:nth-child(3) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg);
+}
+.hero-promos a:nth-child(4) {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg);
+}
+
+/* hero-promos end */
+
+.application {
+  width: 80%;
+  margin: 0 auto;
+  padding: 45px 0;
+}
+
+.application > div {
+  float: left;
+}
+
+.application > .app-left,
+.application > .app-right {
+  width: 223px;
+}
+
+.application > .app-center {
+  width: 100%;
+}
+
+.application>.app-left {
+  margin-left: -100%;
+}
+
+.application>.app-right {
+  margin-left: -223px;
+}
+
+.application>.app-center>.middle {
+  width: 223px;
+  margin: 0 auto;
+}
+
+/* 使用background-image 创建icon; background-size: contain */
+.application .app-left >.icon {
+  width: 50px;
+  height: 50px;
+  float: left;
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-wechat.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.application .middle >.icon {
+  width: 50px;
+  height: 50px;
+  float: left;
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-rp.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.application .app-right >.icon {
+  width: 50px;
+  height: 50px;
+  float: left;
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-credit.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.application .right {
+  margin-left: 65px;
+}
+
+.application h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.application p {
+  color: #333;
+}
+
+/* footer 部分 */
+.footer-logo {
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/logo-text.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  width: 164px;
+  height: 22px;
+}
+
+.container {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 45px 0;
+}
+
+.container > div {
+  width: 82%;
+  margin: 0 auto;
+}
+
+.main-links {
+  float: left;
+}
+
+.main-links a {
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.main-links p {
+  margin-bottom: 1rem;
+}
+
+/* 右侧说明列表 */
+.footer-list-wrap {
+  float: right;
+  margin-left: 1rem;
+}
+
+.footer-list-wrap a {
+  color: #333;
+}
+
+.footer-list-wrap dl > div {
+  float: left;
+  margin-right: 6.25rem;
+}
+
+.footer-list-wrap dt {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.footer-list-wrap dd {
+  margin-bottom: .5rem;
+}
+
+.footer-miscs {
+  width: 82%;
+  position: relative;
+  margin: 55px auto;
+}
+
+.icp {
+  float: left;
+  font-size: 12px;
+  line-height: 2em;
+  color: #ccc;
+}
+
+.footer-miscs i {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/beian-icon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.footer-miscs .footer-badge {
+  float: right;
+}
+
+.footer-miscs .footer-badge img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-right: 4em;
+}
+
+.footer-miscs .footer-badge img:hover + div {
+  display: block;
+}
+
+.footer-badge div {
+  position: absolute;
+  display: none;
+  right: 0;
+  top: -55px;
+  padding: .5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.footer-badge div::after {
+  content: "";
+  border: 10px solid transparent;
+  border-top-color: #333;
+  position: absolute;
+  left: 70px;
+  bottom: -20px;
+}
+
 /* media query */
 @media (max-width: 1080px) and (min-width: 640px) {
   .hero-promos a {
     width: 50%;
   }
 
-  
+}
+@media (max-width: 1080px){
+  /* 媒体查询 屏幕宽度小于1080px时, .hero-landing-wrap 样式 */
   .hero-landing-wrap .top {
     width: 100%;
     padding-left: 20px;
@@ -204,8 +442,9 @@
     top: calc((470px - 1.7 * 3rem - (40px + 1.5rem)) / 2);
   }
 
-  [float="right"] > input {
+  input[type="checkbox"] {
     display: block;
+    z-index: 2;
   }
 
   [float="right"] > ul {
@@ -216,30 +455,85 @@
   input {
     -webkit-appearance: none;
     -moz-appearance: none;
-    -o-appearance: none; 
-   padding: .5em 20px;
+    -o-appearance: none;
+    outline: none; 
+    padding: .5em;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
-input::before,
-input::after {
- display: block;
- content: "";
- width: 20px;
- height: 5px;
- border-radius: 2px;
- background-color: #000;
-}
+  input::before,
+  input::after {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 5px;
+  border-radius: 2px;
+  background-color: #000;
+  }
 
 input::before {
  margin-bottom: 10px;
 }
 
 input:checked::before {
- transform: rotate(45edge);
+ transform: rotate(-45deg);
 }
 
 input:checked::after {
- transform: rotate(-45edge);
+ transform: rotate(45deg);
+}
+
+input:checked ~ .top {
+  background-color: rgba(226, 61, 14, .9);
+}
+
+input:checked + .small-list {
+  display: block;
+}
+
+.application {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 45px 20px;
+}
+
+.application .app-left {
+  width: 30%;
+  margin-left: -100%;
+}
+.application .app-center {
+  width: 100%;
+}
+.application .app-center .middle {
+  margin: 0 35%;
+}
+
+.application .app-right {
+  width: 30%;
+  margin-left: -30%;
+}
+
+.footer .container > div {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.footer .footer-miscs {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.footer-list-wrap {
+  float: left;
+}
+
+.footer-list-wrap dl > div {
+  height: 168px;
 }
 }
 
@@ -247,21 +541,25 @@ input:checked::after {
   .hero-promos a {
     width: 100%;
   }
+
+  /* 三个application实现 */
+.application .app-left {
+  width: 50%;
+  margin-left: 0;
 }
 
-.hero-promos a:nth-child(1) {
-  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg);
+.application .app-center {
+  width: 50%;
 }
 
-.hero-promos a:nth-child(2) {
-  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg);
+.application .app-right {
+  width: 50%;
+  margin-top: 4rem;
+  margin-left: 0;
 }
-
-.hero-promos a:nth-child(3) {
-  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg);
+.application .app-center .middle {
+  width: 50%;
+  margin: 0;
+  white-space: nowrap;
 }
-.hero-promos a:nth-child(4) {
-  background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg);
 }
-
-/* hero-promos end */

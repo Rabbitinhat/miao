@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style rel="stylesheet">
+    @import "../css/cssreset.css";
+
+    .application {
+      width: 80%;
+      margin: 0 auto;
+      padding: 45px 0;
+    }
+
+    .application > div {
+      float: left;
+    }
+
+    .application > .app-left,
+    .application > .app-right {
+      width: 223px;
+    }
+
+    .application > .app-center {
+      width: 100%;
+    }
+
+   .application>.app-left {
+      margin-left: -100%;
+    }
+
+   .application>.app-right {
+      margin-left: -223px;
+    }
+
+    .application>.app-center>.middle {
+      width: 223px;
+      margin: 0 auto;
+    }
+
+    /* 使用background-image 创建icon; background-size: contain */
+    .application .app-left>.icon {
+      width: 50px;
+      height: 50px;
+      float: left;
+      background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-wechat.png);
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .application .middle>.icon {
+      width: 50px;
+      height: 50px;
+      float: left;
+      background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-rp.png);
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .application .app-right>.icon {
+      width: 50px;
+      height: 50px;
+      float: left;
+      background-image: url(https://mobike.com/cn/assets/themes/moby/img/icon-credit.png);
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .application .right {
+      margin-left: 65px;
+    }
+
+    .application h3 {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .application p {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="application clearfix">
+    <div class="app-center">
+      <div class="middle">
+        <div class="icon" src=""></div>
+        <div class="right">
+          <h3>红包车</h3>
+          <p>骑摩拜, 能赚钱</p>
+        </div>
+      </div>
+    </div>
+    <div class="app-left">
+      <div class="icon"></div>
+      <div class="right">
+        <h3>微信小程序</h3>
+        <p>微信扫一扫, 直接用车</p>
+      </div>
+    </div>
+    <div class="app-right">
+      <div class="icon" src="" alt="icon-credit"></div>
+      <div class="right">
+        <h3>摩范分</h3>
+        <p>文明骑行, 信用生活</p>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

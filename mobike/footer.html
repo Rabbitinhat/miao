@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style rel="stylesheet">
+  @import "../css/cssreset.css";
+
+  .footer-logo {
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/logo-text.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    width: 164px;
+    height: 22px;
+  }
+
+  .container {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 45px 0;
+  }
+
+  .container > div {
+    width: 82%;
+    margin: 0 auto;
+  }
+
+  .main-links {
+    float: left;
+  }
+
+  .main-links a {
+    margin-bottom: 2rem;
+    color: #000;
+  }
+
+  .main-links p {
+    margin-bottom: 1rem;
+  }
+
+  /* 右侧说明列表 */
+  .footer-list-wrap {
+    float: right;
+
+  }
+
+  .footer-list-wrap a {
+    color: #333;
+  }
+
+  .footer-list-wrap dl > div {
+    float: left;
+    margin-right: 6.25rem;
+  }
+
+  .footer-list-wrap dt {
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .footer-list-wrap dd {
+    margin-bottom: .5rem;
+  }
+
+  .footer-miscs {
+    width: 82%;
+    position: relative;
+    margin: 55px auto;
+  }
+
+  .icp {
+    float: left;
+    font-size: 12px;
+    line-height: 2em;
+    color: #ccc;
+  }
+
+  .footer-miscs i {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-image: url(https://mobike.com/cn/assets/themes/moby/img/beian-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .footer-miscs .footer-badge {
+    float: right;
+  }
+
+  .footer-miscs .footer-badge img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 0 4em;
+  }
+
+  .footer-miscs .footer-badge img:hover + div {
+    display: block;
+  }
+
+  .footer-badge div {
+    position: absolute;
+    display: none;
+    right: 0;
+    top: -55px;
+    padding: .5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  .footer-badge div::after {
+    content: "";
+    border: 10px solid transparent;
+    border-top-color: #333;
+    position: absolute;
+    left: 70px;
+    bottom: -20px;
+  }
+
+  </style>
+</head>
+<body>
+  <footer class="footer">
+    <div class="container">
+      <div class="clearfix">
+      <div class="main-links">
+        <a href="" class="footer-logo"></a>
+        <p>Beijing Mobike Techonlogy Co., Ltd</p>
+        <p>客服电话 <a href="">400-811-7799</a></p>
+        <p>北京摩拜科技有限公司</p>
+      </div>
+      <div class="footer-list-wrap">
+        <dl>
+            <div>
+                <dt>产品</dt>
+                <dd><a href="">经典版</a></dd>
+                <dd><a href="">轻骑</a></dd>
+                <dd><a href="">智能锁</a></dd>
+            </div>
+          <div>
+          <dt>生活</dt>
+          <dd><a href="">城市</a></dd>
+        </div>
+        <div>
+          <dt>关于</dt>
+          <dd><a href="">关于 Mobike</a></dd>
+          <dd><a href="">加入我们</a></dd>
+          <dd><a href="">联系我们</a></dd>
+          <dd><a href="">服务协议</a></dd>
+        </div>
+        <div>
+          <dt>社交网络</dt>
+          <dd><a href="">微博</a></dd>
+          <dd><a href="">微信</a></dd>
+          <dd><a href="">知乎专栏</a></dd>
+          <dd><a href="">Facebook</a></dd>
+        </div>
+        </dl>
+      </div>
+      </div>
+    </div>
+    <div class="footer-miscs clearfix">
+      <div class="icp">
+        <p>京 ICP 备15053449 号 <i class="beian-icon"></i> 京公网安备 11010502032956 号
+        <br>增值电信业务经营许可证编号：京B2-20170053
+        </p>
+      </div>
+      <div class="footer-badge">
+        <img src="https://mobike.com/cn/assets/themes/moby/img/footer-chengxin.jpg" alt="">
+        <div>诚信经营 放心消费</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
