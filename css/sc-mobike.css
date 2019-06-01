@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/* 变量 variable */
+/* pic */
+/* 混合器 @mixin */
+/* css reset */
+@import url(./cssreset.css);
+/* header part start */
+.small-list {
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+  overflow: hidden;
+  position: absolute;
+  top: 94px;
+  left: 0;
+  z-index: 10; }
+  .small-list li {
+    margin-left: -2px;
+    margin-right: -2px; }
+    .small-list li a {
+      display: block;
+      padding: 1rem 20px;
+      border: 1px solid rgba(0, 0, 0, 0.5); }
+
+/* hero-landing-wrap */
+/* NOTE a 可以使用变量对需要使用的资源进行预先处理(媒体资源, 尺寸) */
+.hero-landing-wrap header {
+  width: 100%;
+  height: 762px;
+  position: relative;
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-6.jpg);
+  background-size: contain;
+  /* NOTE a混合器对尺寸的使用, 好的技巧 */ }
+  .hero-landing-wrap header .top {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 25px 0; }
+  .hero-landing-wrap header h1 {
+    font-size: 4rem;
+    line-height: 1.7;
+    font-weight: 600;
+    color: #fff; }
+  .hero-landing-wrap header .center {
+    margin: 0 auto;
+    position: absolute;
+    left: 9%;
+    right: auto;
+    top: calc((762px - 1.7 * 4rem - (40px + 1.5rem)) / 2);
+    bottom: auto; }
+    .hero-landing-wrap header .center a {
+      display: block;
+      box-sizing: border-box;
+      width: 294px;
+      border-radius: 7px;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.5); }
+  .hero-landing-wrap header .bottom {
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    padding: 9px 0;
+    background-color: rgba(59, 54, 48, 0.4); }
+    .hero-landing-wrap header .bottom a {
+      display: block;
+      margin: 0 auto; }
+      .hero-landing-wrap header .bottom a::before {
+        content: "NEWS";
+        display: block;
+        float: left;
+        padding: 0 8px;
+        border-radius: 5px;
+        color: #fff;
+        background: linear-gradient(to bottom, #ec614f 0%, #ff2e2e 100%);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2); }
+
+[float="left"] {
+  float: left; }
+
+/* 右侧导航栏 */
+[float="right"] {
+  float: right;
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  padding-left: 10px;
+  /* 弹出框效果 */ }
+  [float="right"] > ul > li {
+    float: left;
+    height: 44px; }
+    [float="right"] > ul > li:first-child, [float="right"] > ul > li > a {
+      display: block;
+      padding: .5em 20px; }
+  [float="right"] li:hover > ul {
+    display: block; }
+
+/* 弹出框样式 */
+.outpop {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: 40px;
+  bottom: auto;
+  box-sizing: border-box;
+  /* box-model */
+  width: 240px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  text-align: left;
+  background-color: #fff; }
+  .outpop::after {
+    content: "";
+    display: block;
+    border: 10px solid transparent;
+    /* NOTE  */
+    border-bottom-color: #fff;
+    position: absolute;
+    left: 30px;
+    right: auto;
+    top: -20px;
+    bottom: auto; }
+  .outpop li {
+    display: block; }
+    .outpop li:not(:last-child) {
+      margin-bottom: 10px; }
+    .outpop li a {
+      font-size: 20px;
+      color: #000; }
+      .outpop li a:hover {
+        color: rgba(226, 61, 14, 0.9); }
+    .outpop li p {
+      font-size: 12px;
+      color: #999; }
+
+/*# sourceMappingURL=sc-mobike.css.map */

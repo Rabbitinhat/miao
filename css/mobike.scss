@@ -1,0 +1,208 @@
+@charset "utf-8";
+/* 变量 variable */
+$viewport-width: 100%;
+
+$application-width: 223px;
+
+$border-style: 1px solid;
+$sm-dark: rgba(0, 0, 0, .5);
+$link-hover-color: rgba(226, 61, 14, .9);
+
+$hero-height: 762px;
+/* pic */
+$hero-bg: url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-6.jpg);
+
+
+/* 混合器 @mixin */
+@mixin change-box($box-type: border-box) {
+  box-sizing: $box-type;
+}
+
+@mixin bg-fit($fit: contain) {
+  background-size: $fit;
+}
+
+@mixin margin-center($center-width: 82%) {
+  margin: 0 auto;
+}
+
+@mixin position($position-style: absolute, $left: auto, $right: auto, $top: auto, $bottom: auto) {
+  position: $position-style;
+  left: $left;
+  right: $right;
+  top: $top;
+  bottom: $bottom;
+}
+
+/* css reset */
+@import "./cssreset.css";
+
+/* header part start */
+.small-list {
+  display: none;
+  width: $viewport-width;
+  @include change-box;
+  font-size: 1rem;
+  background-color: $link-hover-color;
+  border: $border-style $sm-dark;
+  color: #fff;
+  overflow: hidden;
+  position: absolute;
+  top: 94px;
+  left: 0;
+  z-index: 10;
+
+  li {
+    margin-left: -2px;
+    margin-right: -2px;
+
+    a {
+      display: block;
+      padding: 1rem 20px;
+      border: $border-style $sm-dark;
+    }
+  }
+
+
+}
+
+/* hero-landing-wrap */
+/* NOTE a 可以使用变量对需要使用的资源进行预先处理(媒体资源, 尺寸) */
+.hero-landing-wrap {
+  header {
+    width: $viewport-width;
+    height: $hero-height;
+    position: relative;
+    background-image: $hero-bg;
+    @include bg-fit(cover);
+
+    .top {
+      @include change-box;
+      @include margin-center;
+      padding: 25px 0;
+
+      }
+
+      h1 {
+        font-size: 4rem;
+        line-height: 1.7;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .center {
+        @include margin-center;
+        @include position(absolute, $left: 9%, $top: calc((762px - 1.7 * 4rem - (40px + 1.5rem)) / 2));
+        
+        a {
+          display: block;
+          @include change-box;
+          width: 294px;
+          border-radius: 7px;
+          text-align: center;
+          padding: 25px 20px;
+          font-size: 1.5rem;
+          font-weight: bold;
+          background-color: rgba(0, 0, 0, .5);
+        }
+      }
+
+      .bottom {
+        @include position(absolute, $left: 0, $bottom: 0);
+        width: $viewport-width;
+        padding: 9px 0;
+        background-color: rgba(59, 54, 48, .4);
+
+        a {
+          display: block;
+          @include margin-center;
+
+          &::before {
+            content: "NEWS";
+            display: block;
+            float: left;
+            padding: 0 8px;
+            border-radius: 5px;
+            color: #fff;
+            background: linear-gradient(to bottom, #ec614f 0%, #ff2e2e 100%);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2);
+          }
+        }
+      }
+
+      /* NOTE a混合器对尺寸的使用, 好的技巧 */
+    }
+}
+
+[float="left"] {
+  float: left;
+}
+
+/* 右侧导航栏 */
+
+[float="right"] {
+  float: right;
+  @include position(relative);
+  padding-left: 10px;
+
+  > ul {
+    > li {
+      float: left;
+      height: 44px;
+      
+      &:first-child, > a {
+        display: block;
+        padding: .5em 20px;
+      }
+    }
+  }
+
+  /* 弹出框效果 */
+  li:hover > ul {
+    display: block;
+  }
+}
+
+/* 弹出框样式 */
+.outpop {
+  display: none;
+  @include position(absolute, $left: 0, $top: 40px);
+  @include change-box;
+  /* box-model */
+  width: 240px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  text-align: left;
+  background-color: #fff;
+
+  &::after {
+    content: "";
+    display: block;
+    border: 10px solid transparent; /* NOTE  */
+    border-bottom-color: #fff;
+    @include position(absolute, $top: -20px, $left: 30px);
+  }
+
+  li {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    a {
+      font-size: 20px;
+      color: #000;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+
+    p {
+      font-size: 12px;
+      color: #999;
+    }
+  }
+
+}
