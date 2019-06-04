@@ -1,0 +1,73 @@
+@import url(cssreset.css);
+
+//图片背景变量
+$pic1: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg);
+$pic2: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg);
+$pic3: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg);
+$pic4: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg);
+
+/* 宽度 */
+$viwport-width: 100%;
+
+/* 媒体查询范围 */
+$media-query1: 1080px;
+$media-query2: 640px;
+
+.hero-promos { 
+  overflow: hidden;
+  div {
+    display: flex;
+    border: 2px solid #fff;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  a {
+    box-sizing: border-box;
+    width: 25%;
+    flex: 1 1 auto;
+    font-size: 2rem;
+    min-height: 260px;
+    text-align: center;
+    border: 2px solid #fff;
+    padding: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &:nth-child(1) {
+      background-image: $pic1;
+    }
+
+    &:nth-child(2) {
+      background-image: $pic2;
+    }
+
+    &:nth-child(3) {
+      background-image: $pic3;
+    }
+
+    &:nth-child(4) {
+      background-image: $pic4;
+    }
+  }
+}
+
+@media (max-width: $media-query1) and (min-width: $media-query2) {
+  .hero-promos div {
+    flex-wrap: wrap;
+    
+    a {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: $media-query2) {
+  .hero-promos div {
+  flex-wrap: wrap;
+   
+  a {
+    width: 100%;
+    }
+  }
+}

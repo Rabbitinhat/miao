@@ -1,0 +1,36 @@
+@charset "utf-8";
+@import url(cssreset.css);
+
+/* variable */
+$header-color: rgb(48, 69, 93);
+$aside-color: rgb(232, 235, 239);
+$main-color: #fff;
+
+$header-height: 80px;
+//calc公式内无法使用变量
+$main-height: calc(100vh - 80px);
+
+.mail {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 100vh;
+
+  .header {
+    flex: 1 0 100%;
+    min-height: $header-height;
+    background-color: $header-color;
+  }
+
+  .aside {
+    flex: 0 0 20%;
+    height: $main-height;
+    background-color: $aside-color;
+  }
+
+  .main {
+    flex: 1 0 20%;
+    background-color: $main-color;
+  }
+}
+

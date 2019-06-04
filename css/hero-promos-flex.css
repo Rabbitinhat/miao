@@ -1,0 +1,40 @@
+@import url(cssreset.css);
+.hero-promos {
+  overflow: hidden; }
+  .hero-promos div {
+    display: flex;
+    border: 2px solid #fff;
+    margin-left: -10px;
+    margin-right: -10px; }
+  .hero-promos a {
+    box-sizing: border-box;
+    width: 25%;
+    flex: 1 1 auto;
+    font-size: 2rem;
+    min-height: 260px;
+    text-align: center;
+    border: 2px solid #fff;
+    padding: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .hero-promos a:nth-child(1) {
+      background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-01.jpg); }
+    .hero-promos a:nth-child(2) {
+      background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-02.jpg); }
+    .hero-promos a:nth-child(3) {
+      background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-03.jpg); }
+    .hero-promos a:nth-child(4) {
+      background-image: url(https://mobike.com/cn/assets/themes/moby/img/promo-04.jpg); }
+
+@media (max-width: 1080px) and (min-width: 640px) {
+  .hero-promos div {
+    flex-wrap: wrap; }
+    .hero-promos div a {
+      width: 50%; } }
+@media (max-width: 640px) {
+  .hero-promos div {
+    flex-wrap: wrap; }
+    .hero-promos div a {
+      width: 100%; } }
+
+/*# sourceMappingURL=hero-promos-flex.css.map */

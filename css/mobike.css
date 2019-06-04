@@ -2,15 +2,6 @@
 /* Mobike首页 第一版 纯css实现 */
 
 
-/* hero-landing-wrap 部分 start */
-.hero-landing-wrap header {
-  width: 100%;
-  height: 762px;
-  position: relative;
-  background-image: url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-6.jpg);
-  background-size: cover;
-}
-
 /* 页面缩小时导航栏变为图标 */
 input[type="checkbox"] {
   /* 修改默认样式 */
@@ -42,6 +33,15 @@ input[type="checkbox"] {
   display: block;
   padding: 1rem 20px;
   border: 1px solid rgba(0, 0, 0, .3);;
+}
+
+/* hero-landing-wrap 部分 start */
+.hero-landing-wrap header {
+  width: 100%;
+  height: 762px;
+  position: relative;
+  background-image: url(https://mobike.com/cn/assets/themes/moby/img/landing/hero-bg-6.jpg);
+  background-size: cover;
 }
 /* topbar */
 .hero-landing-wrap .top {
