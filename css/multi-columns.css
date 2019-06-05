@@ -1,0 +1,16 @@
+@import url(cssreset.css);
+.show {
+  display: flex;
+  width: 100%;
+  min-height: 760px;
+  background-color: blue; }
+  .show .right, .show .left {
+    width: 200px;
+    background-color: rgba(255, 0, 0, 0.5); }
+  .show .left {
+    order: -1; }
+  .show .main {
+    flex: 1 0 0;
+    background-color: tan; }
+
+/*# sourceMappingURL=multi-columns.css.map */

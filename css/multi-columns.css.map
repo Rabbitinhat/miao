@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAQ,yBAAiB;AAKzB,KAAM;EACJ,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,KAAK;EACjB,gBAAgB,EAPF,IAAI;EASlB,yBAAO;IACL,KAAK,EAAE,KAAK;IACZ,gBAAgB,EATH,oBAAmB;EAYlC,WAAM;IAEJ,KAAK,EAAE,EAAE;EAGX,WAAM;IACJ,IAAI,EAAE,KAAK;IACX,gBAAgB,EApBJ,GAAG",
+"sources": ["multi-columns.scss"],
+"names": [],
+"file": "multi-columns.css"
+}

@@ -1,0 +1,26 @@
+@import url(cssreset.css);
+
+$show-bc-color: blue;
+$main-bc-color: tan;
+$aside-bc-color: rgba(255, 0, 0, .5);
+.show {
+  display: flex;
+  width: 100%;
+  min-height: 760px;
+  background-color: $show-bc-color;
+
+  .right {
+    width: 200px;
+    background-color: $aside-bc-color;
+  }
+
+  .left {
+    @extend .right;
+    order: -1;
+  }
+
+  .main { 
+    flex: 1 0 0;
+    background-color: $main-bc-color;
+  }
+}
