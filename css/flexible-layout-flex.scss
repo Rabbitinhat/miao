@@ -1,0 +1,161 @@
+@charset "utf-8";
+@import url(cssreset.css);
+
+$text-font: Georgia, Times New Roman, Times, serif;
+$title-font:  Avenir Next, Avenir, Franklin Gothic, Trebuchet MS, Arial, sans-serif;
+
+$col-width: 25%;
+
+$title-color: #8e3339;
+
+body {
+  font-family: $text-font;
+  line-height: 1.375;
+  font-size: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: $title-font;
+}
+// 包装元素, 装饰作用, 包裹一些元素, 方便定位
+.wrapper {
+  width: 95%;
+  // 布局最宽处
+  max-width: 76em;
+  margin: 0 auto;
+}
+// 清除浮动
+.row:after {
+  content: "";
+  display: block;
+  clear: both;
+  // ?
+  height: 0;
+}
+
+// 设置列样式, 采用浮动
+.col {
+  float: left;
+  box-sizing: border-box;
+  // 为每一列添加边距, 这里使用margin, 宽度大概为行高(根元素)相对于布局最宽处的百分比 / 2
+  padding: 0 .6875rem 1.375rem;
+  // 由于增加的外边距扩大了每一列的宽度, 所以不同状态的列宽需要重新设置(减去外边距宽度)
+}
+
+// 由于.row作为.col的容器元素, 为了去掉最左/右边的外边距, 为.row设置左/右负外边距
+.row {
+  margin: 0 -.6875rem;
+}
+
+// 在row中, 由于.col是浮动的, 当.row中的.col很多时(超过一行的数量), 需要换行时, float属性可能会使.col无法整齐的排列和换行(每列的高度不同)
+// 首先使用inline-block解决
+.row-wrapping {
+  font-size: 0;
+  // 向后兼容, 为不支持rem单位的浏览器设置
+  margin: 0 -11px;
+  margin: 0 -.6875rem;
+}
+
+.row-wrapping > * {
+  float: none;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+/* 支持flex时, 对行进行设置 */
+.flexbox .row {
+  display: flex;
+}
+
+// 定义列宽
+//四列等宽
+.row-quartet > * {
+  width: 25%;
+}
+// 三列等宽
+.row-trio > * {
+  width: 33.3333%;
+}
+
+// content 占 4/5
+.subcategory-content {
+  width: 80%;
+}
+
+.subcategory-header {
+  width: 20%;
+}
+
+.subcategory-featured {
+  width: 50%;
+}
+
+.col {
+  min-height: 100px;
+
+}
+/* header */
+.masthead {
+  background-color: $title-color;
+  color: #fff;
+  h1 {
+    text-shadow: -.2rem .2rem 0 rgba(0, 0, 0, .3);
+    padding: 2rem 0;
+  }
+}
+
+.navbar {
+  // scass darker
+  background-color: #5e2126;
+  margin-bottom: 1.5rem;
+  color: #fff;
+
+  div {
+    overflow: hidden;
+  
+    ul {
+    font-family: $title-font;
+    background-color: rgba(255, 255, 255, .3);
+    display: flex;
+    margin-left: -.07rem;
+    margin-right: -.07rem;
+
+    li {
+      flex: 1 1 25%;
+      text-align: center;
+      // scss 颜色计算 darker
+      background-color: #752A2f;
+      padding: 1.5rem 0;
+      margin: 0 .07rem;
+      }
+    }
+  }
+}
+
+// 内容块样式
+.story {
+  padding: 1rem;
+  background-color: #eee;
+
+  img {
+    //NOTE  当包含元素的box-sizing: border-box时, 子元素width: 100% 为父元素内容区的宽度
+    width: 100%;
+  }
+
+  h3 {
+    color: $title-color;
+  
+    a {
+      color: $title-color;
+    }
+  }
+
+  
+
+  p {
+    margin: 2rem 0;
+  }
+}
