@@ -1,0 +1,162 @@
+@charset "utf-8";
+@import url(cssreset.css);
+
+$text-font: Georgia, Times New Roman, Times, serif;
+$title-font:  Avenir Next, Avenir, Franklin Gothic, Trebuchet MS, Arial, sans-serif;
+
+$col-width: 25%;
+
+$title-color: #8e3339;
+
+body {
+  font-family: $text-font;
+  line-height: 1.375;
+  font-size: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: $title-font;
+}
+// 包装元素, 装饰作用, 包裹一些元素, 方便定位
+.wrapper {
+  width: 95%;
+  // 布局最宽处
+  max-width: 76em;
+  margin: 0 auto;
+}
+
+// 装饰样式
+.masthead {
+  background-color: $title-color;
+  color: #fff;
+  h1 {
+    text-shadow: -.2rem .2rem 0 rgba(0, 0, 0, .3);
+    padding: 2rem 0;
+  }
+}
+
+.navbar {
+  // scass darker
+  background-color: #5e2126;
+  margin-bottom: 1.5rem;
+  color: #fff;
+
+  div {
+    overflow: hidden;
+  
+    ul {
+    font-family: $title-font;
+    background-color: rgba(255, 255, 255, .3);
+    display: flex;
+    margin-left: -.07rem;
+    margin-right: -.07rem;
+
+    li {
+      flex: 1 1 25%;
+      text-align: center;
+      // scss 颜色计算 darker
+      background-color: #752A2f;
+      padding: 1.5rem 0;
+      margin: 0 .07rem;
+      }
+    }
+  }
+}
+
+// 内容块样式
+.story {
+  padding: 1rem;
+  background-color: #eee;
+
+  img {
+    //NOTE  当包含元素的box-sizing: border-box时, 子元素width: 100% 为父元素内容区的宽度
+    width: 100%;
+  }
+
+  h3 {
+    color: $title-color;
+  
+    a {
+      color: $title-color;
+    }
+  }
+
+  
+
+  p {
+    margin: 2rem 0;
+  }
+}
+
+// Grid layout
+.grid-a {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: repeat(5, 1fr);
+  // 行列之间的空白, 为固定值
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  // 去掉两边(最左, 最右)的间距
+}
+
+// 设置标题列
+.subcategory-header {
+  // grid-area: grid-row-start/grid-col-start/grid-row-end/grid-col-end
+  // grid-row-start grid-row-end
+  grid-row: 1/-1;
+  //grid-column-start grid-column-end
+  grid-column: 1;
+}
+
+.story-featured {
+  // span 跨越
+  // grid自动定位
+  grid-column: span 2;
+}
+
+// 指定定位顺序
+article.story:nth-of-type(2),
+article.story:nth-of-type(3) {
+  order: -2;
+}
+
+.story-featured {
+  order: -1;
+}
+
+.grid-b {
+  display: grid;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "hd st1 .  st2"
+                      "hd st1 . st2";
+  margin-top: 1.375rem;
+  
+  // > * {
+  //   outline: 2px solid blue;
+  // }
+  .subcategory-header {
+    grid-area: hd;
+  }
+
+  .story:nth-child(2) {
+    grid-area: st1;
+  }
+
+  .story:nth-child(3) {
+    grid-area: st2;
+  }
+}
+
+
+.ad {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -41,11 +41,45 @@ h1, h2, h3, h4, h5, h6 {
   // 为每一列添加边距, 这里使用margin, 宽度大概为行高(根元素, 希望的边距宽度)相对于布局最宽处的百分比 / 2
   padding: 0 .6875rem 1.375rem;
   // 由于增加的外边距扩大了每一列的宽度, 所以不同状态的列宽需要重新设置(减去外边距宽度)
+  // narrow 对于手机屏幕, 只有一列
+  width: 100%;
 }
 
 // 由于.row作为.col的容器元素, 为了去掉最左/右边的外边距, 为.row设置左/右负外边距
 .row {
   margin: 0 -.6875rem;
+}
+
+// 媒体查询
+// 当宽度>35rem/560px时, 变为两列
+@media only screen and (min-width: 35rem) {
+  .row-quartet > * {
+    width: 50%;
+  }
+
+  .subcategory-featured {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .row-quartet > * {
+    width: 25%;
+  }
+
+  .subcategory-featured {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 70rem) {
+  .subcategory-header {
+    width: 20%;
+  }
+
+  .subcategory-content {
+    width: 80%;
+  }
 }
 
 // 在row中, 由于.col是浮动的, 当.row中的.col很多时(超过一行的数量), 需要换行时, float属性可能会使.col无法整齐的排列和换行(每列的高度不同)
@@ -65,49 +99,50 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem;
 }
 
+
 /* 支持flex时, 对行进行设置 */
-.flexbox .row {
-  display: flex;
-}
+// .flexbox .row {
+//   display: flex;
+// }
 
-.flexbox .col {
-  display: flex;
-  flex-direction: column;
-}
+// .flexbox .col {
+//   display: flex;
+//   flex-direction: column;
+// }
 
-.flexbox .col > * {
-  // flex-grow: 1, flex-shrink: 1, flex-basis: 0
-  flex: 1; 
-}
+// .flexbox .col > * {
+//   // flex-grow: 1, flex-shrink: 1, flex-basis: 0
+//   flex: 1; 
+// }
 
-.flexwrap .row-wrapping {
-  display: flex;
-  flex-wrap: wrap;
-}
+// .flexwrap .row-wrapping {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
+// 删除定宽
+// // 定义列宽
+// //四列等宽
+// .row-quartet > * {
+//   width: 25%;
+// }
+// // 三列等宽
+// .row-trio > * {
+//   width: 33.3333%;
+// }
 
-// 定义列宽
-//四列等宽
-.row-quartet > * {
-  width: 25%;
-}
-// 三列等宽
-.row-trio > * {
-  width: 33.3333%;
-}
+// // content 占 4/5
+// .subcategory-content {
+//   width: 80%;
+// }
 
-// content 占 4/5
-.subcategory-content {
-  width: 80%;
-}
+// .subcategory-header {
+//   width: 20%;
+// }
 
-.subcategory-header {
-  width: 20%;
-}
-
-.subcategory-featured {
-  width: 50%;
-}
+// .subcategory-featured {
+//   width: 50%;
+// }
 
 .col {
   min-height: 100px;

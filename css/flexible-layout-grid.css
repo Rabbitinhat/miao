@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url(cssreset.css);
 body {
   font-family: Georgia, Times New Roman, Times, serif;
@@ -14,66 +13,6 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 76em;
   margin: 0 auto; }
 
-.row:after {
-  content: "";
-  display: block;
-  clear: both;
-  height: 0; }
-
-.col {
-  float: left;
-  box-sizing: border-box;
-  padding: 0 .6875rem 1.375rem; }
-
-.row {
-  margin: 0 -.6875rem; }
-
-.row-wrapping {
-  font-size: 0;
-  margin: 0 -11px;
-  margin: 0 -.6875rem; }
-
-.row-wrapping > * {
-  float: none;
-  vertical-align: top;
-  display: inline-block;
-  font-size: 16px;
-  font-size: 1rem; }
-
-/* 支持flex时, 对行进行设置 */
-.flexbox .row {
-  display: flex; }
-
-.flexbox .col {
-  display: flex;-
-  flex-direction: column; }
-
-.flexbox .col > * {
-  flex: 1; }
-
-.flexwrap .row-wrapping {
-  display: flex;
-  flex-wrap: wrap; }
-
-.row-quartet > * {
-  width: 25%; }
-
-.row-trio > * {
-  width: 33.3333%; }
-
-.subcategory-content {
-  width: 80%; }
-
-.subcategory-header {
-  width: 20%; }
-
-.subcategory-featured {
-  width: 50%; }
-
-.col {
-  min-height: 100px; }
-
-/* header */
 .masthead {
   background-color: #8e3339;
   color: #fff; }
@@ -112,4 +51,47 @@ h1, h2, h3, h4, h5, h6 {
   .story p {
     margin: 2rem 0; }
 
-/*# sourceMappingURL=flexible-layout-flex.css.map */
+.grid-a {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem; }
+
+.subcategory-header {
+  grid-row: 1/-1;
+  grid-column: 1; }
+
+.story-featured {
+  grid-column: span 2; }
+
+article.story:nth-of-type(2),
+article.story:nth-of-type(3) {
+  order: -2; }
+
+.story-featured {
+  order: -1; }
+
+.grid-b {
+  display: grid;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "hd st1 .  st2" "hd st1 . st2";
+  margin-top: 1.375rem; }
+  .grid-b .subcategory-header {
+    grid-area: hd; }
+  .grid-b .story:nth-child(2) {
+    grid-area: st1; }
+  .grid-b .story:nth-child(3) {
+    grid-area: st2; }
+
+.ad {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+/*# sourceMappingURL=flexible-layout-grid.css.map */
