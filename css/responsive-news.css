@@ -47,6 +47,9 @@ h1, h2, h3, h4, h5, h6 {
 
   .subcategory-content {
     width: 80%; } }
+@media print {
+  .smallprint {
+    font-size: 11pt; } }
 .row-wrapping {
   font-size: 0;
   margin: 0 -11px;
@@ -101,5 +104,34 @@ h1, h2, h3, h4, h5, h6 {
       color: #8e3339; }
   .story p {
     margin: 2rem 0; }
+
+.ad {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.grid-b {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "hd" "str1" "." "str2" "."; }
+  .grid-b .subcategory-header {
+    grid-area: hd; }
+  .grid-b .story:nth-child(2) {
+    grid-area: str1; }
+  .grid-b .story:nth-child(3) {
+    grid-area: str2; }
+
+@media only screen and (min-width: 37.5rem) {
+  .grid-b {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "hd hd " "str1 ." ". str2"; } }
+@media only screen and (min-width: 70em) {
+  .grid-b {
+    grid-template-columns: 20% 1fr 1fr 1fr;
+    grid-row-gap: 1.5rem;
+    grid-template-areas: "hd str1 . str2" "hd str1 . str2"; } }
 
 /*# sourceMappingURL=responsive-news.css.map */

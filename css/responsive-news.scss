@@ -52,6 +52,9 @@ h1, h2, h3, h4, h5, h6 {
 
 // 媒体查询
 // 当宽度>35rem/560px时, 变为两列
+// 可以在link元素中通过media属性设置媒体类型(screen print all, 指定的屏幕尺寸)
+// not 关键字表示除了指定的媒体类型之外都应用样式
+// only是为了放置旧版浏览器应用错误的媒体类型(无法分辨 not screen/screen), 而支持媒体查询的浏览器会忽略掉only关键字
 @media only screen and (min-width: 35rem) {
   .row-quartet > * {
     width: 50%;
@@ -79,6 +82,13 @@ h1, h2, h3, h4, h5, h6 {
 
   .subcategory-content {
     width: 80%;
+  }
+}
+
+// 设定媒体类型
+@media print {
+  .smallprint {
+    font-size: 11pt;
   }
 }
 
@@ -208,5 +218,48 @@ h1, h2, h3, h4, h5, h6 {
 
   p {
     margin: 2rem 0;
+  }
+}
+
+.ad {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-b {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "hd" "str1" "." "str2" ".";
+
+  .subcategory-header {
+    grid-area: hd;
+  }
+
+  .story:nth-child(2) {
+    grid-area: str1;
+  }
+
+  .story:nth-child(3) {
+    grid-area: str2;
+  }
+}
+@media only screen and (min-width: 37.5rem) {
+  .grid-b {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "hd hd "
+    "str1 ."
+    ". str2";
+  }
+}
+
+@media only screen and (min-width: 70em) {
+  .grid-b {
+    grid-template-columns: 20% 1fr 1fr 1fr;
+    grid-row-gap: 1.5rem;
+    grid-template-areas: "hd str1 . str2" "hd str1 . str2";
   }
 }
