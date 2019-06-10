@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width">
   <title>CSS-3D</title>
   <style rel="stylesheet">
-    @keyframes roll {
+  @keyframes roll {
   from {
     transform: rotate3d(1, 1, 0, 0);
   }
@@ -36,6 +36,7 @@
   height: 100px;
   position: absolute;
   /* 颜色混和, overlay也可 */
+  /* hard-light也可以有类似效果, 但overlay颜色值更准确些 */
   background-blend-mode: overlay;
   transition: all 5s;
 }

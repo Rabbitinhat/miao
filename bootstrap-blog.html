@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>BootStrap-blog</title>
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <style rel="stylesheet">
+    * {
+      background-color: rgba(0, 0, 0, .2);
+    }
+
+    body * {
+      background-color: rgba(0, 255, 255, .2)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 不同py, padding-top, padding-bottom(分别设置)大小不同   -->
+    <header class="blog-header py-3">
+      <!-- .row设置-15px margin 同时.container设置padding-left/right: 15px-->
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <a href="#" class="text-muted">Subscribe</a>
+        </div>
+        <div class="col-4 text-center">
+          <a href="#" class="blog-header-logo text-dark">Large</a>
+        </div>
+        <div class="col-4 pt-1">
+          <a href="#" class="text-muted">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+              viewBox="0 0 24 24" focusable="false">
+              <title>Search</title>
+              <circle cx="10.5" cy="10.5" r="7.5"></circle>
+              <path d="M21 21l-5.2-5.2"></path>
+            </svg>
+          </a>
+          <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- navbar part -->
+    <!-- mb margin-bottom -->
+    <div class="nav-scroller py-1 mb-2">
+      <!-- d-flex: display: flex py: 垂直方向上外边距 px: 水平方向上外边距 p: 全部外边距-->
+      <nav class="nav d-flex justify-content-between">
+        <!--         text-muted 颜色设置-->
+        <a href="#" class="p-2 text-muted">World</a>
+        <a href="#" class="p-2 text-muted">U.S.</a>
+        <a href="#" class="p-2 text-muted">Technology</a>
+        <a href="#" class="p-2 text-muted">Design</a>
+        <a href="#" class="p-2 text-muted">Culture</a>
+        <a href="#" class="p-2 text-muted">Business</a>
+        <a href="#" class="p-2 text-muted">Politics</a>
+        <a href="#" class="p-2 text-muted">Opinion</a>
+        <a href="#" class="p-2 text-muted">Science</a>
+        <a href="#" class="p-2 text-muted">Health</a>
+        <a href="#" class="p-2 text-muted">Style</a>
+        <a href="#" class="p-2 text-muted">Travel</a>
+      </nav>
+    </div>
+    <div>
+      <div>
+        <!--         display-4: font-size font-weight line-height -->
+        <h1 class="display-4 font-italic">Title of a longer featured blog post
+        </h1>
+        <!--         lead: add font-size, font-weight -->
+        <p class="lead my-3">Multiple lines of text that form the lede,informing
+          new readers quickly and efficiently about what’s mostinteresting in
+          this post’s contents</p>
+        <p class="lead mb-0"><a href="#"
+            class="text-white font-weight-bold">Continue reading...</a></p>
+      </div>
+    </div>
+
+    <!--     mb: margin-bottom -->
+    <div class="row md-2">
+      <div class="col-md-6">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <!--           .col默认position:relative -->
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <h3 class="mb-0">Featured post</h3>
+            <div class="mb-1 text-muted">Nov 12</div>
+            <p class="card-text mb-auto">This is a wider card with
+              supportingtext below as a natural lead-in to additional content.
+            </p>
+            <a href="#" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+              aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#55595c"></rect><text
+                x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <!--           .col默认position:relative -->
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Design</strong>
+            <h3 class="mb-0">Post title</h3>
+            <div class="mb-1 text-muted">Nov 11</div>
+            <p class="card-text mb-auto">This is a wider card with supporting
+              text below
+              as a natural lead-in to additional content.</p>
+            <a href="#" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+              aria-label="Placeholder: Thumbnail">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#55595c"></rect><text
+                x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
