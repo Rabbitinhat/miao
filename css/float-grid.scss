@@ -1,0 +1,25 @@
+@import url(./cssreset.css);
+
+$container-width: 82%;
+
+body {
+  font-size: 100%;
+  line-height: 1.5rem;
+}
+.container {
+  width: $container-width;
+  margin: 0 auto;
+  background-color: tan;
+}
+
+.row {
+  width: 100%;
+  margin-left: -.75rem;
+  margin-right: -.75rem;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: ($i * (100% / 12));
+  }
+}
