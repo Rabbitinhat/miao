@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script id="ch0103/01">
+var a = +prompt("Please input the value of A:");
+var b = +prompt("Please input the value of B:");
+
+console.log(a + b);
+</script>
+
+<script id="ch0103/02">
+var a = +prompt("A:");
+var b = +prompt("B:");
+var c = +prompt("C:");
+
+console.log((a + b) * c);
+</script>
+
+<script id="ch103/03">
+var a = +prompt("A:");
+var b = +prompt("B:");
+var c = +prompt("C:");
+
+console.log(parseInt((a + b) / c));
+</script>
+
+<script id="ch103/04">
+var dividend = +prompt("Dividend: ");
+var divisor = +prompt("Divisor: ");
+
+var result = Math.floor(dividend / divisor);
+var remainder = dividend % divisor;
+console.log(result);
+console.log(remainder);
+</script>
+
+<script id="ch103/05">
+var a = +prompt("A:");
+var b = +prompt("B:");
+
+var result = (a * 1.0 / b * 1.0).toFixed(9);
+console.log(result);
+</script>
+
+<script id="ch103/06">
+var diagnosis = +prompt("The Number of Medical diagnosis")
+var death = +prompt("The Number of Death: ");
+var result = ((death * 1.0 / diagnosis * 1.0) * 100).toFixed(3) + "%";
+console.log(result);
+</script>
+
+<script id="ch103/07">
+var a = +prompt("A:");
+var b = +prompt("B:");
+var c = +prompt("C:");
+var d = +prompt("D:");
+var x = +prompt("X:");
+
+var result = a * x * x * x + b * x * x + c * x + d;
+
+console.log(result.toFixed(7));
+</script>
+
+<script id="ch103/08">
+var f = +prompt("Fahrenheit is :");
+var c = 5 * (f * 1.0 - 32) / 9;
+console.log(c.toFixed(5));
+</script>
+
+<script id="ch103/09">
+var r = +prompt("Radius: ");
+var dia = (2 * r * 1.0).toFixed(4);
+var per = (2 * Math.PI * r).toFixed(4);
+var area = (Math.PI * r * r).toFixed(4);
+console.log(dia);
+console.log(per);
+console.log(area);
+</script>
+
+<script id="ch103/10">
+var r1 = +prompt("R1:");
+var r2 = +prompt("R2:");
+
+var R = (1 / (1 / r1 * 1.0 + 1 / r2 * 1.0)).toFixed(2);
+</script>
+
+<script id="ch103/11">
+var a = +prompt("A:");
+var b = +prompt("B:");
+
+var k = parseInt(a / b);
+var r = a - b * k;
+
+console.log(k);
+console.log(r.toFixed(4));
+</script>
+
+<script id="ch103/12">
+var r = +prompt("Radius: ");
+var volume = (4.0 / 3.0) * 3.14 * r * r * r;
+
+console.log(volume.toFixed(2));
+</script>
+
+<script id="ch103/13">
+var input = +prompt("Nunmber: ");
+
+input = (input * 1.0) / 100;
+var hun = Math.floor(input);
+var ten = Math.floor((input - hun) * 10);
+var one = Math.floor(((input - hun) * 10 - ten) * 10);
+
+var out = (one + "" + ten + "" + hun);
+console.log(out);
+</script>
+
+<script id="ch103/14" title="大象喝水">
+var h = +prompt("Height: ");
+var r = +prompt("Radius: ");
+
+// volume体积
+var volume = h * (Math.PI * r * r);
+
+var  cups = parseInt(20 * 1000 / volume) + 1;
+console.log(cups);
+</script>
+
+<script id="ch103/15" title="苹果和虫子">
+var apples = +prompt("Apples: ");
+var speed = +prompt("speed: ");
+var time = +prompt("hours: ");
+
+var good = apples - Math.ceil(time / speed);
+console.log(good);
+</script>
+<script id="ch103/16" title="计算线段长度">
+var Xa = +prompt("Xa: ");
+var Ya = +prompt("Ya: ");
+var Xb = +prompt("Xb: ");
+var Yb = +prompt("Yb: ");
+
+var length = Math.sqrt((Xb - Xa) * (Xb - Xa) + (Yb - Ya) * (Yb- Ya));
+console.log(length.toFixed(3));
+</script>
+<script id="ch103/17" title="计算三角形面积">
+  function length(Xa, Ya, Xb, Yb){
+  var length = Math.sqrt((Xb - Xa) * (Xb - Xa) + (Yb - Ya) * (Yb- Ya));
+  return length;
+  }
+
+var xa = +prompt("Xa: ");
+var ya = +prompt("Ya: ");
+var xb = +prompt("Xb: ");
+var yb = +prompt("Yb: ");
+var xc = +prompt("Xz: ");
+var yc = +prompt("Yz: ");
+
+// 海伦公式
+var l1 = length(xa, ya, xb, yb);
+var l2 = length(xc, yc, xb, yb);
+var l3 = length(xa, ya, xc, yc);
+var p = (l1 + l2 + l3) / 2;
+
+var area = Math.sqrt(p * (p - l1) * (p - l2) * (p - l3));
+console.log(area.toFixed(2));
+</script>
+<script id="ch103/18" title="等差数列末项计算">
+var a1 = +prompt("a1: ");
+var a2 = +prompt("a2: ");
+var index = +prompt("n: ");
+
+result = a1 + (index - 1) * (a2 - a1);
+console.log(result)
+</script>
+
+<script id="ch103/19" title="A*B问题">
+var a = +prompt("A: ")
+var b = +prompt("B: ")
+
+console.log(a * b);
+</script>
+
+<script id="ch103/20">
+
+</script>
+ 
+<!--NOTE ch1.4 -->
+<script id="ch104/01" title="判断数正负">
+var n = +prompt("N: ")
+
+if(n > 0) {
+  console.log("positive")
+}
+
+if(n < 0) {
+  console.log("negative")
+}
+
+if(n == 0) {
+  console.log("zero")
+}
+</script>
+<script id="ch104/02" title="输出绝对值">
+var n = +prompt("N: ")
+var abs = 0;
+if(n >= 0){
+  var abs = n
+}
+
+if(n <= -0) {
+  var abs = -n
+}
+
+console.log(abs);
+</script>
+<script id="ch104/03" title="奇偶数判断">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+<script id="ch104/" title="">
+
+</script>
+</body>
+</html>
