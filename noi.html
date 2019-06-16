@@ -186,8 +186,15 @@ var b = +prompt("B: ")
 console.log(a * b);
 </script>
 
-<script id="ch0103/20">
+<script id="ch0103/20" title="计算2的幂">
+  var n = +prompt("N: ");
 
+  var result = 1;
+  for(let i=0; i<n; i++){
+    result *= 2;
+  }
+
+  console.log(result);
 </script>
  
 <!--NOTE ch1.4 -->
@@ -220,60 +227,226 @@ if(n <= -0) {
 console.log(abs);
 </script>
 <script id="ch0104/03" title="奇偶数判断">
+var n = +prompt("N: ")
+
+if(n%2 === 0){
+  console.log("even")
+}else{
+  console.log("odd")
+}
 
 </script>
-<script id="ch0104/" title="">
+<script id="ch0104/04" title="奇偶ASCⅡ值判断">
+var str = prompt("Input: ");
+
+var asc = str.charCodeAt(0);
+console.log(asc);
+console.log((asc % 2 === 0) ? "No" : "Yes");
+</script>
+<script id="ch0104/05" title="整数大小比较">
+var x = +prompt("X: ");
+var y = +prompt("Y: ");
+
+if(x > y) {
+  console.log(">");
+}
+
+if(x < y) {
+  console.log("<");
+}
+
+if(x === y) {
+  console.log("=");
+}
+</script>
+<script id="ch0104/06" title="判断是否为两位数">
+var n = +prompt("N: ")
+
+// if(n > 1000) {
+//   console.log("N is too bigger")
+//   // 无法返回undefined
+//   return undefined
+// }
+
+if(n < 100 && n > 9) {
+  console.log(1)
+}else{
+  console.log(0)
+}
+</script>
+<script id="ch0104/07" title="收集瓶盖赢大奖">
+var input = prompt("Caps: ");
+var deal = input.split(" ");
+
+var lucky = +deal[0];
+var encourage = +deal[1];
+
+if(lucky > 9 || encourage > 19){
+  console.log(1);
+}else{
+  console.log(0);
+}
+</script>
+<script id="ch0104/08" title="判断一个数能否同时被3和5整除">
+var n = +prompt("N: ");
+
+if(n % 15 === 0){
+  console.log("YES");
+}else{
+  console.log("NO");
+}
+</script>
+<script id="ch0104/09" title="判断能否被3, 5, 7整除">
+var input = +prompt("N: ");
+
+var result = "";
+if(input % 3 === 0) {
+  result = "3 ";
+}
+
+if(input % 5 === 0) {
+  result += "5 ";
+}
+
+if(input % 7 === 0) {
+  result += "7";
+}
+
+if(input % 7 != 0 && input % 5 != 0 && input % 3 != 0){
+  result = "n";
+}
+
+console.log(result.trim());
+</script>
+<script id="ch0104/10" title="有一门课不及格的学生">
+var y = +prompt("语文: ")
+var math = +prompt("数学: ")
+
+var result = (y <= 60) ^ (math <= 60) ? 1 : 0
+console.log(result)
+</script>
+<script id="ch0104/11" title="晶晶赴约会">
+var date = +prompt("Date: ")
+
+var result = (date === 1) || (date === 3) || (date === 5) ? "YES" : "NO"
+console.log(result)
+</script>
+<script id="ch0104/12" title="骑车与走路">
+var length = +prompt("Distance: ")
+
+var walkT = length / 1.2
+var bycleT = length / 3.0 + (27 + 23)
+
+var result = ""
+
+if(walkT > bycleT) {
+  result = "Bike"
+}else if(walkT < bycleT){
+  result = "Walk"
+}else{
+  result = "All"
+}
+
+console.log(result)
+</script>
+<script id="ch0104/13" title="分段函数">
+var n = +prompt("X: ")
+
+var result = 0
+
+if(n >= 0 && n < 5){
+  result = -n + 2.5
+}
+
+if(n >= 5 && n < 10) {
+  result = 2 - 1.5 * (n - 3) * (n - 3)
+}
+
+if(n >= 10 && n < 20) {
+  result = n / 2 - 1.5
+}
+
+console.log(result.toFixed(3))
+</script>
+<script id="ch0104/14" title="计算邮资">
+var quick = prompt("Quick?:")
+var weight = +prompt("Weight: ")
+
+var sum = 0;
+
+if(weight > 1000) {
+  sum += 8 + Math.ceil((weight - 1000) / 500) * 4
+}else{
+  sum = 8
+}
+
+if(quick === "y"){
+  sum += 5
+}
+
+console.log(sum)
+</script>
+<script id="ch0104/15" title="最大数输出">
+function max (a,b){
+  if(+a>+b)
+  return a
+  else 
+  return b
+}
+
+console.log(max(max(prompt("a"),prompt("b")),prompt("c")))
+</script>
+<script id="ch0104/16" title="三角形判断">
+function max(a, b){
+  if(+a > +b) return a
+  else return b
+}
+
+var a = +prompt("A: ")
+var b = +prompt("B: ")
+var c = +prompt("C: ")
+
+var th_max = max(max(a, b), c)
+
+console.log((2 * th_max < a + b + c) ? "yes" : "none")
+</script>
+<script id="ch0104/17" title="闰年判断">
+function isLeap(year) {
+  if((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return "Y"
+  }
+  return "N"
+}
+
+console.log(isLeap(+prompt("Year: ")));
+</script>
+<script id="ch0104/18" title="点和正方形">
+var x = +prompt("X: ")
+var y = +prompt("Y: ")
+console.log((x <= 1 && x >= -1 && y <= 1 && y >= -1) ? "yes" : "no")
+</script>
+<script id="ch0104/19" title="简单计算器">
+var num1 = +prompt("Num1: ")
+var num2 = +prompt("Num2: ")
+var op = prompt("Operator: ")
+
+switch(op) {
+  case "+" : console.log(num1 + num2)
+  break
+  case "-" : console.log(num1 - num2)
+  break
+  case "*" : console.log(num1 * num2)
+  break
+  case "/" : if(num2 !== 0) console.log(num1 / num2)
+  else console.log("Divided by Zero")
+  break
+  default : console.log("Ivalid operator")
+}
+</script>
+<script id="ch0104/20" title="一元二次方程的根">
 
 </script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
-
-</script>
-<script id="ch0104/" title="">
+<script id="ch0104/21" title="苹果和虫子2">
 
 </script>
 </body>
