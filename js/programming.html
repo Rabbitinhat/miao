@@ -1,18 +1,7 @@
 <script>
-var num1 = +prompt("Num1: ")
-var num2 = +prompt("Num2: ")
-var op = prompt("Operator: ")
-
-switch(op) {
-  case "+" : console.log(num1 + num2)
-  break
-  case "-" : console.log(num1 - num2)
-  break
-  case "*" : console.log(num1 * num2)
-  break
-  case "/" : if(num2 !== 0) console.log(num1 / num2)
-  else console.log("Divided by Zero")
-  break
-  default : console.log("Ivalid operator")
+var result = prompt("n: ") - Math.ceil(1 / prompt("X: ") * prompt("Y: "))
+if(result < 0){
+  result = 0
 }
+console.log(result)
 </script>
