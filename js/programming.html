@@ -1,7 +1,19 @@
 <script>
-var result = prompt("n: ") - Math.ceil(1 / prompt("X: ") * prompt("Y: "))
-if(result < 0){
-  result = 0
+var left = 0;
+var save = 0;
+var total = 0;
+for(let i=0; i<12; i++){
+  left = 300 + left - (+prompt("Budget: "))
+  if(left < 0){
+    console.log(`-${i+1}`)
+    break
+  }
+  save = Math.floor(left / 100) * 100
+  left -= save
+  total += save
 }
-console.log(result)
+
+if(!(left < 0)) {
+  console.log(left + total * 1.2)
+}
 </script>

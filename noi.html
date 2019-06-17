@@ -473,5 +473,390 @@ if(result < 0){
 }
 console.log(result)
 </script>
+
+<script id="ch0105/01" title="求平均年龄">
+var n = +prompt("N: ")
+var sum = 0
+for(let i=0; i < n; i++){
+  sum += +prompt(`${i}`)
+}
+
+console.log((sum / n).toFixed(2))
+</script>
+
+<script id="ch0105/02" title="财务管理">
+let result = 0.0;
+for(let i=0; i<12; i++){
+  result += +prompt(`${i}`)
+}
+console.log(`$${result.toFixed(2)}`)
+</script>
+
+<script id="ch0105/03" title="均值">
+  let n = +prompt("N: ")
+  var sum = 0
+  for(let i=0; i<n; i++){
+    sum += +prompt(`${i+1}`)
+  }
+  console.log((sum / n).toFixed(4))
+</script>
+
+<script id="ch0105/04" title="求整数的和与均值">
+let n = +prompt("N: ")
+var sum = 0
+for(let i=0; i<n; i++){
+  sum += +prompt(`${i+1}`)
+}
+console.log(`${sum} ${(sum / n).toFixed(5)}`)
+</script>
+
+<script id="ch0105/05" title="最高的分数">
+let n = +prompt("N: ")
+var max = 0
+for(let i=0; i<n; i++){
+  let temp = +prompt(`${i+1}`)
+  if(max < temp){
+    max = temp
+  }
+}
+
+console.log(max)
+</script>
+
+<script id="ch0105/06" title="整数序列的元素最大跨度值">
+let n = +prompt("N: ")
+var max = 0
+var min = 0
+for(let i=0; i<n; i++){
+  let temp = +prompt(`${i+1}`)
+  if(max < temp){
+    max = temp
+  }
+  if(min > temp){
+    min = temp
+  }
+}
+
+console.log(max-min)
+</script>
+
+<script id="ch0105/07" title="奥运奖牌计数">
+let days = +prompt("Days: ")
+var gold = 0
+var silver = 0
+var cop = 0
+for(let i=0; i<days; i++){
+  var nums = prompt(`day${i+1}:`).split(" ")
+  gold += +nums[0]
+  silver += +nums[1]
+  cop += +nums[2]
+}
+
+console.log(`${gold} ${silver} ${cop} ${gold + silver + cop}`)
+</script>
+
+<script id="ch0105/08" title="多边形内角和">
+let n = +prompt("N: ")
+var deg = prompt("degs: ").split(" ")
+var result = 0
+for(let i=0; i<deg.length; i++){
+  result += +deg[i]
+}
+
+console.log(`${(n - 2) * 180 - result}`)
+</script>
+
+<script id="ch0105/09" title="奇数求和">
+var m = +prompt("M: ")
+var n = +prompt("N: ")
+var sum = 0
+for(let i=m; i<=n; i++){
+  if(i % 2 !== 0){
+    sum += i
+  }
+}
+
+console.log(sum)
+</script>
+
+<script id="ch0105/10" title="满足条件的数累加">
+var m = +prompt("M: ")
+var n = +prompt("N: ")
+var sum = 0
+for(let i=m; i<=n; i++){
+  if(i % 17 === 0){
+    sum += i
+  }
+}
+
+console.log(sum)
+</script>
+
+<script id="ch0105/11" title="">
+var k = +prompt("K: ")
+var input = prompt("Input: ").split(" ")
+var [one, five, ten] = [0, 0, 0]
+for(let i=0; i<input.length; i++){
+  switch(+input[i]){
+    case 1 : one++
+    break
+    case 5 : five++
+    break
+    case 10 : ten++
+    break
+    default : continue
+  }
+}
+console.log(one)
+console.log(five)
+console.log(ten)
+</script>
+
+<script id="ch0105/12" title="与指定数字相同的数的个数">
+var keyword = prompt("length & target: ").split(" ")
+var input = prompt("Input: ").split(" ")
+var counter = 0
+for(let i=0; i<input.length; i++){
+  if(+input[i] === +keyword[1]) counter++
+}
+
+console.log(counter)
+</script>
+
+<script id="ch0105/13" title="乘方计算">
+var input = prompt("Input: ").split(" ")
+var expo = 1
+for(let i=0; i<+input[1]; i++){
+  expo *= +input[0]
+}
+
+console.log(expo)
+</script>
+
+<script id="ch0105/14" title="人口增长问题">
+var input = prompt("Input: ").split(" ")
+var populace = +input[0]
+for(let i=0; i<+input[1]; i++){
+  populace *= 1.001
+}
+
+console.log((populace).toFixed(4))
+</script>
+
+<script id="ch0105/15" title="银行利息">
+var input = prompt("Input: ").split(" ")
+var money = +input[1]
+for(let i=0; i<+input[2]; i++){
+  money *= 1 + (+input[0] * 1e-2)
+}
+
+console.log(Math.floor(money))
+</script>
+
+<script id="ch0105/16" title="买房子">
+var input = prompt("Input: ").split(" ")
+var pay = +input[0]
+var price = 200
+var sign = 0
+for(var i=1; i<=20 ; i++, price *= 1 + (+input[1] * 1e-2)){  
+  if(pay * i >= price){
+    console.log(i)
+    sign = 1
+    break
+  }
+}
+
+if(!sign) console.log("Impossible")s
+</script>
+
+<script id="ch0105/17" title="斐波那契数列">
+var index = +prompt("N: ")
+
+function fa(n) {
+  if(n === 1 || n === 2){
+    return 1
+  }
+  return fa(n - 2) + fa(n - 1)
+}
+
+console.log(fa(index))
+</script>
+
+<script id="ch0105/18" title="鸡尾酒疗法">
+var index = +prompt("N: ")
+
+var input = prompt("1: ").split(" ")
+var x = +input[1] / +input[0]
+for(var i=0; i<index-1; i++){
+  input = prompt(`${i + 2}:`).split(" ")
+  var y = +input[1] / +input[0]
+  if(y - x > .05) console.log("better")
+  else if(x - y > .05) console.log("worse")
+  else console.log("same")
+}
+</script>
+
+<script id="ch0105/19" title="救援">
+function length(x, y){
+  return Math.sqrt(x*x + y*y)
+}
+function saveOnce(x, y, peo){
+  return 2 * (length(x, y) / 50) + 1.5 * peo
+}
+
+var n = +prompt("N: ")
+var time = 0
+for(let i=0; i<n; i++){
+  var roof = prompt(`${i+1}`).split(" ")
+  time += saveOnce(+roof[0], +roof[1], +roof[2])
+}
+
+console.log(Math.ceil(time))
+</script>
+
+<script id="ch0105/20" title="球弹跳高度">
+var height = +prompt("Height: ")
+
+var distance = 0
+for(let i=0; i<10; i++){
+  // distance 两次相加, 一次落下, 一次弹起; 第10次(i为9)落下时, 不计算弹起
+  distance += height
+  height *= 0.5
+  if(i < 9) distance += height
+}
+console.log(distance)
+console.log(height)
+</script>
+
+<script id="ch0105/21" title="角谷猜想">
+var input = +prompt("N: ")
+
+function shizuo(n){
+  if(n === 1) return "End"
+  if(n % 2 === 0) {
+    console.log(`${n} / 2 = ${n / 2}`)
+    return shizuo(n / 2)
+  }
+  if(n % 2 !== 0) {
+    console.log(`${n} * 3 + 1 = ${n * 3 + 1}`)
+    return shizuo(n * 3 + 1)
+  }
+}
+
+console.log(shizuo(input))
+</script>
+
+<script id="ch0105/22" title="津津的储蓄计划">
+var left = 0;
+var save = 0;
+var total = 0;
+for(let i=0; i<12; i++){
+  left = 300 + left - (+prompt("Budget: "))
+  if(left < 0){
+    console.log(`-${i+1}`)
+    break
+  }
+  save = Math.floor(left / 100) * 100
+  left -= save
+  total += save
+}
+
+if(!(left < 0)) {
+  console.log(left + total * 1.2)
+}
+</script>
+
+<script id="ch0105/23" title="">
+
+</script>
+
+<script id="ch0105/24" title="">
+
+</script>
+
+<script id="ch0105/25" title="">
+
+</script>
+
+<script id="ch0105/26" title="">
+
+</script>
+
+<script id="ch0105/27" title="">
+
+</script>
+
+<script id="ch0105/28" title="">
+
+</script>
+
+<script id="ch0105/29" title="">
+
+</script>
+
+<script id="ch0105/30" title="">
+
+</script>
+
+<script id="ch0105/31" title="">
+
+</script>
+
+<script id="ch0105/32" title="">
+
+</script>
+
+<script id="ch0105/33" title="">
+
+</script>
+
+<script id="ch0105/34" title="">
+
+</script>
+
+<script id="ch0105/35" title="">
+
+</script>
+
+<script id="ch0105/36" title="">
+
+</script>
+
+<script id="ch0105/37" title="">
+
+</script>
+
+<script id="ch0105/38" title="">
+
+</script>
+
+<script id="ch0105/39" title="">
+
+</script>
+
+<script id="ch0105/40" title="">
+
+</script>
+
+<script id="ch0105/41" title="">
+
+</script>
+
+<script id="ch0105/42" title="">
+
+</script>
+
+<script id="ch0105/43" title="">
+
+</script>
+
+<script id="ch0105/44" title="">
+
+</script>
+
+<script id="ch0105/45" title="">
+
+</script>
+
 </body>
 </html>
