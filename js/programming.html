@@ -1,19 +1,24 @@
 <script>
-var left = 0;
-var save = 0;
-var total = 0;
-for(let i=0; i<12; i++){
-  left = 300 + left - (+prompt("Budget: "))
-  if(left < 0){
-    console.log(`-${i+1}`)
+var k = +prompt("K: ")
+var input = prompt("Input: ").split(" ")
+var [one, five, ten] = [0, 0, 0]
+for(let i=0; i<input.length; i++){
+  switch(+input[i]){
+    case 1 : one++
     break
+    case 5 : five++
+    break
+    case 10 : ten++
+    break
+    default : continue
   }
-  save = Math.floor(left / 100) * 100
-  left -= save
-  total += save
+}
+</script>
+
+<script id="14/15">
+var max = -Infinity
+if(+prompt("A: ") > max) {
+  max = +prompt("A: ")
 }
 
-if(!(left < 0)) {
-  console.log(left + total * 1.2)
-}
 </script>

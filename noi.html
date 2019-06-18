@@ -372,12 +372,10 @@ console.log(result.toFixed(3))
 var quick = prompt("Quick?:")
 var weight = +prompt("Weight: ")
 
-var sum = 0;
+var sum = 8;
 
 if(weight > 1000) {
   sum += 8 + Math.ceil((weight - 1000) / 500) * 4
-}else{
-  sum = 8
 }
 
 if(quick === "y"){
@@ -393,7 +391,6 @@ function max (a,b){
   else 
   return b
 }
-
 console.log(max(max(prompt("a"),prompt("b")),prompt("c")))
 </script>
 <script id="ch0104/16" title="三角形判断">
@@ -460,7 +457,7 @@ if(num1 === num2){
 if(num1 > num2){
   x1 = (-b + Math.sqrt(num1 - num2)) / (2 * a)
   x2 = (-b - Math.sqrt(num1 - num2)) / (2 * a)
-  console.log(`x1=${x1.toFixed(5)}; x2=${x2.toFixed(5)}`)
+  console.log(`x1=${x1.toFixed(5)};x2=${x2.toFixed(5)}`)
 }
 if(num1 < num2){
   console.log(`x1=${(-b/(2 * a)).toFixed(5)}+${(Math.sqrt(num2 - num1) / (2 * a)).toFixed(5)}i; x2=${(-b/(2 * a)).toFixed(5)}-${(Math.sqrt(num2 - num1) / (2 * a)).toFixed(5)}i`)
@@ -696,6 +693,7 @@ for(var i=0; i<index-1; i++){
 }
 </script>
 
+<!-- ? NaN -->
 <script id="ch0105/19" title="救援">
 function length(x, y){
   return Math.sqrt(x*x + y*y)
@@ -724,8 +722,8 @@ for(let i=0; i<10; i++){
   height *= 0.5
   if(i < 9) distance += height
 }
-console.log(distance)
-console.log(height)
+console.log(distance.toFixed(4))
+console.log(height.toFixed(7))
 </script>
 
 <script id="ch0105/21" title="角谷猜想">

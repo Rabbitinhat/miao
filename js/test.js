@@ -32,3 +32,12 @@ console.log(a | b);
 console.log(showInt(a|b));
 console.log(Number.MAX_VALUE);
 
+function change(n, base){
+  var sum = ""
+  while(n>0){
+    sum = (n % base) + sum
+    n = Math.floor(n / base)
+  }
+  return sum;
+}
+console.log(change(10, 2))
