@@ -663,7 +663,7 @@ for(var i=1; i<=20 ; i++, price *= 1 + (+input[1] * 1e-2)){
   }
 }
 
-if(!sign) console.log("Impossible")s
+if(!sign) console.log("Impossible")
 </script>
 
 <script id="ch0105/17" title="斐波那契数列">
@@ -764,64 +764,246 @@ if(!(left < 0)) {
 }
 </script>
 
-<script id="ch0105/23" title="">
-
+<script id="ch0105/23" title="药房管理">
+  var inventory = +prompt("Inventory: ")
+  var patient = +prompt("Patient: ")
+  var medic = prompt("medication: ").split(" ")
+  var counter = 0
+  for(let i=0; i<patient; i++){
+    if(inventory < +medic[i]){
+      counter++
+      continue
+    }
+    inventory -= medic[i]
+  }
+  console.log(counter)
 </script>
 
-<script id="ch0105/24" title="">
-
+<script id="ch0105/24" title="正常血压">
+var times = +prompt("Times: ")
+var counter = 0
+var max = 0
+for(let i=0; i<times; i++){
+  var input = prompt("input: ").split(" ")
+  if(+input[0] >= 90 && +input[0] <= 140 && +input[1] >= 60 && +input[1] <= 90){
+    counter++
+  }else{
+     counter = 0
+  }
+  if(counter > max) {
+       max = counter
+     }
+}
+console.log(max)
 </script>
 
-<script id="ch0105/25" title="">
-
+<script id="ch0105/25" title="求特殊自然数">
+function change(num, base){
+  var result = ""
+  while(num > 0){
+    result = "" + num % base + result
+    num = Math.floor(num /= base)
+  }
+  return result
+}
+function reverse(str){
+  var result = str.split("");
+  for(let i=0, len=result.length; i < len / 2; i++){
+    let temp = result[i]
+    result[i] = result[len-1-i]
+    result[len-1-i] = temp
+  }
+  return result.join("")
+}
+for(let i=81; i<343; i++){
+  var seven = change(i, 7)
+  var nine = reverse(change(i, 9))
+  
+  if(seven === nine){
+    console.log(i)
+    break
+  }
+}
 </script>
 
-<script id="ch0105/26" title="">
+<script id="ch0105/26" title="统计满足条件的四位数个数">
+function right(str){
+  var nums = str.split("")
+  if(nums[3] - nums[0] - nums[1] - nums[2] > 0){
+    return true
+  }else {
+    return false
+  }
+}
 
+var n = +prompt("N: ")
+var input = prompt("Input: ").split(" ")
+var counter = 0
+for(let i=0; i<input.length; i++){
+  if(right(input[i])){
+    counter++
+  }
+}
+console.log(counter)
 </script>
 
-<script id="ch0105/27" title="">
-
+<script id="ch0105/27" title="级数求和">
+var k = +prompt("K: ")
+var sn = 1;
+var n = 1;
+do{
+  n++
+  sn += 1 / n
+}while(sn<=k)
+console.log(n)
 </script>
 
-<script id="ch0105/28" title="">
-
+<script id="ch0105/28" title="分离整数的各个数位">
+var n = +prompt("N: ")
+var result = ""
+while(n>0){
+  result += (n % 10) + " "
+  n = Math.floor(n / 10)
+}
+console.log(result.trim())
 </script>
 
-<script id="ch0105/29" title="">
-
+<script id="ch0105/29" title="数字反转">
+var n = +prompt("N: ")
+var result = ""
+var sign = true
+if(n<0){
+  sign = false
+  n = -n
+}
+while(n>0){
+  result += (n % 10) + ""
+  n = Math.floor(n / 10)
+}
+// 转换为整数(number类型)去掉前缀0
+result = parseInt(result)
+if(!sign){
+  result = "-" + result
+}
+console.log(result)
 </script>
 
-<script id="ch0105/30" title="">
+<script id="ch0105/30" title="含k个3的数">
+var m = +prompt("M: ")
+var k = +prompt("K: ")
 
+if(m % 19 === 0){
+  while(m>0){
+    if(m%10 == 3){
+      k--
+    }
+    m = Math.floor(m / 10)
+  }
+  
+  console.log((k === 0 ? "YES" : "NO"))
+}else{
+  console.log("NO")
+}
 </script>
 
-<script id="ch0105/31" title="">
-
+<!-- ? -->
+<script id="ch0105/31" title="开关灯+">
+var n = +prompt("N: ")
+var m = +prompt("M: ")
+var result = ""
+for(let i=0; i<n; i++){
+  var off = 1
+  for(let j=0; j<m; j++){
+    if(j+1 == 1) off = 0
+    if(j+1 == 2 && (i + 1) % 2 === 0) off = 1
+    if(j + 1 > 2 && (i + 1) % (j + 1) === 0) off === 1 ? off=0 : off=1
+  }
+  if(!off) result += (i+1) + " "
+}
+console.log(result)
 </script>
 
-<script id="ch0105/32" title="">
-
+<script id="ch0105/32" title="求分数序列和">
+var n = +prompt("N: ")
+var result = 0
+var p = 1
+var q = 2
+for(let i=0; i<n; i++){
+  result += (q / p)
+  q = p + q;
+  p = q - p;
+}
+console.log(result.toFixed(4))
 </script>
 
-<script id="ch0105/33" title="">
-
+<script id="ch0105/33" title="计算分数加减表达式的值">
+var n = +prompt("N: ")
+var result = 0
+var p = -1
+for(let i=1; i<n+1; i++){
+  p *= (-1);
+  result += p * (1 / i)
+}
+console.log(result.toFixed(4))
 </script>
 
-<script id="ch0105/34" title="">
+<script id="ch0105/34" title="求阶乘的和">
+var n = +prompt("N: ")
 
+var sum = 0;
+for(let i=1; i<n+1; i++){
+  var fac = 1;
+  for(let j=1; j<i+1; j++){
+    fac *= j;
+  }
+  sum += fac;
+}
+console.log(sum)
 </script>
 
-<script id="ch0105/35" title="">
+<script id="ch0105/35" title="求出e的值">
+var n = +prompt("N: ")
 
+var e_value = 1;
+for(let i=1; i<n+1; i++){
+  var fac = 1;
+  for(let j=1; j<i+1; j++){
+    fac *= j;
+  }
+  e_value += 1 / fac;
+}
+console.log(e_value.toFixed(10))
 </script>
 
-<script id="ch0105/36" title="">
-
+<script id="ch0105/36" title="计算多项式的值">
+var input = prompt("Input: ").split(" ")
+var x = +input[0]
+var n = +input[1]
+var result = 1
+for(let i=1; i<n+1; i++){
+  var expo = 1;
+  for(let j=0; j<i; j++){
+    expo *= x
+  }
+  result += expo
+}
+console.log(result.toFixed(2))
 </script>
 
-<script id="ch0105/37" title="">
-
+<script id="ch0105/37" title="雇佣兵">
+var input = prompt("Input: ").split(" ");
+var max_sta = +input[0]
+var combat = +input[1]
+var energy = +input[2]
+while(energy >= 0){
+  var sta = 0
+  while(sta < max_sta){
+    energy--
+    sta += combat
+  }
+  combat += Math.floor(max_sta / combat)
+}
+console.log(combat)
 </script>
 
 <script id="ch0105/38" title="">
