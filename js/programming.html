@@ -1,15 +1,9 @@
 <script>
-var input = prompt("Input: ").split(" ");
-var max_sta = +input[0]
-var combat = +input[1]
-var energy = +input[2]
-while(energy >= 0){
-  var sta = 0
-  while(sta < max_sta){
-    energy--
-    sta += combat
-  }
-  combat += Math.floor(max_sta / combat)
+var n = +prompt("N: ")
+var result = "0"
+for(let i=n; i>0; i--){
+  var c = +prompt()
+  result += c * i
 }
-console.log(combat)
+console.log(result)
 </script>

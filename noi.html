@@ -908,12 +908,13 @@ if(m % 19 === 0){
 
 <!-- ? -->
 <script id="ch0105/31" title="开关灯+">
+// 完全平方数的约数为奇数个; 非完全平方数的约数为偶数个
 var n = +prompt("N: ")
 var m = +prompt("M: ")
 var result = ""
 for(let i=0; i<n; i++){
   var off = 1
-  for(let j=0; j<m; j++){
+  for(let j=i; j<m; j++){
     if(j+1 == 1) off = 0
     if(j+1 == 2 && (i + 1) % 2 === 0) off = 1
     if(j + 1 > 2 && (i + 1) % (j + 1) === 0) off === 1 ? off=0 : off=1
@@ -1006,36 +1007,145 @@ while(energy >= 0){
 console.log(combat)
 </script>
 
-<script id="ch0105/38" title="">
-
+<!-- ! -->
+<script id="ch0105/38" title="计算多项式的导函数">
+var n = +prompt("N: ")
+var result = "0"
+for(let i=n; i>0; i--){
+  var c = +prompt()
+  result += c * i
+}
+console.log(result)
 </script>
 
-<script id="ch0105/39" title="">
-
+<script id="ch0105/39" title="与7无关的数">
+function relevant(num, aim){
+  var sign = 0;
+  if(num % aim === 0) sign = 1;
+  while(num > 0){
+    if(num%10 === aim) sign = 1;
+    num = Math.floor(num / 10)
+  }
+  return sign
+}
+var n = +prompt("N: ")
+var result = 0
+for(let i=1; i<n+1; i++){
+  if(!relevant(i, 7)){
+    result += i * i
+  }
+}
+console.log(result)
 </script>
 
-<script id="ch0105/40" title="">
-
+<script id="ch0105/40" title="数1的个数">
+function relevant(num, aim){
+  var sign = 0;
+  while(num > 0){
+    if(num%10 === aim) sign++;
+    num = Math.floor(num / 10)
+  }
+  return sign
+}
+var n = +prompt("N: ")
+var counter = 0
+for(let i=1; i<n+1; i++){
+  counter += relevant(i, 1)
+}
+console.log(counter)
 </script>
 
-<script id="ch0105/41" title="">
-
+<script id="ch0105/41" title="数字统计">
+function relevant(num, aim){
+  var sign = 0;
+  while(num > 0){
+    if(num%10 === aim) sign++;
+    num = Math.floor(num / 10)
+  }
+  return sign
+}
+var l = +prompt("L: ")
+var r = +prompt("R: ")
+var counter = 0
+for(let i=l; i<r+1; i++){
+  counter += relevant(i, 2)
+}
+console.log(counter)
 </script>
 
-<script id="ch0105/42" title="">
-
+<script id="ch0105/42" title="画矩形">
+var height = 7
+var width = 7
+var label = "@"
+var isFull = 0
+for(let i = 1; i<height+1; i++){
+  var rows = label
+  for(let j=2; j<width; j++){
+    rows += (isFull) || (i == 1 || i === width ) ? label : " "
+  }
+  rows += label
+  console.log(rows)
+}
 </script>
 
-<script id="ch0105/43" title="">
+<script id="ch0105/43" title="质因数分解">
+var n = +prompt("N:")
 
+function isprime(n){
+  if(n === 2) {
+    return true
+  }
+  for(let i=2; i<n/2; i++){
+    if(n % i === 0){
+      return false
+    }
+  }
+  return true
+}
+var result = 0
+for(let i=2; i<n/2; i++){
+  if(n % i === 0 && isprime(i) && isprime(n / i)) {
+    result = (i > (n / i) ? i : n / i)
+  }
+}
+console.log(result)
 </script>
 
-<script id="ch0105/44" title="">
+<script id="ch0105/44" title="第n小的质数">
+var n = +prompt("N:")
 
+function isprime(n){
+  if(n === 2) {
+    return true
+  }
+  for(let i=2; i<n/2; i++){
+    if(n % i === 0){
+      return false
+    }
+  }
+  return true
+}
+var result = 0
+for(let i=2; n>=0; i++){
+ if(isprime(i)){
+  n--
+  result = i
+ }
+}
+console.log(result)
 </script>
 
-<script id="ch0105/45" title="">
-
+<script id="ch0105/45" title="金币">
+var days = +prompt("Days: ")
+var money = 0
+for(let i=0; days>0; i++){
+  days -= i
+  if(days < 0){
+    money += i * (days % i)
+  }
+  money += i * i
+}
+console.log(money)
 </script>
 
 </body>
