@@ -1147,6 +1147,85 @@ for(let i=0; days>0; i++){
 }
 console.log(money)
 </script>
+<script id="7">
+function relevant(num, aim){
+  var sign = 0;
+  if(num % aim === 0) sign = 1;
+  while(num > 0){
+    if(num%10 === aim) sign = 1;
+    num = Math.floor(num / 10)
+  }
+  return sign
+}
 
+var n = +prompt("N: ")
+console.log(relevant(n, 7) ? "YES" : "NO")
+</script>
+<script id="sort">
+var input = [0, 0, 0]
+for(let i=0; i<3; i++){
+  input[i] = +prompt()
+}
+for(let i=0; i<3; i++){
+  for(let j=i; j<3; j++){
+    if(input[i]>input[j]){
+      var temp = input[j]
+      input[i] = input[j]
+      input[j] = input[i]
+    }
+  }
+}
+console.log(input[i])
+</script>
+<script id="narcissistic">
+function isNar(n){
+  var index = 0
+  var nums = []
+  var old = n;
+  while(n > 0){
+    index++
+    nums.push(n % 10)
+    n = Math.floor(n / 10)
+  }
+  var sum = 0
+  for(let i=0; i<nums.length; i++){
+    var result = 1
+    for(let j=0; j<index; j++){
+      result *= nums[i]
+    }
+    sum += result
+  }
+  return sum === old ? "YES" : "NO"
+}
+
+console.log(isNar(+prompt("Input")))
+</script>
+<script id="narcissistics">
+function isNar(n){
+  var index = 0
+  var nums = []
+  var old = n;
+  while(n > 0){
+    index++
+    nums.push(n % 10)
+    n = Math.floor(n / 10)
+  }
+  var sum = 0
+  for(let i=0; i<nums.length; i++){
+    var result = 1
+    for(let j=0; j<index; j++){
+      result *= nums[i]
+    }
+    sum += result
+  }
+  return sum === old ? true : false
+}
+
+for(let i=1; i<1001; i++){
+  if(isNar(i)) console.log(i)
+}
+</script>
+<script id="palindrom">
+</script>
 </body>
 </html>
