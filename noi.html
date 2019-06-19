@@ -977,9 +977,8 @@ console.log(e_value.toFixed(10))
 </script>
 
 <script id="ch0105/36" title="计算多项式的值">
-var input = prompt("Input: ").split(" ")
-var x = +input[0]
-var n = +input[1]
+var x = +prompt("x: ")
+var n = +prompt("n: ")
 var result = 1
 for(let i=1; i<n+1; i++){
   var expo = 1;
@@ -992,10 +991,9 @@ console.log(result.toFixed(2))
 </script>
 
 <script id="ch0105/37" title="雇佣兵">
-var input = prompt("Input: ").split(" ");
-var max_sta = +input[0]
-var combat = +input[1]
-var energy = +input[2]
+var max_sta = +prompt("Max: ")
+var combat = +prompt("Combat: ")
+var energy = +prompt("Energy: ")
 while(energy >= 0){
   var sta = 0
   while(sta < max_sta){
