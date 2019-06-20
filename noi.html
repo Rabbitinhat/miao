@@ -1219,11 +1219,103 @@ function isNar(n){
   return sum === old ? true : false
 }
 
-for(let i=1; i<1001; i++){
+for(let i=1; i<10001; i++){
   if(isNar(i)) console.log(i)
 }
 </script>
 <script id="palindrom">
+// 输入一个数，判断其是否为一个一个回文数"YES"/"NO" 
+function reverseNum(n, base = 10) {
+  let reverse = 0
+  while(n>0){
+    reverse = reverse * base + (n % base)
+    n = (n - (n % base)) / base 
+  }
+  return reverse
+}
+
+console.log(reverseNum(300, 10))
+console.log(reverseNum(24, 10))
+
+function isPalindrom(n, base = 10){
+  let reverse = reverseNum(n)
+  return reverse === n ? "YES" : "NO"
+}
+
+console.log(isPalindrom(+prompt()))
+</script>
+<script id="complete_number">
+// 输入一个数判断其是否为完数，输出"YES"/"NO"
+function isComplete(n){
+  var sum = 0
+  for(let i=1; i<n; i++){
+    if(n % i === 0) sum += i
+  }
+  return sum === n ? "YES" : "NO"
+}
+
+console.log(isComplete(+prompt("Input: ")))
+</script>
+<script id="complete-numbers">
+// 输出1000以内的完数
+function isComplete(n){
+  var sum = 0
+  for(let i=1; i<n; i++){
+    if(n % i === 0) sum += i
+  }
+  return sum === n ? "YES" : "NO"
+}
+
+for(let i=1; i<1000+1; i++){
+  if(isComplete(i) === "YES") console.log(i)
+}
+</script>
+<script id="prime">
+//输入一个数判断其是否为素数数，输出"YES"/"NO"
+function isprime(n){
+  if(n === 1) {
+    return false
+  }
+  for(let i=2; i<=n/2; i++){
+    if(n % i === 0){
+      return false
+    }
+  }
+  return true
+}
+
+console.log(+prompt("Input: "))
+</script>
+<script id="primes">
+    //输入一个数判断其是否为素数数，输出"YES"/"NO"
+    function isprime(n){
+      if(n === 1) {
+        return false
+      }
+      for(let i=2; i<=n/2; i++){
+        if(n % i === 0){
+          return false
+        }
+      }
+      return true
+    }
+    
+    for(let i=1; i<101; i++){
+      if(isprime(i)) console.log(i)
+    }
+</script>
+<script id="itob">
+// 输入一个数，输出其字符串形式
+function numToString(n, base = 10){
+  var string = ""
+  while(n > 0){
+    string = (n % base) + string
+    n = (n - (n % base)) / base
+  }
+  return string
+}
+
+console.log(+prompt("Input: "))
 </script>
 </body>
 </html>
