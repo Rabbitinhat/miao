@@ -1,10 +1,8 @@
-var days = +prompt("Days: ")
-var money = 0
-for(let i=0; days>0; i++){
-  days -= i
-  if(days < 0){
-    money += i * (days % i)
-  }
-  money += i * i
+function lcf(a, b){
+  let max = a > b ? a : b
+  let min = a < b ? a : b
+  
+  // 如果较大值能被较小值整除
+  if(max % min === 0) return min
+  
 }
-console.log(money)

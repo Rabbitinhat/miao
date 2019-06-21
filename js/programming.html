@@ -1,9 +1,23 @@
 <script>
-var n = +prompt("N: ")
-var result = "0"
-for(let i=n; i>0; i--){
-  var c = +prompt()
-  result += c * i
+function isNar(n){
+  var index = 0
+  var nums = []
+  var old = n;
+  while(n > 0){
+    index++
+    nums.push(n % 10)
+    n = Math.floor(n / 10)
+  }
+  var sum = 0
+  for(let i=0; i<nums.length; i++){
+    var result = 1
+    for(let j=0; j<index; j++){
+      result *= nums[i]
+    }
+    sum += result
+  }
+  return sum === old ? "YES" : "NO"
 }
-console.log(result)
+
+console.log(isNar(+prompt("Input")))
 </script>
