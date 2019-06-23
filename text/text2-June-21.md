@@ -119,3 +119,70 @@
 46. `background: url(https://s01.mifile.cn/i/mi-home.png) no-repeat left 5px bottom 5px;`
 47. 将该`td`元素和对应的`th`元素绑定起来
 48. ```mkdir a, cd a, touch readme.md, mkdir foo, cd foo, mkdir c, cd.., mkdir bar, cd bar, mkdir y, touch a.txt, touch b.txt, cd y, touch a.js```
+49. `https://test.example.com/path.css`
+50. [animation实现marquee](https://codepen.io/rabbitinhat/pen/NZjNYq)
+51. [多列等高(flex)](https://codepen.io/rabbitinhat/pen/XLRMaW)
+52. 保留从左到右, 从上到下的边框
+53. `ease ease-in ease-out ease-in-out liear` ?
+54. 虚框(outline) `outline: none` tabindex: 1
+55. IE hack vendor prefix 条件注释
+    1.  IE hack 对于旧版本的IE浏览器, 通过条件注释等手段, 添加可以被IE浏览器兼容的CSS样式, HTML元素等. 实现
+    2.  ??
+    3.  `<!-if IE9-> <!-end->` 针对旧版本IE浏览器, 提高兼容性
+56. `cm` `mm` 等是绝对单位, 宽度是物理尺寸, 对于页面布局来说不够灵活;
+57. `sigma(0, infinite, (mul(division(pow(-1, n), factorial(add(mul(2, n), 1))), pow(x, add(mul(2, n), 1)))))`
+58. 使用16进制编码表示特殊的图标
+    1.  优点: 为字体, 可以接受字体相关样式, 使用灵活
+    2.  缺点: 字体文件较大? 需要单独的字体文件, 可能会降低页面载入速度
+59. viewport ?
+    1.  不同浏览器环境?
+    2.  `<meta name="viewport" content="width=1000px">`
+    3.  `<meta name="viewport" content="width=device-width">`
+
+60. `FOUC` `FOUT` ?
+61. ?
+62. `resize: none`
+63. css shapes?
+64. reflow: 回流 布局发生改变时, 浏览器会重新刷新页面, 重新载入页面
+    1.  repaint: 重绘, 元素尺寸发生改变时, 浏览器发生repaint, 会产生抖动效果; reflow会触发repaint, repaint不一定会触发reflow(?)
+65. 具体设置之外的元素属性发生改变也会触发transition
+66. 整个动画效果分为10步完成, 每一步之间没有时间间隔(?)
+67. colum-cros(?)
+73. selector
+    1.  作为父元素的第一个子元素
+    2.  作为父元素中唯一一个该类型的子元素
+    3.  作为父元素中第一个该类型的子元素
+    4.  作为父元素中最后一个该类型的子元素
+    5.  作为父元素中第n个该类型的子元素
+    6.  作为父元素中倒数的第n个该类型的子元素
+    7.  不包括某个元素
+    8.  选中的`type=checkbox/radio`的input元素
+    9.  具有disabled属性的input元素
+    10. `enabled`
+    11. 输入有效值的input元素
+    12. 输入无效值的input元素
+    13. `selection`
+74. 错误
+    1.  line 1 最外层`(`缺少`)`
+    2.  `3 * (`
+    3.  line 1 结尾应为`;` 或第二行不加`var`
+    4.  line 2 foobar undefined/ "foobar"
+    5.  line 9 `>=`
+    6.  line 11 `<=`
+    7.  line 13 `else if`缺少判断条件
+    8.  两个`else`语句
+
+75. 
+```js
+  function isLeapYear(year) {
+  if((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0 && year % 3200 !== 0)){
+    console.log("YES")
+  } else {
+  console.log("No")
+  }
+}
+```
+76. ??
+77. 13
+78. ?
+79. 
