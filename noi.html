@@ -1260,10 +1260,15 @@ console.log(isComplete(+prompt("Input: ")))
 // 输出1000以内的完数
 function isComplete(n){
   var sum = 0
-  for(let i=1; i<n; i++){
-    if(n % i === 0) sum += i
+  var sum_sqrt = Math.sqrt(n)
+  for(let i=1; i<Math.floor(sum_sqrt); i++){
+    if(n % i === 0) sum += (i + n / i)
   }
-  return sum === n ? "YES" : "NO"
+  //当n为完全平方数时, 只加上一个i即可
+  if(i * i === n){
+    sum += i;
+  }
+  
 }
 
 for(let i=1; i<1000+1; i++){
@@ -1316,6 +1321,65 @@ function numToString(n, base = 10){
 }
 
 console.log(+prompt("Input: "))
+</script>
+<script id="lcf">
+let a = +prompt()
+let b = +prompt()
+
+function gcd(a, b){
+  let max = a > b ? a : b
+  let min = a < b ? a : b
+  
+  // 如果较大值能被较小值整除
+  if(max % min === 0) return min
+  while(min !== 0){
+    let temp = max
+    max =  min
+    min = temp % min
+  }
+  return max
+}
+
+function lcm(a, b){
+  // a*q * b*q / q = a*b*q
+  return Math.abs(a * b) / gcd(a, b)
+}
+console.log(gcd(a, b))
+console.log(lcm(a, b))
+</script>
+
+<script id="sqrt">
+function sqrt(n){
+  for(let i=0; i*i<n; i += 0.00001){
+    if(Math.abs(n - i*i) <= 0.0001) {
+      return i
+    }
+  }
+}
+
+console.log(sqrt(+prompt()))
+</script>
+<script>
+//优化算法计算a的n次方
+function expo_even(a, n){
+  let result = 1
+  for(let i=0; i < n/2; i++){
+    result *= a
+  }
+  return result * result
+}
+function expo_odd(a, n){
+  let result = 1
+  for(let i=0; i < (n-1)/2; i++){
+    result *= a
+  }
+  return result * result * a
+}
+function expo(a, n){
+  return n % 2 === 0 ? expo_even(a, n) : expo_odd(a, n)
+}
+
+console.log(expo(10, 4))
 </script>
 </body>
 </html>
