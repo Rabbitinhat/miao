@@ -42,3 +42,17 @@ function change(n, base){
 }
 console.log(change(10, 2))
 
+var b = 2
+function ab(){
+  console.log(b)
+}
+
+function c(){
+  var b = 4
+  ab()
+}
+c()
+
+
+
+console.log(isPowerOfTwo(16))

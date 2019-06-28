@@ -579,3 +579,9 @@ z & (z - 1) === 0 z
 [happy-number](https://leetcode.com/problems/happy-number/)
 [palindrome-number](https://leetcode.com/problems/palindrome-number/)
 [powx-n](https://leetcode.com/problems/powx-n/)
+
+## Note
+
+flags[nums[i]]
+
+`str.charCodeAt/charAt`
