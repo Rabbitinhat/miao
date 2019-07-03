@@ -21,3 +21,24 @@ var isHappy = function(n) {
 console.log(isHappy(4))
 
 //!Method 2 将数字转换为数组, 利用数组高级函数计算每位数字平方和; 使用数组保存每次相加结果, 发生重复就false
+
+var isHappy = function(n){
+  let counter = {}
+  let sum = 0
+  while(true){
+    sum = 0
+    while(n > 0){
+      sum += (n % 10) * (n % 10)
+      n = (n - n % 10) / 10
+    }
+    if(sum === 1) return true
+    n = sum
+    if(sum in counter){
+      return false
+    }else{
+      counter[sum] = sum
+    }
+  }
+}
+
+console.log(isHappy(19))

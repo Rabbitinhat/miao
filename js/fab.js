@@ -6,3 +6,6 @@ function fib(num){
 
 console.log(fib(10))
 
+a = [1, 2, 7]
+console.log(a.indexOf(2, -3))
+console.log(a.indexOf(2, -1))
