@@ -54,12 +54,16 @@ function c(){
 c()
 
 
-
-console.log(isPowerOfTwo(16))
-
 function getCorelationsOf(event){
   var core = {}
   core.name = event
   core.relations = phi(tableFor(event, journal));
   corelations.push(core)
 }
+
+function f(x){
+  if(x === 0) return 0
+  else return 2 * f(x-1) + x * x 
+}
+
+console.log(f(4))
