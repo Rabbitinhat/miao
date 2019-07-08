@@ -67,3 +67,86 @@ function f(x){
 }
 
 console.log(f(4))
+
+function arrayToList3(ary){
+  if(ary.length === 0) return null
+  else return {value: ary[0], next: arrayToList3(ary.slice(1))}
+}
+
+function listToArray(list){
+  let result = []
+  for(let i=list; i !== null; i = i.next){
+    result.push(i.value)
+  }
+  return result
+}
+
+function listToArray(list){
+  if(list === null){
+    return []
+  }else{
+    // * ...展开
+    return [list.value, ...listToArray(list.next)]
+  }
+}
+
+console.log(listToArray(arrayToList3([])))
+
+function insert(list, index, value){
+  index = index < 0 ? -index : index
+  // * 链表为空时
+  if(!list){
+    list = {
+      value: value,
+      next: null
+    }
+  }
+  // * 在链表头部添加新节点
+  if(index === 0){
+    list = {
+      value: value,
+      next: list
+    }
+  }
+  // * 在链表中添加新节点
+  let head = list
+  let idx = 0
+  // * 遍历链表至要插入位置的前一个链表节点; list.next !== null 当index>list.size, 在list的结尾添加节点
+  while(idx++ !== index - 1 && list.next !== null){
+    list = list.next
+    idx++
+  }
+  list.next = {
+    value: value,
+    next: list.next
+  }
+  return head
+}
+
+function nth(list, index){
+  // * 参数非链表(null), 索引超过链表长度
+  if(!list){
+    return undefined
+  }
+  if(index === 0){
+    return list.value
+  }else{
+    return nth(list.next, index--)
+  }
+}
+
+// * test
+c = 0
+// * 存放已计算过的值
+var cache = []
+function fibb(n){
+  if(cache[n]){
+    return cache[n]
+  }
+  c++
+  // * 1, 1,
+  if(n <= 1) return 1
+  var r = fibb(n-1) + fibb(n-2)
+  cache[n] = r
+  return r
+}
