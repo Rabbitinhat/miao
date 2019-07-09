@@ -150,3 +150,50 @@ function fibb(n){
   cache[n] = r
   return r
 }
+
+// * 过滤掉不符合函数条件的元素, 保留符合条件的元素
+function filter(ary, test){
+  let result = []
+  for(let i=0; i<ary.length; i++){
+    if(test(ary[i])) result.push(ary[i])
+  }
+  return result
+}
+
+console.log(filter())
+
+function filter(ary, test){
+  let passed = []
+  for(let i in ary){
+    if(test[i]){
+      passed.push[i]
+    }
+  }
+  return passed
+}
+
+// * map
+function map(ary, mapper){
+  let result = []
+  for(let element in ary){
+    result.push(mapper(element))
+  }
+  return result
+}
+
+// * count char
+function countChar(str){
+  let count = 0
+  for(let char of str){
+    count++
+  }
+  return count
+}
+
+console.log("Function CountChar")
+console.log(countChar("1212adsdsda"))
+console.log(`length: ${"1212adsdsda".length}`)
+// * emoji 每个字符包含两个code units
+console.log(countChar("🐴👟"))
+console.log(`length: ${"🐴👟".length}`)
+
