@@ -172,7 +172,7 @@ function filter(ary, test){
   return passed
 }
 
-// * map
+// * map 返回执行mapper后的数组元素
 function map(ary, mapper){
   let result = []
   for(let element in ary){

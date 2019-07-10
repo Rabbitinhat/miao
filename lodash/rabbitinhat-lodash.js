@@ -29,17 +29,17 @@ var rabbitinhat = function(){
       return result
     }
 
+    // * 多输入参数会保存在arguments中
     function difference(ary, ...values){
       let result = []
-      for(let element of ary){
-        for(let ary of values){
-          if(Array.isArray(ary)){
-            if(binarySearch(element, ary) === -1) result.push(element)
-          }
-        }
+      // * 将ary中所有元素
+      result = ary.slice()
+      for(let ary of values){
+        result = result.filter(x => binarySearch(x, ary) === -1)
       }
       return result
     }
+    // * 二分查找
     function binarySearch(value, ary){
       let start = 0
       let end = ary.length - 1
@@ -74,4 +74,4 @@ var rabbitinhat = function(){
 // console.log(rabbitinhat.compact([0, 1, false, 2, '', 3]))
 // var array = [1]
 // console.log(rabbitinhat.concat(array, 2, [3], [[4]]))
-// console.log(rabbitinhat.difference([2, 1], [2, 3]))
+console.log(rabbitinhat.difference([1,2,3,4,5,6,7,8],[1,3],[4,8],[6]))
