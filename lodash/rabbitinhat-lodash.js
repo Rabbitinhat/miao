@@ -8,6 +8,8 @@ var rabbitinhat = function(){
   }
 
   return {
-    compact
+    compact,
   }
 }()
+
+// console.log(rabbitinhat.compact([0, 1, false, 2, '', 3]))
