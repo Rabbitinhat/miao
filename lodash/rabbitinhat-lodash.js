@@ -29,10 +29,14 @@ var rabbitinhat = function(){
       return result
     }
 
-    function difference(ary, values){
+    function difference(ary, ...values){
       let result = []
       for(let element of ary){
-        if(binarySearch(element, values) === -1) result.push(element)
+        for(let ary of values){
+          if(Array.isArray(ary)){
+            if(binarySearch(element, ary) === -1) result.push(element)
+          }
+        }
       }
       return result
     }
