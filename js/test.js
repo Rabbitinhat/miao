@@ -197,3 +197,23 @@ console.log(`length: ${"1212adsdsda".length}`)
 console.log(countChar("🐴👟"))
 console.log(`length: ${"🐴👟".length}`)
 
+// ＊ reduce
+function reduce(ary, reducer, initialVal=ary[0]){
+  let i = arguments.length === 2 ?  1 : 0
+  for(; i<ary.length; i++){
+    initialVal = reducer(initialVal, ary[i])
+  } 
+  return initialVal
+}
+console.log(reduce([1, 2, 3, 4], (a,b)=>a+b))
+
+console.log(reduce([1, 2, 3, 4], (a, b)=>a*b), 1)
+
+console.log([1, 2, 3, 4, 5].reduce(function(memo, item){
+  return memo > item ? memo : item
+}, 0))
+
+// * 对数组方法传入数组元素返回NaN, 而reduce自动发送4个参数, current value; ary; reducer function; 
+console.log([1, 2, 3, 4, 5].reduce(Math.min))
+
+console.log(reduce([1,2,3,4,5], Math.min ))
