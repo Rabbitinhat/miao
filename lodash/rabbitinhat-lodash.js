@@ -1,4 +1,4 @@
-var damiao = function(){
+var rabbitinhat = function(){
   function compact(ary){
     let result = []
     for(let element of ary){
