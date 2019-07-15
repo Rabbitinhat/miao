@@ -7,18 +7,10 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+
+// * 快排
 var sortArray = function(nums) {
-// * 选择排序
-// * time: O(N^2)
-// * space: O(1) 空间复杂度和使用的变量有关
-for(let i=0; i<nums.length-1; i++){
-  let minPos = i
-  for(let j=i+1; j<nums.length; j++){
-    if(nums[minPos] > nums[j]) minPos = j
-  }
-  swap(nums, i, minPos)
-}
-return nums
+  return quickSort(nums)
 }
 
 // * 交换数组指定的两项
@@ -28,3 +20,21 @@ function swap(ary, i, j){
   ary[j] = temp
 }
 
+function quickSort(ary, start=0, end=ary.length-1){
+  if(end - start <= 0) return ary
+  let random = Math.floor(Math.random() * (end - start + 1) + start)
+  swap(ary, random, end)
+  let i = start - 1
+  for(let j=start; j < end; j++){
+    if(ary[j] < ary[end]){
+      i++
+      swap(ary, i, j)
+    }
+  }
+  i++
+  swap(ary, i, end)
+
+  quickSort(ary, start, i-1)
+  quickSort(ary, i+1, end)
+  return ary
+}

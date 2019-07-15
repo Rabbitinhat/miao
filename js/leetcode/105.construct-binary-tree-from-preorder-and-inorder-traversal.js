@@ -15,25 +15,21 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
+
+// function TreeNode(val) {
+//      this.val = val;
+//      this.left = this.right = null;
+// }
 var buildTree = function(preorder, inorder) {
-  if(preorder.length){
-    let root = new TreeNode(preorder.shift())
-    console.log(root.val)
+  if(inorder.length){
+    var root = new TreeNode(preorder.shift())
     let index = inorder.indexOf(root.val)
-    console.log(preorder)
-    if(index>0 && preorder.length>0){
-      root.left = buildTree(preorder, inorder.slice(0, index))
-    }else{
-      root.left = null
-    }
-    if(index>=0 && preorder.length>0 && inorder.length>1){
-      console.log(preorder)
-      root.right = buildTree(preorder, inorder.slice(index+1))
-    }else{
-      root.right = null
-    }
-    return root
+    root.left = buildTree(preorder, inorder.slice(0, index))
+    root.right = buildTree(preorder, inorder.slice(index+1))
+  }else{
+    var root = null
   }
-  return null
+  return root
 };
 
+//console.log(buildTree([3,2,1,4], [1,2,3,4]))

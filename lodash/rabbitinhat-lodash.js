@@ -29,12 +29,12 @@ var rabbitinhat = function(){
       return result
     }
 
-    // * 多输入参数会保存在arguments中
     function difference(ary, ...values){
       let result = []
-      // * 将ary中所有元素
+      // * result 作为ary的副本
       result = ary.slice()
       for(let ary of values){
+        // * 每次循环都对result重新赋值, 过滤掉额外数组中出现的元素
         result = result.filter(x => binarySearch(x, ary) === -1)
       }
       return result
@@ -64,14 +64,25 @@ var rabbitinhat = function(){
     // function SameValueNonNumber(x, y){
       
     // }
+
+    function differenceBy(ary, values, comparator){
+      let result = []
+      result = ary.slice()
+      comparator = x => eval(comparator)
+      values.forEach(x => comparator)
+      result = result.filter(x => x in values)
+      return result
+    }
   return {
     compact,
     concat,
     difference,
+    differenceBy,
   }
 }()
 
 // console.log(rabbitinhat.compact([0, 1, false, 2, '', 3]))
 // var array = [1]
 // console.log(rabbitinhat.concat(array, 2, [3], [[4]]))
-console.log(rabbitinhat.difference([1,2,3,4,5,6,7,8],[1,3],[4,8],[6]))
+// console.log(rabbitinhat.difference([1,2,3,4,5,6,7,8],[1,3],[4,8],[6]))
+console.log(rabbitinhat.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x'))

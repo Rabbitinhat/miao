@@ -217,3 +217,78 @@ console.log([1, 2, 3, 4, 5].reduce(function(memo, item){
 console.log([1, 2, 3, 4, 5].reduce(Math.min))
 
 console.log(reduce([1,2,3,4,5], Math.min ))
+
+// ! Counting Sorting
+console.log("Counting Sort")
+
+// * sort -1 升序 0 1 降序
+let array = new Array(8).fill(0).map(x=>Math.floor(Math.random() * 30))
+
+function countingSort(ary){
+  let c_ary = []
+  for(let i=0; i<ary.length; i++){
+    if(c_ary[ary[i]]){
+      c_ary[ary[i]]++
+    }else{
+      c_ary[ary[i]] = 1
+    }
+  }
+  if(c_ary[0] === undefined) c_ary[0] = 0
+  // * 累加数组中数据, 得到每个数据的位置
+  for(let i=1; i<c_ary.length; i++){
+    if(c_ary[i] !== undefined){
+      c_ary[i] = c_ary[i-1] + c_ary[i]
+    }else{
+      c_ary[i] = c_ary[i-1]
+    }
+  }
+  // * 根据c_ary的值得到每项的位置
+  // * i = c_ary[c_ary.length-1] 倒着输入result, 保证算法稳定性 
+  let result = []
+  for(let i = c_ary[c_ary.length-1] - 1; i>=0; i--){
+    result[c_ary[ary[i]] - 1] = ary[i]
+    c_ary[ary[i]] -= 1
+  }
+  return result
+}
+
+console.log(array)
+console.log(countingSort(array))
+
+function countSort(ary){
+  const c = []
+  for(let i=0; i<ary.length; i++){
+    const j = ary[i]
+    c[j] >= 1 ? c[j]++ : c[j] = 1
+  }
+  let D = []
+  for(let j=0; j<c.length; j++){
+    if(c[j]){
+      while(c[j] > 0){
+        D.push(j)
+        c[j]--
+      }
+    }
+  }
+  return D
+}
+
+var sortArray = function(nums) {
+  const C = []
+  for(let i=0; i<nums.length; i++){
+    const j = nums[i]
+    C[j] >= 1 ? C[j]++ : C[j] = 1
+  }
+  let D = []
+  for(let j=0; j<C.length; j++){
+    if(C[j]){
+      while(C[j]>0){
+        D.push(j)
+        C[j]--
+      }
+    }
+  }
+  return D
+}
+
+console.log(sortArray(array))
