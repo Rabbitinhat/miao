@@ -109,6 +109,8 @@ var rabbitinhat = function(){
     // * predicate对collection中任何值返回true, 中断遍历, some返回true
     // * _.some(collection, [predicate=_.identity])
     function some(ary, predicate){
+      // ! eval
+      predicate = eval(predicate)
       for(var i=0; i<ary.length; i++){
         if(predicate(ary[i], i, ary)) return true
       }
@@ -185,4 +187,4 @@ var rabbitinhat = function(){
 // var array = [1]
 // console.log(rabbitinhat.concat(array, 2, [3], [[4]]))
 // console.log(rabbitinhat.difference([1,2,3,4,5,6,7,8],[1,3],[4,8],[6]))
-console.log(rabbitinhat.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x'))
+// console.log(rabbitinhat.differenceBy([{ 'x': 2 }, { 'x': 1 }], [{ 'x': 1 }], 'x'))
