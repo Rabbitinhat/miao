@@ -129,25 +129,33 @@ var rabbitinhat = function(){
     // * 使用thisArg作为this绑定, partials作为参数, 调用函数func
     // * _.bind(func, thisArg, [partials])
     function bind(func, thisArg, ...partials){
-      return thisArg.func(...partials)
+      return function(...args){
+        return this.func(partials, args)
+      }
     }
 
     // * 创建一个函数使用相反的arguments调用func
     // * _.flip(func)
     function flip(func){
-      return func(...arg.reverse())
+      return function(...args){
+        return func(...args.reverse())
+      }
     }
 
     // * 返回调用predicate的相反结果
     // * _.negate(predicate)
     function negate(predicate){
-      return !predicate(...arg)
+      return function(args){
+        return !predicate(args)
+      }
     }
 
     // * 函数只接受一个参数, 忽略多余参数
     // * _.unary(func)
-    function unary(func){
-      return func(arguments[0])
+    function unary(fn){
+      return function(...args){
+        return fn(arguments[0])
+      }
     }
 
 
@@ -157,6 +165,9 @@ var rabbitinhat = function(){
     concat,
     difference,
     differenceBy,
+    flatten,
+    flattenDeep,
+    flattenDepth,
 
     // * Collection
     some,
