@@ -335,3 +335,18 @@ function countingSort(ary){
   }
   return result
 }
+
+function bind(f, ...fixedArgs){
+  return function(...args){
+    return f(...fixedArgs, ...args)
+  }
+}
+
+function bind(f){
+  var fixedArgs = Array.from(arguments).slice(1)
+  return function(){
+    var args = Array.from(arguments)
+    return f.apply(null, fixedArgs.concat(args))
+  }
+}
+

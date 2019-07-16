@@ -1,4 +1,5 @@
 var rabbitinhat = function(){
+  // ! Array
   function compact(ary){
     let result = []
     for(let element of ary){
@@ -73,11 +74,32 @@ var rabbitinhat = function(){
       result = result.filter(x => x in values)
       return result
     }
+
+    // ! Function
+
+    // * meoize 记忆f执行后的值, 调用同样参数时, 返回存储在缓存中的值
+    // * _.memoize(func, [resolver])
+    function memoize(func){
+      let cache = {}
+      return function(arg){
+        return cache[arg] ? cache[arg] : cache[arg] = func(arg)
+      }
+    }
+
+    // * 使用thisArg作为this绑定, partials作为参数, 调用函数func
+    // * _.bind(func, thisArg, [partials])
+    function bind(func, thisArg, ...partials){
+      return thisArg.func(...partials)
+    }
   return {
+    // * Array
     compact,
     concat,
     difference,
     differenceBy,
+
+    // * Function
+    memoize,
   }
 }()
 

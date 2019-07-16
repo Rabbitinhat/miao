@@ -15,6 +15,9 @@
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-  
+  if(root){
+    return [[root.val], ...[levelOrder(root.left), levelOrder(root.right)]]
+  }
+  return null
 };
 

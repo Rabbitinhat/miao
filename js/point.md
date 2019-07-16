@@ -1130,6 +1130,134 @@ function keyBy(ary, key) {
   }, {})
 }
 ```
+
+#### 7-16
+```js
+function bind(f) {
+    var fixedArgs = Array.from(arguments).slice(1)
+    return function() {
+        var args = Array.from(arguments)
+        return f.apply(null, fixedArgs.concat(args))
+    }
+}
+```
+
+```js
+function flatten(ary) {
+    return flattenDepth(ary, 1)
+}
+
+function flatten(ary) {
+    var result = []
+    for (var item of ary) {
+        if (Array.isArray(item)) {
+            result.push(...item)
+        } else {
+            result.push(item)
+        }
+    }
+    return result
+}
+
+function flatten(ary) { //[1,2,3,[4,5],[6,7]]
+    return [].concat(...ary)
+}
+
+function flattenDepth(ary, depth) {
+    return Array(depth).fill(0).reduce((ary) => {
+        return flatten(ary)
+    }, ary.slice())
+}
+
+function flattenDeep(ary) {
+    var result = []
+    for(var item of ary) {
+        if (Array.isArray(item)) {
+            var flattedItem = flattenDeep(item)
+            result.push(...flattedItem)
+        } else {
+            result.push(item)
+        }
+    }
+    return result
+}
+
+function flattenDeep(ary) {
+    return flattenDepth(ary, Infinity)
+}
+
+function flattenDepth(ary, depth = 1) {
+    var result = []
+    for(var item of ary) {
+        if (Array.isArray(item)) {
+            var flattedItem = flattenDepth(item, depth - 1)
+            result.push(...flattedItem)
+        } else {
+            result.push(item)
+        }
+    }
+    return result
+}
+```
+
+```js
+ancestry.filter(it => byName[it.mother]).map(it => {
+	var mother = byName[it.mother]
+	
+	var ageDiff = it.born - mother.born
+	return ageDiff
+}).reduce((avg, age, idx) => (avg * idx + age) / (idx + 1))
+```
+
+```js
+_.mapValues(_.groupBy(ancestry, it => Math.ceil(it.died / 100)), persons => {
+
+	return persons.map(it => it.died - it.born).reduce((a,v,i) => (a * i + v) / (i + 1))
+
+})
+```
+
+```js
+function some(ary, predicate) {
+    return !every(ary, negate(predicate))
+}
+
+function every(ary, predicate) {
+    return !some(ary, negate(predicate))
+}
+```
+
+```js
+function f() {
+    return true
+}
+
+var f2 = negate(f)
+
+var isMan = negate(isWoman)
+
+var isNotPrime = negate(isPrime)
+
+var isOdd = negate(isEven)
+
+function negate(f) {
+    return function(...args) {
+        return !f(...args)
+    }
+}
+```
+
+```js
+[
+    [1,2,3],
+    [1,2],
+    [4,5,2]
+].map(unary(spread(sum)))
+```
+
+```js
+['1','1101','101','11'].map( _.ary(_.flip(parseInt), 2).bind(null, 2))
+```
 ### LeedCode
 
 #### 6-19
@@ -1330,6 +1458,13 @@ function keyBy(ary, key) {
 [sort-an-array](https://leetcode.com/problems/sort-an-array/) 建议每种算法都交一遍
 
 [complex-number-multiplication](https://leetcode.com/problems/complex-number-multiplication/description/)
+
+#### 7-16
+[kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+
+[majority-element](https://leetcode.com/problems/majority-element/description/
+
+[third-maximum-number](https://leetcode.com/problems/third-maximum-number/description/
 
 ### lodash
 
