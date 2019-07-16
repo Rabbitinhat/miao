@@ -75,6 +75,46 @@ var rabbitinhat = function(){
       return result
     }
 
+    // * flatten flattens array a single level deep
+    // * _.flatten(array)
+    function flatten(array){
+      return [].concat(...array)
+    }
+
+    // * flattenDeep 递归展平数组
+    // * _.flatten(array)
+    function flattenDeep(ary){
+      let result = []
+      for(let element of ary){
+        if(Array.isArray(element)){
+          let flatten = flattenDeep(element)
+          result.push(...flatten)
+        }else{
+          result.push(element)
+        }
+      }
+      return result
+    }
+
+    // * flattenDepth 展平给定深度
+    // * _.flattenDepth(array, [depth=1])
+    function flattenDepth(array, depth=1){
+      for(let i=0; i<depth; i++){
+        array = flatten(array)
+      }
+      return array
+    }
+    // ! Collection
+
+    // * predicate对collection中任何值返回true, 中断遍历, some返回true
+    // * _.some(collection, [predicate=_.identity])
+    function some(ary, predicate){
+      for(var i=0; i<ary.length; i++){
+        if(predicate(ary[i], i, ary)) return true
+      }
+      return false
+    }
+
     // ! Function
 
     // * meoize 记忆f执行后的值, 调用同样参数时, 返回存储在缓存中的值
@@ -91,6 +131,26 @@ var rabbitinhat = function(){
     function bind(func, thisArg, ...partials){
       return thisArg.func(...partials)
     }
+
+    // * 创建一个函数使用相反的arguments调用func
+    // * _.flip(func)
+    function flip(func){
+      return func(...arg.reverse())
+    }
+
+    // * 返回调用predicate的相反结果
+    // * _.negate(predicate)
+    function negate(predicate){
+      return !predicate(...arg)
+    }
+
+    // * 函数只接受一个参数, 忽略多余参数
+    // * _.unary(func)
+    function unary(func){
+      return func(arguments[0])
+    }
+
+
   return {
     // * Array
     compact,
@@ -98,8 +158,15 @@ var rabbitinhat = function(){
     difference,
     differenceBy,
 
+    // * Collection
+    some,
+
     // * Function
     memoize,
+    bind,
+    flip,
+    negate,
+    unary,
   }
 }()
 
