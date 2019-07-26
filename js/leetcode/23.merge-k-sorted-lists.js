@@ -17,4 +17,3 @@
 var mergeKLists = function(lists) {
     
 };
-

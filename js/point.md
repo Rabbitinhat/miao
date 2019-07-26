@@ -1,411 +1,394 @@
 # Point
 
 ## 问题
-- 7: 输入一个数，输出其是否是7的倍数或各个位上是否有7（25：NO，27：YES，21：YES)
-- sort: 输入3个数，按从小到大顺序输出
+
+- 7: 输入一个数，输出其是否是 7 的倍数或各个位上是否有 7（25：NO，27：YES，21：YES)
+- sort: 输入 3 个数，按从小到大顺序输出
 - narcissistic: 输入一个数判断其是否为水仙花数，输出"YES"/"NO"
-- narcissistics: 输出1000以内的水仙花数
+- narcissistics: 输出 1000 以内的水仙花数
 - palindrom: 输入一个数，判断其是否为一个一个回文数"YES"/"NO"
-- weekday: 输入年份与月份，输出这此年此月的第一天为星期几（0对应周日，1对应周一）
+- weekday: 输入年份与月份，输出这此年此月的第一天为星期几（0 对应周日，1 对应周一）
 - complete-number: 输入一个数判断其是否为完数，输出"YES"/"NO"
-- complete-numbers: 输出1000以内的完数
+- complete-numbers: 输出 1000 以内的完数
 - prime: 输入一个数判断其是否为素数数，输出"YES"/"NO"
-- primes: 输出100以内的素数
+- primes: 输出 100 以内的素数
 - itob: 输入一个数，输出其字符串形式
 - lcf&lcm: 输入两个数，分别输出它们的最大公约数和最小公倍数
-- sqrt: 输入一个数，输出其平方根，精确到小数点后3位
-- 使用优化算法计算a的n次方, 即当n为偶数时, 只需要计算a的n/2次方后再平方一次即可, 当n为奇数时，计算a的(n-1)/2次方的值平方后再乘以a即可, 依次类推.
+- sqrt: 输入一个数，输出其平方根，精确到小数点后 3 位
+- 使用优化算法计算 a 的 n 次方, 即当 n 为偶数时, 只需要计算 a 的 n/2 次方后再平方一次即可, 当 n 为奇数时，计算 a 的(n-1)/2 次方的值平方后再乘以 a 即可, 依次类推.
 
 ## 解答
 
 ```js
-var q = +prompt()
-var isEm = prompt()
+var q = +prompt();
+var isEm = prompt();
 
-var p = 8
+var p = 8;
 
 if (q > 1000) {
-  p += Math.ceil((q - 1000) / 500) * 4
+  p += Math.ceil((q - 1000) / 500) * 4;
 }
 
-if (isEm === 'y') {
-  p += 5
+if (isEm === "y") {
+  p += 5;
 }
 
-console.log(p)
+console.log(p);
 
-
-if (isEm == 'y') {
+if (isEm == "y") {
   if (q < 1000) {
-
   } else {
-
   }
 } else {
   if (q > 1000) {
-
   } else {
-
   }
 }
 
-
-
-if (q < 1000 && isEm == 'n') {
-
-} else if (q > 1000 && isEm == 'n') {
-
-} else if (q < 1000 && isEm == 'y') {
-
-} else if (q > 1000 && isEm == 'y') {
-
+if (q < 1000 && isEm == "n") {
+} else if (q > 1000 && isEm == "n") {
+} else if (q < 1000 && isEm == "y") {
+} else if (q > 1000 && isEm == "y") {
 }
 ```
 
 ```js
-var n = +prompt()
-var age
-var sum = 0
-
-for(var i = 0; i < n; i++) {
-  age = +prompt()
-  sum = sum + age
-}
-
-console.log(sum / n)
-```
-
-```js
-var n = +prompt()
-var max = -Infinity
-var min = Infinity
-
-for(var i = 0; i < n; i++) {
-  score = +prompt()
-  if (score > max) {
-    max = score
-  }
-  if (score < min) {
-    min = score
-  }
-}
-
-console.log(max - min)
-```
-
-```js
-var n = +prompt()
-var max = -Infinity
-var min = Infinity
-debugger
-for(var i = 0; i < n; i++) {
-  score = +prompt()
-  if (score > max) {
-    max = score
-  }
-  if (score < min) {
-    min = score
-  }
-}
-
-console.log(max - min)
-```
-
-```js
-var n = +prompt()
-var c1 = 0
-var c5 = 0
-var c10 = 0
+var n = +prompt();
+var age;
+var sum = 0;
 
 for (var i = 0; i < n; i++) {
-  var x = +prompt()
+  age = +prompt();
+  sum = sum + age;
+}
+
+console.log(sum / n);
+```
+
+```js
+var n = +prompt();
+var max = -Infinity;
+var min = Infinity;
+
+for (var i = 0; i < n; i++) {
+  score = +prompt();
+  if (score > max) {
+    max = score;
+  }
+  if (score < min) {
+    min = score;
+  }
+}
+
+console.log(max - min);
+```
+
+```js
+var n = +prompt();
+var max = -Infinity;
+var min = Infinity;
+debugger;
+for (var i = 0; i < n; i++) {
+  score = +prompt();
+  if (score > max) {
+    max = score;
+  }
+  if (score < min) {
+    min = score;
+  }
+}
+
+console.log(max - min);
+```
+
+```js
+var n = +prompt();
+var c1 = 0;
+var c5 = 0;
+var c10 = 0;
+
+for (var i = 0; i < n; i++) {
+  var x = +prompt();
   if (x == 1) {
-    c1++
+    c1++;
   }
   if (x == 5) {
-    c5++
+    c5++;
   }
   if (x == 10) {
-    c10++
+    c10++;
   }
 }
 
-console.log(c1,c5,c10)
+console.log(c1, c5, c10);
 ```
 
 ```js
-var a = 1
-var b = 1
+var a = 1;
+var b = 1;
 
-
-var n = 5
+var n = 5;
 
 for (var i = 0; i < n; i++) {
-  b = b + a
-  a = b - a
+  b = b + a;
+  a = b - a;
 }
 
-console.log(b)
+console.log(b);
 ```
 
 ```js
-var n = +prompt()
-var count = 0
+var n = +prompt();
+var count = 0;
 
 for (var i = 0; i < n; i++) {
-  var number = +prompt()
+  var number = +prompt();
 
-  var last = number % 10
-  number = (number - last) / 10
-  
+  var last = number % 10;
+  number = (number - last) / 10;
+
   while (number > 0) {
-    var digit = number % 10
-    last -= digit
+    var digit = number % 10;
+    last -= digit;
     if (last < 0) {
-      break
+      break;
     }
-    number = (number - digit) / 10
+    number = (number - digit) / 10;
   }
 
   if (last > 0) {
-    count++
+    count++;
   }
 }
 
-console.log(count)
-
+console.log(count);
 
 // ch0105/26升级版
 ```
 
 ```js
-var n = +prompt()
-var sign = n > 0 ? 1 : -1
-n = Math.abs(n)
-var sum = 0
+var n = +prompt();
+var sign = n > 0 ? 1 : -1;
+n = Math.abs(n);
+var sum = 0;
 
 while (n > 0) {
-  var digit = n % 10
-  sum = sum * 10 + digit
-  n = (n - digit) / 10
+  var digit = n % 10;
+  sum = sum * 10 + digit;
+  n = (n - digit) / 10;
 }
 
-console.log(sign * sum)
+console.log(sign * sum);
 
 // ch0105/29
 
-var n = +prompt()
-var sum = 0
+var n = +prompt();
+var sum = 0;
 
 while (n != 0) {
-  var digit = n % 10
-  sum = sum * 10 + digit
-  n = (n - digit) / 10
+  var digit = n % 10;
+  sum = sum * 10 + digit;
+  n = (n - digit) / 10;
 }
 
-console.log(sum)
+console.log(sum);
 ```
 
 ```js
-var n = +prompt()
-var k = +prompt()
+var n = +prompt();
+var k = +prompt();
 
 if (n % 19 == 0) {
   while (n > 0) {
-    var digit = n % 10
+    var digit = n % 10;
     if (digit === 3) {
-      k--
+      k--;
     }
-    n = (n - digit) / 10
+    n = (n - digit) / 10;
   }
   if (k == 0) {
-    console.log('YES')
+    console.log("YES");
   } else {
-    console.log('NO')
+    console.log("NO");
   }
 } else {
-  console.log('NO')
+  console.log("NO");
 }
 /* 0105/30 */
 ```
 
 ```js
-var n = +prompt()
-var m = +prompt()
+var n = +prompt();
+var m = +prompt();
 
-for(var light = 1; light <= n; light++) {
-  var isLightOn = true
+for (var light = 1; light <= n; light++) {
+  var isLightOn = true;
 
-  for(var p = 1; p <= m; p++) {
+  for (var p = 1; p <= m; p++) {
     if (light % p == 0) {
-      isLightOn = !isLightOn
+      isLightOn = !isLightOn;
     }
   }
 
   if (!isLightOn) {
-    console.log(light)
+    console.log(light);
   }
 }
 //105.31
 ```
 
 ```js
-var n = +prompt()
+var n = +prompt();
 
-var a = 1
-var b = 1
-var sum = 0
+var a = 1;
+var b = 1;
+var sum = 0;
 
-for(var i = 0; i < n; i++) {
-  b = b + a
-  a = b - a
-  sum += b / a
-  console.log(b / a)
+for (var i = 0; i < n; i++) {
+  b = b + a;
+  a = b - a;
+  sum += b / a;
+  console.log(b / a);
 }
 
-console.log(sum)
+console.log(sum);
 //105.32
 ```
 
 ```js
-var n = +prompt()
-var result = 0
+var n = +prompt();
+var result = 0;
 
 for (var i = 1; i <= n; i++) {
-  var fac = 1
+  var fac = 1;
 
-  for(var j = 1; j <= i; j++) {
-    fac *= j
+  for (var j = 1; j <= i; j++) {
+    fac *= j;
   }
 
-  result += fac
+  result += fac;
 }
 
-console.log(result)
+console.log(result);
 //105.34
 ```
 
 ```js
-var result = 0
+var result = 0;
 
-for(var i = 1; i <= 21; i++) {
+for (var i = 1; i <= 21; i++) {
   if (i % 7 != 0) {
-    var n = i
-    while(n > 0) {
-      var digit = n % 10
+    var n = i;
+    while (n > 0) {
+      var digit = n % 10;
       if (digit == 7) {
-        break
+        break;
       }
-      n = (n - digit) / 10
+      n = (n - digit) / 10;
     }
     if (n == 0) {
-      result += i * i
+      result += i * i;
     }
   }
 }
 
-console.log(result)
+console.log(result);
 //105.39
 ```
 
 ```js
-var n = 6
+var n = 6;
 
-var give = 1
-var sum = 0
+var give = 1;
+var sum = 0;
 
-for(var i = 0, j = 0; i < n; j++, i++) {
+for (var i = 0, j = 0; i < n; j++, i++) {
   if (j == give) {
-    j = 0
-    give++
+    j = 0;
+    give++;
   }
-  sum += give
-  
+  sum += give;
 }
 
-console.log(sum)
+console.log(sum);
 //105.45
 ```
 
 ```js
 var isRelatedWith7 = function(n) {
   if (n % 7 == 0) {
-    return true
+    return true;
   } else {
     while (n > 0) {
-      var digit = n % 10
+      var digit = n % 10;
       if (digit == 7) {
-        return true
+        return true;
       }
-      n = (n - digit) / 10
+      n = (n - digit) / 10;
     }
-    return false
+    return false;
   }
-}
+};
 
 var getNumber = function(hint) {
-  return +prompt(hint)
-}
+  return +prompt(hint);
+};
 
-
-var num = getNumber('请输入')
+var num = getNumber("请输入");
 
 if (isRelatedWith7(num)) {
-  console.log('YES')
+  console.log("YES");
 } else {
-  console.log('NO')
+  console.log("NO");
 }
 ```
 
 ```js
 var isPrime = function(n) {
   if (n < 2) {
-    return false
+    return false;
   }
 
-  var sqrt_n = Math.floor(Math.sqrt(n))
+  var sqrt_n = Math.floor(Math.sqrt(n));
 
-  for(var i = 2; i <= sqrt_n; i++) {
+  for (var i = 2; i <= sqrt_n; i++) {
     if (n % i == 0) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
-
+  return true;
+};
 ```
 
 ```js
 for (var i = 1; i < 10000; i++) {
-  
-  var n = i
-  var m = n
+  var n = i;
+  var m = n;
   // 153
-  var width = 0
-
+  var width = 0;
 
   while (m > 0) {
-    width++
-    var digit = m % 10
-    m = (m - digit) / 10
+    width++;
+    var digit = m % 10;
+    m = (m - digit) / 10;
   }
 
-  m = n
+  m = n;
 
-  var sum = 0
+  var sum = 0;
   while (m > 0) {
-    var digit = m % 10
-    var product = 1
+    var digit = m % 10;
+    var product = 1;
     for (var i = 0; i < width; i++) {
-      product *= digit
+      product *= digit;
     }
-    sum += product
-    m = (m - digit) / 10
+    sum += product;
+    m = (m - digit) / 10;
   }
 
   if (sum == n) {
-    console.log(n)
+    console.log(n);
   } else {
     //console.log('NO')
   }
@@ -413,151 +396,147 @@ for (var i = 1; i < 10000; i++) {
 ```
 
 ```js
-
 /**
  * 返回数值m在十进制下的位宽
  */
 var getDigitWidth = function(m) {
-  var width = 0
+  var width = 0;
   if (m == 0) {
-    return 1
+    return 1;
   }
   while (m > 0) {
-    width++
-    var digit = m % 10
-    m = (m - digit) / 10
+    width++;
+    var digit = m % 10;
+    m = (m - digit) / 10;
   }
-  return width
-}
+  return width;
+};
 
 /**
  * 返回a的n次方，n为整数
  */
 var power = function(a, n) {
-  var result = 1
+  var result = 1;
 
   for (var i = 0; i < n; i++) {
-    result *= a
+    result *= a;
   }
 
-  return result
-}
+  return result;
+};
 
 /**
  * 判断数值n是否为一个水仙花数
  */
 var isNarcissistic = function(n) {
-  var width = getDigitWidth(n)
-  var m = n
+  var width = getDigitWidth(n);
+  var m = n;
 
-  var sum = 0
+  var sum = 0;
 
   while (n > 0) {
-    var digit = n % 10
-    sum += power(digit, width)
-    n = (n - digit) / 10
+    var digit = n % 10;
+    sum += power(digit, width);
+    n = (n - digit) / 10;
   }
 
   if (sum == m) {
-    return true
+    return true;
   }
-  return false
-}
+  return false;
+};
 
-var printNarcissisticsBelow10000 = function(){
+var printNarcissisticsBelow10000 = function() {
   for (var i = 1; i < 10000; i++) {
     if (isNarcissistic(i)) {
-      console.log(i)
+      console.log(i);
     }
   }
-}
+};
 
-printNarcissisticsBelow10000()
-
+printNarcissisticsBelow10000();
 ```
 
 ```js
 var isPalindrom = function(n) {
-  var width = getDigitWidth(n)
-
+  var width = getDigitWidth(n);
 
   for (var i = 1; i <= n / 2; i++) {
-    var right = Math.floor(n / power(10, i - 1)) % 10
-    var left = Math.floor(n / power(10, width - i)) % 10
+    var right = Math.floor(n / power(10, i - 1)) % 10;
+    var left = Math.floor(n / power(10, width - i)) % 10;
 
     if (right !== left) {
-      return false
+      return false;
     }
   }
 
-  return true
-}
-
+  return true;
+};
 
 var isPalindrom2 = function(n) {
-  var sum = 0
-  var m = n
+  var sum = 0;
+  var m = n;
 
   while (n > 0) {
-    var digit = n % 10
-    sum = sum * 10 + digit
-    n = (n - digit) / 10
+    var digit = n % 10;
+    sum = sum * 10 + digit;
+    n = (n - digit) / 10;
   }
 
-  return sum == m
-}
-
+  return sum == m;
+};
 ```
 
 ```js
 var isCompleteNumer = function(n) {
-  var sum = 1
+  var sum = 1;
 
-  var sqrt_n = Math.floor(Math.sqrt(n))
+  var sqrt_n = Math.floor(Math.sqrt(n));
 
   for (var i = 2; i <= sqrt_n; i++) {
     if (n % i == 0) {
-      if (i == n / i) {//平方根
-        sum += i
-      } else {//非平方根
-        sum += i + (n / i)
+      if (i == n / i) {
+        //平方根
+        sum += i;
+      } else {
+        //非平方根
+        sum += i + n / i;
       }
     }
   }
 
-  return sum == n
-}
+  return sum == n;
+};
 
 var isCompleteNumer3 = function(n) {
-  var sum = 1
+  var sum = 1;
 
-  var sqrt_n = Math.floor(Math.sqrt(n))
+  var sqrt_n = Math.floor(Math.sqrt(n));
 
   for (var i = 2; i < sqrt_n; i++) {
     if (n % i == 0) {
-      sum += i + (n / i)
+      sum += i + n / i;
     }
   }
 
   if (sqrt_n * sqrt_n == n && sqrt_n !== n) {
-    sum += sqrt_n
+    sum += sqrt_n;
   }
 
-  return sum == n
-}
-
+  return sum == n;
+};
 
 var isCompleteNumer2 = function(n) {
-  var sum = 1
+  var sum = 1;
 
   for (var i = 2; i < n; i++) {
     if (n % i == 0) {
-      sum += i
+      sum += i;
     }
   }
 
-  return sum == n
-}
+  return sum == n;
+};
 ```
 
 ```js
@@ -566,19 +545,19 @@ z = z & (z - 1) z !== 0
 z & (z - 1) === 0 z
 //能被 2**n 整除
 
-//happy number 
+//happy number
 ```
 
 #### 6-19
 
 ```js
-for(var a = 0; a < 7; a++) {
-  for(var b = 0; b < 7; b++) {
-    for(var c = 0; c < 7; c++) {
-      var base7 = a * 49 + b * 7 + c
-      var base9 = c * 81 + b * 9 + a
+for (var a = 0; a < 7; a++) {
+  for (var b = 0; b < 7; b++) {
+    for (var c = 0; c < 7; c++) {
+      var base7 = a * 49 + b * 7 + c;
+      var base9 = c * 81 + b * 9 + a;
       if (base9 == base7) {
-        console.log(base7, '' + a + b + c, '' + c + b + a)
+        console.log(base7, "" + a + b + c, "" + c + b + a);
       }
     }
   }
@@ -587,31 +566,40 @@ for(var a = 0; a < 7; a++) {
 
 ```js
 function getCharFromDigit(n) {
-  switch(digit) {
-    case 0: return '0';
-    case 1: return '1';
-    case 2: return '2';
-    case 3: return '3';
-    case 4: return '4';
-    case 5: return '5';
-    case 6: return '6';
-    case 7: return '7';
-    case 8: return '8';
-    case 9: return '9';
+  switch (digit) {
+    case 0:
+      return "0";
+    case 1:
+      return "1";
+    case 2:
+      return "2";
+    case 3:
+      return "3";
+    case 4:
+      return "4";
+    case 5:
+      return "5";
+    case 6:
+      return "6";
+    case 7:
+      return "7";
+    case 8:
+      return "8";
+    case 9:
+      return "9";
   }
 }
 
-
 function itob(n) {
-  var str = ''
+  var str = "";
 
-  while(n > 0) {
-    var digit = n % 10
-    str = str + getCharFromDigit(n)
-    n = (n - digit) / 10
+  while (n > 0) {
+    var digit = n % 10;
+    str = str + getCharFromDigit(n);
+    n = (n - digit) / 10;
   }
 
-  return str
+  return str;
 }
 ```
 
@@ -627,36 +615,36 @@ class Solution:
 
 ```js
 var myPow = function(x, n) {
-    if (n == 0) {
-        return 1
-    }
-    
-    if (n % 2 == 0) {
-        var t = myPow(x, n / 2)
-        return t * t
-    } else {
-        var t = myPow(x, (n - 1) / 2)
-        return t * t * x
-    }
+  if (n == 0) {
+    return 1;
+  }
+
+  if (n % 2 == 0) {
+    var t = myPow(x, n / 2);
+    return t * t;
+  } else {
+    var t = myPow(x, (n - 1) / 2);
+    return t * t * x;
+  }
 };
 ```
 
 ```js
 var myPow = function(x, n) {
-    var digitWidth = Math.floor(Math.log2(n))
-    var t = 1
-    
-    while (digitWidth >= 0) {
-        var d = (n >> digitWidth) % 2
-        if (d == 1) {
-            t = t * t * x
-        } else {
-            t = t * t
-        }
-        digitWidth--
+  var digitWidth = Math.floor(Math.log2(n));
+  var t = 1;
+
+  while (digitWidth >= 0) {
+    var d = (n >> digitWidth) % 2;
+    if (d == 1) {
+      t = t * t * x;
+    } else {
+      t = t * t;
     }
-    
-    return t
+    digitWidth--;
+  }
+
+  return t;
 };
 ```
 
@@ -683,96 +671,96 @@ return result
 
 ```js
 function myPow(x, n) {
-  var t = x
-  var r = 1
+  var t = x;
+  var r = 1;
 
-  while(n > 0) {
-    var d = n % 2
+  while (n > 0) {
+    var d = n % 2;
     if (d) {
-      r *= t
+      r *= t;
     }
-    t = t * t
-    n = n >> 1
+    t = t * t;
+    n = n >> 1;
   }
-  
-  return r
+
+  return r;
 }
 ```
 
 ```js
 var singleNumber = function(nums) {
-    var seen = []
-    for (var i = 0; i < nums.length; i++) {
-        var num = nums[i]
-        var idx = seen.indexOf(num)
-        if (idx >= 0) {
-            seen.splice(idx, 1)
-        } else {
-            seen.push(num)
-        }
+  var seen = [];
+  for (var i = 0; i < nums.length; i++) {
+    var num = nums[i];
+    var idx = seen.indexOf(num);
+    if (idx >= 0) {
+      seen.splice(idx, 1);
+    } else {
+      seen.push(num);
     }
-    return seen[0]
+  }
+  return seen[0];
 };
 ```
 
 ```js
 var countPrimes = function(n) {
-    var count = 0
-    for(var i = 1; i < n; i++) {
-        if (isPrime(i)) {
-            count++
-        }
+  var count = 0;
+  for (var i = 1; i < n; i++) {
+    if (isPrime(i)) {
+      count++;
     }
-    return count
+  }
+  return count;
 };
 
-var primeList = [2]
+var primeList = [2];
 
 function isPrime(n) {
-    if (n < 2) {
-        return false
-    }
+  if (n < 2) {
+    return false;
+  }
 
-    var sqrt_n = Math.floor(Math.sqrt(n))
+  var sqrt_n = Math.floor(Math.sqrt(n));
 
-    for (var i = 0; primeList[i] <= sqrt_n; i++) {
-        if (n % primeList[i] == 0) {
-            return false
-        }
+  for (var i = 0; primeList[i] <= sqrt_n; i++) {
+    if (n % primeList[i] == 0) {
+      return false;
     }
-    if (n > primeList[primeList.length - 1]) {
-        primeList.push(n)
-    }
-    return true
+  }
+  if (n > primeList[primeList.length - 1]) {
+    primeList.push(n);
+  }
+  return true;
 }
 ```
 
 ```js
 var countPrimes = function(n) {
   if (n < 2) {
-    return 0
+    return 0;
   }
-  var flags = []
-  for(var i = 0; i < n; i++) {
-    flags[i] = 1
+  var flags = [];
+  for (var i = 0; i < n; i++) {
+    flags[i] = 1;
   }
 
-  var sqrt_n = Math.floor(Math.sqrt(n))
+  var sqrt_n = Math.floor(Math.sqrt(n));
 
-  for(var i = 2; i <= sqrt_n; i++) {
+  for (var i = 2; i <= sqrt_n; i++) {
     if (flags[i]) {
-        var step = i % 2 ? i * 2 : i
-        for(var j = i * i; j < n; j += step) {
-          flags[j] = 0
-        }
+      var step = i % 2 ? i * 2 : i;
+      for (var j = i * i; j < n; j += step) {
+        flags[j] = 0;
+      }
     }
   }
 
-  var count = 0
-  for(var i = 2; i < n; i++) {
-    count += flags[i]
+  var count = 0;
+  for (var i = 2; i < n; i++) {
+    count += flags[i];
   }
-  return count
+  return count;
 };
 ```
 
@@ -780,20 +768,20 @@ var countPrimes = function(n) {
 
 ```js
 function missingNumber(nums) {
-  var l = nums.length + 1
-  var flags = []
+  var l = nums.length + 1;
+  var flags = [];
 
-  for(var i = 0; i < l; i++) {
-    flags[i] = 0
+  for (var i = 0; i < l; i++) {
+    flags[i] = 0;
   }
 
-  for(var i = 0; i < nums.length; i++) {
-    flags[nums[i]] = 1
+  for (var i = 0; i < nums.length; i++) {
+    flags[nums[i]] = 1;
   }
 
-  for(var i = 0; i < l; i++) {
+  for (var i = 0; i < l; i++) {
     if (flags[i] == 0) {
-      return i
+      return i;
     }
   }
 }
@@ -803,57 +791,57 @@ function missingNumber(nums) {
 
 ```js
 function findSolution(target) {
-  var solutions = []
+  var solutions = [];
 
   function find2(start, history) {
     if (start == target) {
-      solutions.push(history)
+      solutions.push(history);
     } else if (start < target) {
-      find2(start + 1, history + ' + 1')
-      find2(start * 3, '(' + history + ') * 3')
+      find2(start + 1, history + " + 1");
+      find2(start * 3, "(" + history + ") * 3");
     }
   }
 
-  find2(1, '1')
-  return solutions
+  find2(1, "1");
+  return solutions;
 }
 
-findSolution(25)
+findSolution(25);
 ```
 
 ```js
 function findSolution(target) {
-  var result = []
+  var result = [];
 
   function find2(start, history) {
     if (start == target) {
-      result.push(history)
+      result.push(history);
     } else if (start < target) {
-      find2(start + 1, history + '一步 ')
-      find2(start + 2, history + '两步 ')
+      find2(start + 1, history + "一步 ");
+      find2(start + 2, history + "两步 ");
     }
   }
 
-  find2(0, '')
-  return result
+  find2(0, "");
+  return result;
 }
 ```
 
 ```js
 function findSolution(x, y) {
-  var result = []
+  var result = [];
 
   function find2(startx, starty, history) {
     if (startx == x && starty == y) {
-      result.push(history)
+      result.push(history);
     } else if (startx < x && starty < y) {
-      find2(startx + 1, starty, history + '->')
-      find2(startx, starty + 1, history + 'A')
+      find2(startx + 1, starty, history + "->");
+      find2(startx, starty + 1, history + "A");
     }
   }
 
-  find2(0, 0, '')
-  return result
+  find2(0, 0, "");
+  return result;
 }
 ```
 
@@ -890,25 +878,28 @@ function weekday2(year, month) {
 
 ![reverseBits](./reverseBits.png)
 
-根据刚刚>>>符号的规则，最后返回sum>>>0就行了，相当于转成无符号数返回。
+根据刚刚>>>符号的规则，最后返回 sum>>>0 就行了，相当于转成无符号数返回。
 
 #### 7-01
 
 ```js
-var start = -3.14*2
-var end = 3.14*2
-var step = 0.24
-var factor = 30
-var f = (x,y) => 50 * (Math.sin(x) + Math.cos(y))
-var z
+var start = -3.14 * 2;
+var end = 3.14 * 2;
+var step = 0.24;
+var factor = 30;
+var f = (x, y) => 50 * (Math.sin(x) + Math.cos(y));
+var z;
 for (var x = start; x < end; x += step) {
   for (var y = start; y < end; y += step) {
-    z = f(x,y)
+    z = f(x, y);
     document.write(`
       <span style="
         background-color:hsl(${z},70%,50%);
-        transform: translate3d(${x*factor}px,${y*factor}px,${z}px) rotateY(${-Math.atan(Math.cos(x))}rad) rotateX(${Math.atan(-Math.sin(y))}rad)"></span>
-    `)
+        transform: translate3d(${x * factor}px,${y *
+      factor}px,${z}px) rotateY(${-Math.atan(
+      Math.cos(x)
+    )}rad) rotateX(${Math.atan(-Math.sin(y))}rad)"></span>
+    `);
   }
 }
 ```
@@ -917,17 +908,17 @@ for (var x = start; x < end; x += step) {
 
 ```js
 function flat(ary) {
-  var result = []
-  for(var i = 0; i < ary.length; i++) {
-    if ( Array.isArray(ary[i]) ) {
-      for(var j = 0; j < ary[i].length; j++) {
-        result.push(ary[i][j])
+  var result = [];
+  for (var i = 0; i < ary.length; i++) {
+    if (Array.isArray(ary[i])) {
+      for (var j = 0; j < ary[i].length; j++) {
+        result.push(ary[i][j]);
       }
     } else {
-      result.push(ary[i])
+      result.push(ary[i]);
     }
   }
-  return result
+  return result;
 }
 ```
 
@@ -935,128 +926,131 @@ function flat(ary) {
 function addEntry(squirrel, ...events) {
   return {
     squirrel: squirrel,
-    events: events,
-  }
+    events: events
+  };
 }
 ```
 
 作业：写程序输出一组看似随机的数。
 
-面试题：有一个函数返回1的概率为p, 返回0的概率为1-p, 基于此函数实现一个等概率返回0，1的函数
+面试题：有一个函数返回 1 的概率为 p, 返回 0 的概率为 1-p, 基于此函数实现一个等概率返回 0，1 的函数
 
 ```js
 var firstUniqChar = function(s) {
-    var countMap = {}
-    
-    for (var i = 0; i < s.length; i++) {
-        var char = s[i]
-        if (char in countMap) {
-            countMap[char]++
-        } else {
-            countMap[char] = 1
-        }
+  var countMap = {};
+
+  for (var i = 0; i < s.length; i++) {
+    var char = s[i];
+    if (char in countMap) {
+      countMap[char]++;
+    } else {
+      countMap[char] = 1;
     }
-    
-    for (var i = 0; i < s.length; i++) {
-        var char = s[i]
-        if (countMap[char] == 1) {
-            return i
-        }
+  }
+
+  for (var i = 0; i < s.length; i++) {
+    var char = s[i];
+    if (countMap[char] == 1) {
+      return i;
     }
-    
-    return -1
+  }
+
+  return -1;
 };
 ```
 
 #### 7-04
+
 ```js
-c = 0
-var cache = []
+c = 0;
+var cache = [];
 function fibb(n) {
-    if (cache[n]) {
-   	return cache[n]
-    }
-    c++
-    if (n <= 1) return 1
-var r = fibb(n-1) + fibb(n - 2)
-    cache[n] = r  
-    return r  
+  if (cache[n]) {
+    return cache[n];
+  }
+  c++;
+  if (n <= 1) return 1;
+  var r = fibb(n - 1) + fibb(n - 2);
+  cache[n] = r;
+  return r;
 }
 ```
 
 #### 7-08
+
 ```js
 function swap(ary, i, j) {
   if (i != j) {
-    var t = ary[i]
-    ary[i] = ary[j]
-    ary[j] = t
+    var t = ary[i];
+    ary[i] = ary[j];
+    ary[j] = t;
   }
 }
 function bubbleSort(ary) {
-  for(var j = ary.length - 2; j >= 0; j--) {
-    var swapped = false
-    for(var i = 0; i <= j; i++) {
+  for (var j = ary.length - 2; j >= 0; j--) {
+    var swapped = false;
+    for (var i = 0; i <= j; i++) {
       if (ary[i] > ary[i + 1]) {
-        swap(ary, i, i + 1)
-        swapped = true
+        swap(ary, i, i + 1);
+        swapped = true;
       }
     }
     if (!swapped) {
-      break
+      break;
     }
   }
-  return ary
+  return ary;
 }
 ```
 
 ```js
 function mergeSort(ary) {
   if (ary.length < 2) {
-    return ary.slice()
+    return ary.slice();
   }
-  var mid = ary.length >> 1
-  var left = ary.slice(0, mid)
-  var right = ary.slice(mid)
+  var mid = ary.length >> 1;
+  var left = ary.slice(0, mid);
+  var right = ary.slice(mid);
 
-  mergeSort(left)
-  mergeSort(right)
+  mergeSort(left);
+  mergeSort(right);
 
-  var i = 0
-  var j = 0
-  var k = 0
+  var i = 0;
+  var j = 0;
+  var k = 0;
 
-  while(i < left.length && j < right.length) {
+  while (i < left.length && j < right.length) {
     if (left[i] < right[j]) {
-      ary[k++] = left[i++]
+      ary[k++] = left[i++];
     } else {
-      ary[k++] = right[j++]
+      ary[k++] = right[j++];
     }
   }
   while (i < left.length) {
-    ary[k++] = left[i++]
+    ary[k++] = left[i++];
   }
   while (j < right.length) {
-    ary[k++] = right[j++]
+    ary[k++] = right[j++];
   }
-  return ary
+  return ary;
 }
 ```
 
 #### 7-09
+
 ```js
-function g(){
-  var a = 8
-  var b = {}
-  f(a,b)
-  console.log(a,b)
+function g() {
+  var a = 8;
+  var b = {};
+  f(a, b);
+  console.log(a, b);
 }
 
-function f(x,y) {
-  x = 10
-  y.foo = 8
+function f(x, y) {
+  x = 10;
+  y.foo = 8;
 }
-g()
+g();
 ```
 
 #### 7-10
@@ -1064,13 +1058,13 @@ g()
 ```js
 function d(f) {
   return function(x) {
-    var s = 0.000000000001
-    var x1 = x - s
-    var x2 = x + s
-    var y1 = f(x1)
-    var y2 = f(x2)
-    return (y2 - y1) / (x2 - x1)
-  }
+    var s = 0.000000000001;
+    var x1 = x - s;
+    var x2 = x + s;
+    var y1 = f(x1);
+    var y2 = f(x2);
+    return (y2 - y1) / (x2 - x1);
+  };
 }
 ```
 
@@ -1084,199 +1078,363 @@ ancestry
 #### 7-11
 
 ```js
-[1,2,3,4,5].reduce(function(memo, item, index, ary) {
-  if (index !== ary.length - 1) {
-    return memo + item
-  } else {
-    return (memo + item) / ary.length
-  }
-})
+[1, 2, 3, 4, 5]
+  .reduce(function(memo, item, index, ary) {
+    if (index !== ary.length - 1) {
+      return memo + item;
+    } else {
+      return (memo + item) / ary.length;
+    }
+  })
 
-[1,2,3,4,5].reduce(function(memo, item, index) {
-  return (memo * index + item) / (index + 1)
-})
-
-
+  [(1, 2, 3, 4, 5)].reduce(function(memo, item, index) {
+    return (memo * index + item) / (index + 1);
+  });
 
 ancestry
   .filter(man)
   .filter(is19s)
   .map(age)
-  .reduce(average)
-
-
+  .reduce(average);
 
 function map(ary, mapper) {
   return ary.reduce(function(result, item) {
-    result.push(mapper(item))
-    return result
-  }, [])
+    result.push(mapper(item));
+    return result;
+  }, []);
 }
 ```
 
 ```js
 function keyBy(ary, key) {
-  var result = {}
+  var result = {};
   ary.forEach(item => {
-    reslut[item[key]] = item
-  })
-  return result
+    reslut[item[key]] = item;
+  });
+  return result;
 }
 
 function keyBy(ary, key) {
   ary.reduce((result, item) => {
-    result[item[key]] = item
-    return result
-  }, {})
+    result[item[key]] = item;
+    return result;
+  }, {});
 }
 ```
 
 #### 7-16
+
 ```js
 function bind(f) {
-    var fixedArgs = Array.from(arguments).slice(1)
-    return function() {
-        var args = Array.from(arguments)
-        return f.apply(null, fixedArgs.concat(args))
-    }
+  var fixedArgs = Array.from(arguments).slice(1);
+  return function() {
+    var args = Array.from(arguments);
+    return f.apply(null, fixedArgs.concat(args));
+  };
 }
 ```
 
 ```js
 function flatten(ary) {
-    return flattenDepth(ary, 1)
+  return flattenDepth(ary, 1);
 }
 
 function flatten(ary) {
-    var result = []
-    for (var item of ary) {
-        if (Array.isArray(item)) {
-            result.push(...item)
-        } else {
-            result.push(item)
-        }
+  var result = [];
+  for (var item of ary) {
+    if (Array.isArray(item)) {
+      result.push(...item);
+    } else {
+      result.push(item);
     }
-    return result
+  }
+  return result;
 }
 
-function flatten(ary) { //[1,2,3,[4,5],[6,7]]
-    return [].concat(...ary)
+function flatten(ary) {
+  //[1,2,3,[4,5],[6,7]]
+  return [].concat(...ary);
 }
 
 function flattenDepth(ary, depth) {
-    return Array(depth).fill(0).reduce((ary) => {
-        return flatten(ary)
-    }, ary.slice())
+  return Array(depth)
+    .fill(0)
+    .reduce(ary => {
+      return flatten(ary);
+    }, ary.slice());
 }
 
 function flattenDeep(ary) {
-    var result = []
-    for(var item of ary) {
-        if (Array.isArray(item)) {
-            var flattedItem = flattenDeep(item)
-            result.push(...flattedItem)
-        } else {
-            result.push(item)
-        }
+  var result = [];
+  for (var item of ary) {
+    if (Array.isArray(item)) {
+      var flattedItem = flattenDeep(item);
+      result.push(...flattedItem);
+    } else {
+      result.push(item);
     }
-    return result
+  }
+  return result;
 }
 
 function flattenDeep(ary) {
-    return flattenDepth(ary, Infinity)
+  return flattenDepth(ary, Infinity);
 }
 
 function flattenDepth(ary, depth = 1) {
-    var result = []
-    for(var item of ary) {
-        if (Array.isArray(item)) {
-            var flattedItem = flattenDepth(item, depth - 1)
-            result.push(...flattedItem)
-        } else {
-            result.push(item)
-        }
+  var result = [];
+  for (var item of ary) {
+    if (Array.isArray(item)) {
+      var flattedItem = flattenDepth(item, depth - 1);
+      result.push(...flattedItem);
+    } else {
+      result.push(item);
     }
-    return result
+  }
+  return result;
 }
 ```
 
 ```js
-ancestry.filter(it => byName[it.mother]).map(it => {
-	var mother = byName[it.mother]
-	
-	var ageDiff = it.born - mother.born
-	return ageDiff
-}).reduce((avg, age, idx) => (avg * idx + age) / (idx + 1))
+ancestry
+  .filter(it => byName[it.mother])
+  .map(it => {
+    var mother = byName[it.mother];
+
+    var ageDiff = it.born - mother.born;
+    return ageDiff;
+  })
+  .reduce((avg, age, idx) => (avg * idx + age) / (idx + 1));
 ```
 
 ```js
 _.mapValues(_.groupBy(ancestry, it => Math.ceil(it.died / 100)), persons => {
-
-	return persons.map(it => it.died - it.born).reduce((a,v,i) => (a * i + v) / (i + 1))
-
-})
+  return persons
+    .map(it => it.died - it.born)
+    .reduce((a, v, i) => (a * i + v) / (i + 1));
+});
 ```
 
 ```js
 function some(ary, predicate) {
-    return !every(ary, negate(predicate))
+  return !every(ary, negate(predicate));
 }
 
 function every(ary, predicate) {
-    return !some(ary, negate(predicate))
+  return !some(ary, negate(predicate));
 }
 ```
 
 ```js
 function f() {
-    return true
+  return true;
 }
 
-var f2 = negate(f)
+var f2 = negate(f);
 
-var isMan = negate(isWoman)
+var isMan = negate(isWoman);
 
-var isNotPrime = negate(isPrime)
+var isNotPrime = negate(isPrime);
 
-var isOdd = negate(isEven)
+var isOdd = negate(isEven);
 
 function negate(f) {
-    return function(...args) {
-        return !f(...args)
-    }
+  return function(...args) {
+    return !f(...args);
+  };
 }
 ```
 
 ```js
-[
-    [1,2,3],
-    [1,2],
-    [4,5,2]
-].map(unary(spread(sum)))
+[[1, 2, 3], [1, 2], [4, 5, 2]].map(unary(spread(sum)));
 ```
 
 ```js
-['1','1101','101','11'].map( _.ary(_.flip(parseInt), 2).bind(null, 2))
+["1", "1101", "101", "11"].map(_.ary(_.flip(parseInt), 2).bind(null, 2));
 ```
+
+#### 7-19
+
+```js
+// Queue
+function Queue() {
+  this._head = null;
+  this._tail = null;
+}
+
+Queue.prototype = {
+  add(val) {
+    var node = {
+      val: val,
+      next: null
+    };
+    if (this._head == null) {
+      this._head = this._tail = node;
+    } else {
+      this._tail.next = node;
+      this._tail = node;
+    }
+    return this;
+  },
+  remove() {
+    if (!this._head) {
+      return undefined;
+    }
+    var node = this._head;
+    this._head = this._head.next;
+    if (this._head == null) {
+      this._tail = null;
+    }
+    return node.val;
+  }
+};
+
+// Stack
+function Stack() {
+  this._top = null;
+  this._elementCount = 0;
+}
+
+Stack.prototype = {
+  pop() {
+    if (this._top) {
+      var node = this._top;
+      this._top = this._top.next;
+      this._elementCount--;
+      return node.val;
+    } else {
+      return undefined;
+    }
+  },
+  push(val) {
+    this._elementCount++;
+    var node = {
+      val: val,
+      next: this._top
+    };
+    this._top = node;
+    return this;
+  },
+  get size() {
+    return this._elementCount;
+  }
+};
+```
+
+```js
+// homework
+class A {
+  static a() {}
+  static b() {}
+  constructor() {}
+  method1() {}
+  method2() {}
+  get length() {}
+  set length(val) {}
+}
+
+// queue
+class Queue {
+  static from(ary) {
+    var q = new Queue();
+    for (var val of ary) {
+      q.add(val);
+    }
+    return q;
+  }
+
+  constructor(initVals) {
+    this._head = null;
+    this._tail = null;
+
+    for (var val of initVals) {
+      this.add(val);
+    }
+  }
+
+  add(val) {
+    var node = {
+      val: val,
+      next: null
+    };
+    if (this._head == null) {
+      this._head = this._tail = node;
+    } else {
+      this._tail.next = node;
+      this._tail = node;
+    }
+    return this;
+  }
+
+  remove() {
+    if (!this._head) {
+      return undefined;
+    }
+    var node = this._head;
+    this._head = this._head.next;
+    if (this._head == null) {
+      this._tail = null;
+    }
+    return node.val;
+  }
+
+  get size() {
+    return this._size;
+  }
+}
+
+// Set 集合
+class MySet {
+  constructor(initialValues) {}
+
+  add(val) {}
+
+  remove(val) {}
+
+  has(val) {}
+
+  clear() {}
+
+  get size() {}
+}
+
+// Map 映射
+class MyMap {
+  constructor(initialMaps) {}
+
+  set(key, val) {}
+
+  get(key) {}
+
+  delete(key) {}
+
+  has(key) {}
+
+  clear() {}
+
+  get size() {}
+}
+```
+
 ### LeedCode
 
 #### 6-19
 
-[perfect-number](https://leetcode.com/problems/perfect-number/)
+<!-- [perfect-number](https://leetcode.com/problems/perfect-number/) -->
 
-[ugly-number](https://leetcode.com/problems/ugly-number/)
+<!--* [ugly-number](https://leetcode.com/problems/ugly-number/) -->
 
-[sqrtx](https://leetcode.com/problems/sqrtx/)
+<!--! [sqrtx](https://leetcode.com/problems/sqrtx/) 牛顿迭代法-->
 
-[valid-perfect-square](https://leetcode.com/problems/valid-perfect-square/)
+<!-- [valid-perfect-square](https://leetcode.com/problems/valid-perfect-square/) -->
 
-[happy-number](https://leetcode.com/problems/happy-number/)
+<!-- [happy-number](https://leetcode.com/problems/happy-number/) 数字规律-->
 
-[palindrome-number](https://leetcode.com/problems/palindrome-number/)
+<!-- [palindrome-number](https://leetcode.com/problems/palindrome-number/) -->
 
-[powx-n](https://leetcode.com/problems/powx-n/)
+<!--! [powx-n](https://leetcode.com/problems/powx-n/) -->
 
-[power-of-three](https://leetcode.com/problems/power-of-three/)
+<!--!(n & n - 1) [power-of-three](https://leetcode.com/problems/power-of-three/) -->
 
 [power-of-four](https://leetcode.com/problems/power-of-four/)
 
@@ -1292,7 +1450,6 @@ function negate(f) {
 
 [reverse-integer](https://leetcode.com/problems/reverse-integer/)
 
-
 #### 6-25
 
 [binary-gap](https://leetcode.com/problems/binary-gap/description/)
@@ -1302,7 +1459,6 @@ function negate(f) {
 [sum-of-square-numbers](https://leetcode.com/problems/sum-of-square-numbers/description/)
 
 [number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/description/)
-
 
 #### 6-26
 
@@ -1326,7 +1482,6 @@ function negate(f) {
 
 [counting-bits](https://leetcode.com/problems/counting-bits/)
 
-
 #### 6-27
 
 [multiply-strings](https://leetcode.com/problems/multiply-strings/description/)
@@ -1339,14 +1494,14 @@ function negate(f) {
 
 #### 6-28
 
-[maximum](https://leetcode.com/problems/maximum-subarray/) 此题与Max Consecutive Ones本质是一样的。
+[maximum](https://leetcode.com/problems/maximum-subarray/) 此题与 Max Consecutive Ones 本质是一样的。
 
 [minimum-moves-to-equal-array-elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)
 [minimum-moves-to-equal-array-elements-2](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/)
 [longest-common-prefix](https://leetcode.com/problems/longest-common-prefix/)
 
 [excel-sheet-column-number](https://leetcode.com/problems/excel-sheet-column-number/)
-[excel-sheet-column-title](https://leetcode.com/problems/excel-sheet-column-title/) 这两个题目的实质是进制转换。 
+[excel-sheet-column-title](https://leetcode.com/problems/excel-sheet-column-title/) 这两个题目的实质是进制转换。
 
 [climbing-stairs](https://leetcode.com/problems/climbing-stairs/description/)
 
@@ -1382,7 +1537,7 @@ function negate(f) {
 (上题可以用全部异或做，也可以用映射做
 
 [happy-number](https://leetcode.com/problems/happy-number)
-此题如何不知道happy number会进入4的循环，则需要用映射记录出现过的数
+此题如何不知道 happy number 会进入 4 的循环，则需要用映射记录出现过的数
 
 [keyboard-row](https://leetcode.com/problems/keyboard-row)
 
@@ -1435,13 +1590,13 @@ function negate(f) {
 
 <!-- [construct-binary-tree-from-preorder-and-inorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal) -->
 
-<!-- ![binary-tree-level-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal) -->
+<!-- ![binary-tree-lev el-order-traversal](https://leetcode.com/problems/binary-tree-level-order-traversal) -->
 
-[maximum-depth-of-n-ary-tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree)
+<!-- * [maximum-depth-of-n-ary-tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree) -->
 
 <!-- [construct-binary-tree-from-preorder-and-postorder-traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal) -->
 
-[sum-of-left-leaves](https://leetcode.com/problems/sum-of-left-leaves)
+<!-- [sum-of-left-leaves](https://leetcode.com/problems/sum-of-left-leaves) -->
 
 [serialize-and-deserialize-binary-tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/)
 
@@ -1460,30 +1615,82 @@ function negate(f) {
 [complex-number-multiplication](https://leetcode.com/problems/complex-number-multiplication/description/)
 
 #### 7-16
-[kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/
 
-[majority-element](https://leetcode.com/problems/majority-element/description/
+<!-- [kth-largest-element-in-an-array](https://leetcode.com/problems/kth-largest-element-in-an-array/description/ -->
 
-[third-maximum-number](https://leetcode.com/problems/third-maximum-number/description/
+<!-- [majority-element](https://leetcode.com/problems/majority-element/description/ -->
+
+<!-- !（快排要消除重复项）[third-maximum-number](https://leetcode.com/problems/third-maximum-number/description/ -->
+
+#### 7-18
+
+<!-- * [transpose-matrix](https://leetcode.com/problems/transpose-matrix/description/) -->
+
+#### 7-21
+
+<!-- [kth-largest-element-in-a-stream](https://leetcode.com/problems/kth-largest-element-in-a-stream) -->
+[merge-k-sorted-lists](https://leetcode.com/problems/merge-k-sorted-lists)
+
+#### 7-23
+
+[lowest-common-ancestor-of-a-binary-tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree)
+
+[lowest-common-ancestor-of-a-binary-search-tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree)
+
+[balanced-binary-tree](https://leetcode.com/problems/balanced-binary-tree)
+
+```js
+function balanced(root){
+  if(root){
+    // * dl, dr 既表示数的深度, 也表示是否为平衡树
+    // * 如果root不为平衡树, 则返回-1
+    // * 如果root为平衡树, 则返回深度
+    // * 
+    var dl = balanced(root.left)
+    if(dl === -1) return -1
+    var dr = balanced(root.right)
+    if(dr === -1) return -1
+    if(Math.abs(dl - dr) <= 1) return Math.max(dl, dr) + 1
+    else{return -1} 
+  }
+  return 0
+}
+```
+
+[validate-binary-search-tree](https://leetcode.com/problems/validate-binary-search-tree)
+```js
+let previous = -Infinity
+function traverse(root){
+  if(root){
+    if(!traverse(root.left)) return false
+    if(root.val <= previous) return false
+    previous = root.val
+    if(!traverse(root.right)) return false
+  }
+  return true
+}
+```
+
+[minimum-distance-between-bst-nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes)
 
 ### lodash
 
-手动实现lodash的函数
+手动实现 lodash 的函数
 
 [lodash](http://xieranmaya.coding.me/lodash-oj6/)
 
 ```js
 var USERNAME = {
   compact: function(ary) {
-    return ary.filter(it => it)
-  },
-}
-文件内容的基本模板
+    return ary.filter(it => it);
+  }
+};
+文件内容的基本模板;
 ```
 
 ### CSS & HTML
 
-[作业：使用flex实现上页footer效果](https://getbootstrap.com/docs/3.4/examples/sticky-footer-navbar/)
+[作业：使用 flex 实现上页 footer 效果](https://getbootstrap.com/docs/3.4/examples/sticky-footer-navbar/)
 
 ## Note
 
@@ -1494,32 +1701,31 @@ var USERNAME = {
 
 #### 6-28
 
-思考：为什么一步两步上楼梯，n级楼梯的走法正好是fibb（n)
+思考：为什么一步两步上楼梯，n 级楼梯的走法正好是 fibb（n)
 
-使用document.write绘制z = sin(x) + cos(y)的三维图像
+使用 document.write 绘制 z = sin(x) + cos(y)的三维图像
 
 #### 7-01
 
-
 向文档的解析流里写入内容
 
-文档一里解析完成<双击查看原图ml>，解析流会关闭
+文档一里解析完成<双击查看原图 ml>，解析流会关闭
 
-重新write会导致重新打开一个解析流，之前的内容会被完全覆盖掉
+重新 write 会导致重新打开一个解析流，之前的内容会被完全覆盖掉
 
-会冲掉所有的html内容，但js运行后创建的函数及变量是没有冲掉的
+会冲掉所有的 html 内容，但 js 运行后创建的函数及变量是没有冲掉的
 
 `document.open()` 打开解析流
 
 `document.close()` 关闭解析流
 
-JS中所有位运算只能整数才能参与, 浮点数参与时，保留整数部分参与, JS中浮点数的范围远高于32位整数的范围, 运算结果以有符号32位数理解, 除了>>>运算符，它的运算结果以无符号整数理解, 最后开始的括号如果还没闭合的话，之前开始的括号就不能闭合. 如果任何一个括号内部的括号没有闭合，它自己就不能闭合.
+JS 中所有位运算只能整数才能参与, 浮点数参与时，保留整数部分参与, JS 中浮点数的范围远高于 32 位整数的范围, 运算结果以有符号 32 位数理解, 除了>>>运算符，它的运算结果以无符号整数理解, 最后开始的括号如果还没闭合的话，之前开始的括号就不能闭合. 如果任何一个括号内部的括号没有闭合，它自己就不能闭合.
 
-[用c语言画直线](https://zhuanlan.zhihu.com/p/30553006)
+[用 c 语言画直线](https://zhuanlan.zhihu.com/p/30553006)
 
-UTF8编码特点：
+UTF8 编码特点：
 变长
-兼容标准ASCII
+兼容标准 ASCII
 容错
 
 数组是值的有序集合, 对象是值的具（有）名（字的）集合
@@ -1530,24 +1736,148 @@ UTF8编码特点：
 【明确】函数的功能：接收什么参数，做什么事情，返回什么值。认为这个已经正确实现了。
 
 什么时候要返回值，什么时候不需要返回值：
-  * 执行操作而不求出结果的，一般不需要返回值（排序）
-  * 计算出一个结果的，往往需要返回值
-  * 纯函数需要返回值
-  * 非纯函数（副作用函数）不需要返回值。
+
+- 执行操作而不求出结果的，一般不需要返回值（排序）
+- 计算出一个结果的，往往需要返回值
+- 纯函数需要返回值
+- 非纯函数（副作用函数）不需要返回值。
 
 #### 7-15
 
 排序时不改变相同元素的位置, 就称算法是稳定的
-* 冒泡
-* 归并
-* 插入
-* BST排序(>=root放在root的右边)
-* !非就地快排(返回新数组, 相等项会按照原顺序push进保存相等项的数组)
-如果改变相同元素的位置, 就为不稳定的
-* 选择
-* 就地快排(交换时, 会改变原有相等项的位置)
 
-当元素为对象(或是拥有不同数据时), 当其中一组数据已排好序时, 使用不稳定算法对另一组数据进行排序时, 可能会打乱相同项的另一组已排好数据(会改变相同项的原有顺序)
+- 冒泡
+- 归并
+- 插入
+- BST 排序(>=root 放在 root 的右边)
+- !非就地快排(返回新数组, 相等项会按照原顺序 push 进保存相等项的数组)
+  如果改变相同元素的位置, 就为不稳定的
+- 选择
+- 就地快排(交换时, 会改变原有相等项的位置)
+
+不稳定性的缺点 当元素为对象(或是拥有不同数据时), 当其中一组数据已排好序时, 使用不稳定算法对另一组数据进行排序时, 可能会打乱相同项的另一组已排好数据(会改变相同项的原有顺序)
+
+#### 7-16
+
+快排时, 每次遍历时挑选的随机元素, 在遍历完成后位置就会固定
+
+#### 7-17
+
+`/** *` 添加 JS 文档
+
+几乎任何对象都有原型的"原型"指用来查找属性的 obj.**proto**(Object.getPrototypeOf(obj)) 原型
+每个函数(一般只有函数才有)都有一个原型属性指的是 f.prototype(实例的原型), 原型属性
+
+`Object.prototype.toString.apply([])` 通过`apply()`将`Object.prototype.toString`方法的`this`修改为`apply`的 parameter
+
+```js
+function isArray(val) {
+  return Object.prototype.toString.call(val) === "[object Array]";
+}
+```
+
+#### 7-18
+
+`Object(a) => typeof a => object`
+
+OOP
+
+表示一个事物的信息是离散存放的, 对这个事物的操作也是离散存放的函数
+
+- 封装: 把表达一个事物的信息及对其可能进行的操作(function/method)放在一起; 隐藏起来, 只通过特定接口传递信息
+
+- 相同的一类对象, 拥有相同的属性和方法(function)
+- `class` `Object`
+-
+- 继承: 一个类获取另一个类的所有属性和方法
+- 多态: 有特定一组属性和方法(API, 黑盒)
+
+```js
+let rabbit = {
+  name: "kat",
+  color: "white",
+  speak: function() {}
+};
+
+// * Dog 继承 Creature
+Object.setPrototypeOf(Dog.prototype, Creature.prototype);
+```
+
+#### 7-19
+
+```js
+Object.defineProperty(obj, "foo", { value: 8 } /*属性描述符*/); //-> 不可重写, 不可重新赋值
+Object.defineProperty(obj, "bar", {
+  value: 9,
+  configurable: true /*可重新声明*/
+});
+```
+
+属性描述符: 构造属性的值, 是否可枚举, 是否可 rewrite, 可否重新声明赋值
+
+```js
+Object.assign(),
+Object.merge
+Object.defineProperties(obj, {a1: {value: 1}, a2: {value: 2}})
+Object.keys()
+Object.values()
+...
+```
+
+浅复制, 深复制
+
+<!-- ? 浅赋值, 深赋值 -->
+
+基本类型的 property(Number.property, Array.property,...) 为其基本类型的实例(历史问题, **proto** => Object.property)
+
+函数重载(模仿):
+
+```js
+function Complex(real, image) {}
+Complex.fromString = function(str) {};
+Complex.copy = function(c) {};
+
+// others
+Array.of(1, 2, 3, 4, 5);
+```
+
+#### 7-22
+
+堆(Heap) 数据结构, 也叫优先队列(PriorityQueue)不同于"Heap memory 堆内存"
+* 堆内存对应概念是栈内存
+* 栈空间指存储正在等待函数调用返回的局部变量的一块内存
+* 调用栈指函数之间相互调用及等待的逻辑概念
+`JavaScript heap out of memory` 用光可用内存
+
+堆/栈内存中数据的调用和存储
+
+堆=>完全二叉树: 最大堆积(max heap) 其中父节点大于两个子节点, root节点为**最大值**; 最小堆积(minum heap) 父节点小于两个子节点, root节点为**最小值**
+
+主要支持两种操作:
+* 取出最值(root节点)
+* 向堆中添加值 O(logN)
+
+通过无序数组构建heap O(N*log(N))
+
+操作后不影响原本堆(heap)的性质(添加/删除后重新对heap进行排序)
+
+#### 7-25
+
+Hash
+
+最好的Hash算法
+* 相同Key值映射的index值相同
+* 不同的key值映射的index值不同
+* 不同的key值映射出的index值均匀分布
+
+由于key值无法预测, hash算法一定会遇到冲突: 不同key值映射出相同的index
+
+处理冲突
+* 开放定址法
+
+实例
+* MD5
+* sha1
 
 ## other
 
@@ -1555,17 +1885,17 @@ flags[nums[i]]
 
 `str.charCodeAt/charAt`
 
-`document.write()` 向文档的解析流中写入内容; 文档一旦解析完成, 解析流就会关闭, 重新write会使浏览器重新打开一个解析流
+`document.write()` 向文档的解析流中写入内容; 文档一旦解析完成, 解析流就会关闭, 重新 write 会使浏览器重新打开一个解析流
 
 `use strict` 严格模式
 
-`012` 0前置表示octal, 易混淆, 严格模式下报错
+`012` 0 前置表示 octal, 易混淆, 严格模式下报错
 
 ## JS 位运算
 
-操作数都为整数, 浮点数会被自动转换为整数(舍弃小数部分); 由于JS中浮点数的范围高于32bits, 运算结果转换为signed 32位整数(`>>>` 则以unsigned整数转换)
+操作数都为整数, 浮点数会被自动转换为整数(舍弃小数部分); 由于 JS 中浮点数的范围高于 32bits, 运算结果转换为 signed 32 位整数(`>>>` 则以 unsigned 整数转换)
 
-浮点数才有正负0, 使用浮点数的符号位表示正负(并不会被读取) 而整数符号位可以被读取(整数符号位为1剩余部分为0 的结果为最大负数)
+浮点数才有正负 0, 使用浮点数的符号位表示正负(并不会被读取) 而整数符号位可以被读取(整数符号位为 1 剩余部分为 0 的结果为最大负数)
 
 曼哈顿距离 (x2-x1 + y2-y1)
 
@@ -1573,9 +1903,9 @@ flags[nums[i]]
 
 Utf-8 1110[____] 10[______] 10[______] 通过特定结构来判断新的字符开头或结束
 
-变长, 容错率高, 兼容ASCⅡ
+变长, 容错率高, 兼容 ASCⅡ
 
- ## 7-5
+## 7-5
 
 随机数
 
@@ -1586,15 +1916,15 @@ typeof `undefined` `function`
 ## 7-9
 
 ```js
-fun = function (){}
-fun.apply(null, [1, 2, 3])
-fun(...[1, 2, 3]) 
+fun = function() {};
+fun.apply(null, [1, 2, 3]);
+fun(...[1, 2, 3]);
 // * 形参个数
-fun.length
+fun.length;
 // * 函数的源代码
-fun.toString()
+fun.toString();
 // * 函数的名字
-fun.name
+fun.name;
 ```
 
 JSON
@@ -1611,5 +1941,3 @@ ym.
 ## 问题
 
 6-18 paint.html
-
-

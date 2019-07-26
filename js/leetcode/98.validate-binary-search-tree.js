@@ -15,12 +15,20 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    // * 左子节点的值小于root, 右子节点的值大于root
-    if(root){
-      
-      if(root.left && root.left.val >= root.val) return false
-      if(root.right && root.right.val < root.val) return false
-      ;e
+    // * prev 初始值要小于树的最小值
+    let prev = -Infinity
+    return traverse(root)
+    function traverse(root){
+      if(root){
+        // * 对左子树进行递归操作
+        if(!traverse(root.left)) return false
+        // * 位于左子树时, prev为左节点值
+        // * 位于右子树时, prev为root值
+        if(root.val <= prev) return false
+        prev = root.val
+        if(!traverse(root.right)) return false
+        return true
+      }
+      return true
     }
-    return true
-}
+  }

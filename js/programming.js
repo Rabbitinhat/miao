@@ -292,7 +292,7 @@ function swap(ary, i, j){
 // * 对于所有元素都相同的数组来说, 性能会退化为n*n, 调用栈也会达到n层
 function quickSort(ary, start=0, end=ary.length-1){
   let random = Math.floor(Math.random() * (end - start + 1) + start)
-  swap(ary, random, ary.length-1)
+  swap(ary, random, end)
 
   let i = start - 1
   for(let j = start; j < end; j++){
@@ -349,4 +349,51 @@ function bind(f){
     return f.apply(null, fixedArgs.concat(args))
   }
 }
+
+function filter(ary, predicate){
+  var result = []
+  for(let i=0; i < ary.length; i++){
+    if(predicate(ary[i], i, ary)){
+      result.push(ary[i])
+    }
+  }
+  return result
+}
+
+
+rows.map(row => Math.max(row => row.minHeight()))
+
+function Complex(real, image){
+  this.real = real
+  this.image = image
+}
+
+Complex.prototype = {
+  get getString(){
+    return this.real + "" + (this.image >= 0 ? "" : "-") + (Math.abs(this.iamge) > 1 ? Math.abs(this.iamge) : "") + (this.image === 0 ? "" : "i")
+  },
+  plus(c){
+    var real = this.real + c.real
+    var image = this.iamge + c.image
+    return new Complex(real, image)
+  },
+  minu(c){
+    // * 加法实现减法?
+
+  },
+  mul(c){
+    var real = this.real * c.real - this.image * c.image
+    var imag = this.real * c.image + this.image * c.image
+  },
+  division(c){
+
+  }
+}
+
+var c1 = new Complex(2, 3) //-> 2 + 3i
+var c2 = new Complex(3, -5) //->3 - 5i
+
+console.log(c1.getString) // "2 + 3i"
+console.log(new Complex(1, 0).getString)
+console.log(new Complex(3, -3).getString)
 
