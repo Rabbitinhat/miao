@@ -292,3 +292,23 @@ var sortArray = function(nums) {
 }
 
 console.log(sortArray(array))
+
+// NOTE tag string 標簽字符串
+// NOTE strings參數為模板字符串被占位符分隔后的字符串數組
+function template(strings, ...keys){
+  return (function(...values){
+    var dict = values[values.length-1] || {}
+    // ANCHOR 保留模板字符串中字符串部分
+    var result = [strings[0]]
+    keys.forEach(function(key, i){
+      var value = Number.isInteger(key)? values[key] : dict[key]
+      result.push(value, strings[i+1])
+    })
+    return result.join('')
+  })
+}
+
+var t1Closure = template`Hi! ${0}goo${1}d${0}!`
+console.log(t1Closure('Y', 'A'))
+var t2Closure = template`JavaScript ${0}${'foo'}`
+console.log(t2Closure('Hello', {foo: 'World'}))

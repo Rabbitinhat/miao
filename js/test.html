@@ -1,0 +1,22 @@
+<script>
+var threeSum = function(nums) {
+  let result = [];
+  let map = new Map();
+  nums.sort((a, b) => a-b);
+  for (let i = 1; i < nums.length - 1; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      let m = i+1;
+      let n = nums.length - 1;
+      while (m < n) {
+        if (nums[m] + nums[n] + nums[i] === 0) {
+          result.push([nums[i], nums[m], nums[n]]);
+          m++;
+          n--;
+        } else if (nums[m] + nums[n] + nums[i] > 0) n--;
+        else if (nums[m] + nums[n] + nums[i] < 0) m++;
+      }
+    }
+    }
+  return result;
+};
+</script>

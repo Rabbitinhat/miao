@@ -225,7 +225,7 @@ for (var light = 1; light <= n; light++) {
   var isLightOn = true;
 
   for (var p = 1; p <= m; p++) {
-    if (light % p == 0) {
+    if (light % p == 0) {9
       isLightOn = !isLightOn;
     }
   }
@@ -1436,109 +1436,112 @@ class MyMap {
 
 <!--!(n & n - 1) [power-of-three](https://leetcode.com/problems/power-of-three/) -->
 
-[power-of-four](https://leetcode.com/problems/power-of-four/)
+<!--!(n & n - 1) [power-of-four](https://leetcode.com/problems/power-of-four/) -->
 
-[power-of-two](https://leetcode.com/problems/power-of-two/)
+<!--!(n & n - 1) [power-of-two](https://leetcode.com/problems/power-of-two/) -->
 
-[hamming-distance](https://leetcode.com/problems/hamming-distance/)
+<!--!(n & n - 1) [hamming-distance](httzps://leetcode.com/problems/hamming-distance/) -->
 
-[self-dividing-numbers](https://leetcode.com/problems/self-dividing-numbers/)
+<!-- [self-dividing-numbers](https://leetcode.com/problems/self-dividing-numbers/) -->
 
-[base-7](https://leetcode.com/problems/base-7/)
+<!-- [base-7](https://leetcode.com/problems/base-7/) -->
 
-[add-digits](https://leetcode.com/problems/add-digits/)
+<!--! 规律总结 [add-digits](https://leetcode.com/problems/add-digits/) -->
 
-[reverse-integer](https://leetcode.com/problems/reverse-integer/)
+<!-- [reverse-integer](https://leetcode.com/problems/reverse-integer/) -->
 
 #### 6-25
 
-[binary-gap](https://leetcode.com/problems/binary-gap/description/)
+<!-- [binary-gap](https://leetcode.com/problems/binary-gap/description/) -->
 
-[reverse-bits](https://leetcode.com/problems/reverse-bits/description/)
+<!--! unsigned integer [reverse-bits](https://leetcode.com/problems/reverse-bits/description/) -->
 
-[sum-of-square-numbers](https://leetcode.com/problems/sum-of-square-numbers/description/)
+<!--! sqrt 双指针 [sum-of-square-numbers](https://leetcode.com/problems/sum-of-square-numbers/description/) -->
 
-[number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/description/)
+<!-- [number-of-1-bits](https://leetcode.com/problems/number-of-1-bits/description/) -->
 
 #### 6-26
 
-[move-zeros](https://leetcode.com/problems/move-zeroes/)
+<!-- [move-zeros](https://leetcode.com/problems/move-zeroes/) -->
 
-[missing-number](https://leetcode.com/problems/missing-number/)
+<!--! var b = (nums.length) * (nums.length + 1) /2
+    return b-a
+     [missing-number](https://leetcode.com/problems/missing-number/) -->
 
-[plus-one](https://leetcode.com/problems/plus-one/)
+<!-- [plus-one](https://leetcode.com/problems/plus-one/) -->
 
-[max-consecutive-ones](https://leetcode.com/problems/max-consecutive-ones/)
+<!-- [max-consecutive-ones](https://leetcode.com/problems/max-consecutive-ones/) -->
 
-[fizz-buzz](https://leetcode.com/problems/fizz-buzz/)
+<!-- [fizz-buzz](https://leetcode.com/problems/fizz-buzz/) -->
 
-[search-insert-position](https://leetcode.com/problems/search-insert-position/)
+<!-- [search-insert-position](https://leetcode.com/problems/search-insert-position/) -->
 
-[merge-sorted-array](https://leetcode.com/problems/merge-sorted-array/)
+<!-- [merge-sorted-array](https://leetcode.com/problems/merge-sorted-array/) -->
 
-[remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+<!-- [remove-duplicates-from-sorted-array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) -->
 
-[two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+<!-- [two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) -->
 
-[counting-bits](https://leetcode.com/problems/counting-bits/)
+<!--? [counting-bits](https://leetcode.com/problems/counting-bits/) -->
 
 #### 6-27
 
-[multiply-strings](https://leetcode.com/problems/multiply-strings/description/)
+<!-- [multiply-strings](https://leetcode.com/problems/multiply-strings/description/) -->
 
-[add-strings](https://leetcode.com/problems/add-strings/description/)
+<!-- [add-strings](https://leetcode.com/problems/add-strings/description/) -->
 
-[add-binary](https://leetcode.com/problems/add-binary/description/)
+<!-- [add-binary](https://leetcode.com/problems/add-binary/description/) -->
 
-[add-to-array-form-of-integer](https://leetcode.com/problems/add-to-array-form-of-integer/description/)
+<!-- [add-to-array-form-of-integer](https://leetcode.com/problems/add-to-array-form-of-integer/description/) -->
 
 #### 6-28
 
 [maximum](https://leetcode.com/problems/maximum-subarray/) 此题与 Max Consecutive Ones 本质是一样的。
 
-[minimum-moves-to-equal-array-elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)
-[minimum-moves-to-equal-array-elements-2](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/)
-[longest-common-prefix](https://leetcode.com/problems/longest-common-prefix/)
+NOTE 数组中所有元素相邻项差之和 [minimum-moves-to-equal-array-elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/)
+NOTE 数组中所有项和中间项的差之和 [minimum-moves-to-equal-array-elements-2](https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/)
+NOTE 可以外层循环数组第一项字符串, 内层循环数组值[longest-common-prefix](https://leetcode.com/problems/longest-common-prefix/)
 
-[excel-sheet-column-number](https://leetcode.com/problems/excel-sheet-column-number/)
+NOTE 进制转换, 注意一下余数的表示[excel-sheet-column-number](https://leetcode.com/problems/excel-sheet-column-number/)
 [excel-sheet-column-title](https://leetcode.com/problems/excel-sheet-column-title/) 这两个题目的实质是进制转换。
 
-[climbing-stairs](https://leetcode.com/problems/climbing-stairs/description/)
+NOTE  斐波那契數列 [ climbing-stairs](https://leetcode.com/problems/climbing-stairs/description/)
 
-[find-minmum-in-rotated-sorted-array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) 二分法，不过情况比一般的二分都要复杂一些
+NOTE  二分, 但要考慮多種情況(length為1, 2; length>3時, 最小元素位於數組内部, 每次選取中點, 儅中點的數組值>end, 判斷右邊; 否則判斷左邊)[find-minmum-in-rotated-sorted-array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) 二分法，不过情况比一般的二分都要复杂一些
 
-[search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/) 与上题相同的题目，代码稍做修改应该可以过
+FIXME  邊界判斷 [search-in-rotated-sorted-array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/) 与上题相同的题目，代码稍做修改应该可以过
 
-[integer-to-roman](https://leetcode.com/problems/integer-to-roman/)
+FIXME if判斷, switch語句 [integer-to-roman](https://leetcode.com/problems/integer-to-roman/)
 
-[roman-to-integer](https://leetcode.com/problems/roman-to-integer/)
+FIXME [roman-to-integer](https://leetcode.com/problems/roman-to-integer/)
 
-[distribute-candies](https://leetcode.com/problems/distribute-candies/)
+REVIEW [distribute-candies](https://leetcode.com/problems/distribute-candies/)
 
-[binary-search](https://leetcode.com/problems/binary-search/description/) 标准二分
+NOTE 使用遞歸時, 記得保存return value[binary-search](https://leetcode.com/problems/binary-search/description/) 标准二分
 
-[valid-parentheses](https://leetcode.com/problems/valid-parentheses/)
+NOTE Stack [valid-parentheses](https://leetcode.com/problems/valid-parentheses/)
 
-[utf-8-validation](https://leetcode.com/problems/utf-8-validation/description/)
+REVIEW [utf-8-validation](https://leetcode.com/problems/utf-8-validation/description/)
 
-[squares-of-a-sorted-array](https://leetcode.com/problems/squares-of-a-sorted-array/) 双指针
+REVIEW 數組排序 [squares-of-a-sorted-array](https://leetcode.com/problems/squares-of-a-sorted-array/) 双指针
 
-[add-to-array-form-of-integer](https://leetcode.com/problems/add-to-array-form-of-integer/description/) 水题
+NOTE 遍歷數組, 每位數字%10, /10為進位[add-to-array-form-of-integer](https://leetcode.com/problems/add-to-array-form-of-integer/description/) 水题
 
 #### 7-03
 
-[first-unique-character-in-a-string](https://leetcode.com/problems/first-unique-character-in-a-string/description/)
+NOTE 映射, 遍歷數組兩邊 [first-unique-character-in-a-string](https://leetcode.com/problems/first-unique-character-in-a-string/description/)
 
-[two-sum](https://leetcode.com/problems/two-sum/description/)
+NOTE 映射, hashTable [two-sum](https://leetcode.com/problems/two-sum/description/)
 
-[group-anagrams](https://leetcode.com/problems/group-anagrams)
+REVIEW  判斷字符相同?(將單詞分割排序再轉換為字符串作爲key值保存在map中(str.split("").sort().join("")), 最後forEach返回map中的值) [group-anagrams](https://leetcode.com/problems/group-anagrams)
 
-[single-number](https://leetcode.com/problems/single-number)
+NOTE 異或排除相等項或map記錄出現次數 [single-number](https://leetcode.com/problems/single-number)
 (上题可以用全部异或做，也可以用映射做
 
-[happy-number](https://leetcode.com/problems/happy-number)
+NOTE 規律 [happy-number](https://leetcode.com/problems/happy-number)
 此题如何不知道 happy number 会进入 4 的循环，则需要用映射记录出现过的数
 
+NOTE 建立鍵盤中所有字母的映射, 按照行分別賦值0,1,2; 對數組中每個單詞的字符進行遍歷, 使用[0,0,0]記錄字母所在行的位置, 遍歷一邊單詞后, 將[0, 0, 0]中三個值相加判斷是否只需要一行
 [keyboard-row](https://leetcode.com/problems/keyboard-row)
 
 [distribute-candies](https://leetcode.com/problems/distribute-candies)
@@ -1672,6 +1675,17 @@ function traverse(root){
 ```
 
 [minimum-distance-between-bst-nodes](https://leetcode.com/problems/minimum-distance-between-bst-nodes)
+
+#### 7-24
+
+[simplify-path](https://leetcode.com/problems/simplify-path/)
+
+#### 7-25
+[evaluate-reverse-polish-notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/
+)
+#### 7-26
+
+[container-with-most-water](https://leetcode.com/problems/container-with-most-water/) two sum变形
 
 ### lodash
 
