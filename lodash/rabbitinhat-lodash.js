@@ -1,3 +1,4 @@
+// @ts-check
 var rabbitinhat = function(){
   // ! Array
   function compact(ary){
@@ -7,7 +8,11 @@ var rabbitinhat = function(){
     }
     return result
   }
-
+/**
+ * 
+ * @param {Array} ary 
+ * @param  {...any} values 
+ */
   function concat(ary, ...values){
     let result = []
     // * 先将数组中保存的元素放入新数组中
@@ -30,6 +35,11 @@ var rabbitinhat = function(){
       return result
     }
 
+    /**
+     * 
+     * @param {Array} ary 
+     * @param  {...any} values 
+     */
     function difference(ary, ...values){
       let result = []
       // * result 作为ary的副本
@@ -41,6 +51,11 @@ var rabbitinhat = function(){
       return result
     }
     // * 二分查找
+    /**
+     * 
+     * @param {Number} value 
+     * @param {Array} ary 
+     */
     function binarySearch(value, ary){
       let start = 0
       let end = ary.length - 1
@@ -66,6 +81,12 @@ var rabbitinhat = function(){
       
     // }
 
+    /**
+     * 
+     * @param {Array} ary 
+     * @param {Object} values 
+     * @param {String} comparator 
+     */
     function differenceBy(ary, values, comparator){
       let result = []
       result = ary.slice()
@@ -77,12 +98,20 @@ var rabbitinhat = function(){
 
     // * flatten flattens array a single level deep
     // * _.flatten(array)
+    /**
+     * 
+     * @param {Array} array 
+     */
     function flatten(array){
       return [].concat(...array)
     }
 
     // * flattenDeep 递归展平数组
     // * _.flatten(array)
+    /**
+     * 
+     * @param {Array} ary 
+     */
     function flattenDeep(ary){
       let result = []
       for(let element of ary){
@@ -98,16 +127,71 @@ var rabbitinhat = function(){
 
     // * flattenDepth 展平给定深度
     // * _.flattenDepth(array, [depth=1])
+    /**
+     * 
+     * @param {Array} array 
+     * @param {Number} depth 
+     */
     function flattenDepth(array, depth=1){
       for(let i=0; i<depth; i++){
         array = flatten(array)
       }
       return array
     }
+
+    /**
+     * 
+     * @param {array[any]} array 
+     * @param {any} value 
+     * @param {number} start 
+     * @param {number} end
+     */
+    function fill(array, value, start=0, end=array.length){
+      for(let i=start; i<end; i++){
+        array[i] = value
+      }
+      return array
+    }
+
+    /**
+     * Gets the first element of `array`
+     * @param {array} array
+     * @returns {*} Returns the first element of `array`
+     */
+    function head(array){
+      return array[0]
+    }
+
+    /**
+     * 
+     * @param {array[any]} array 
+     * @param {number} value 
+     * @param {number} fromIndex 
+     */
+    function indexOf(array, value, fromIndex=0){
+      if(fromIndex >= 0){
+        for(let i=fromIndex; i<array.length; i++){
+          if(array[i] === value) return i
+        }
+        return -1
+      }else{
+        // FIXME 
+        for(let i=fromIndex; i<array.length; i--){
+          let index = array.length - 1 - i
+          if(array[index] === value) return index
+        }
+        return -1
+      }
+    }
     // ! Collection
 
     // * predicate对collection中任何值返回true, 中断遍历, some返回true
     // * _.some(collection, [predicate=_.identity])
+    /**
+     * 
+     * @param {Array} ary 
+     * @param {String} predicate 
+     */
     function some(ary, predicate){
       // ! eval
       predicate = eval(predicate)
@@ -121,6 +205,10 @@ var rabbitinhat = function(){
 
     // * meoize 记忆f执行后的值, 调用同样参数时, 返回存储在缓存中的值
     // * _.memoize(func, [resolver])
+    /**
+     * 
+     * @param {Function} func 
+     */
     function memoize(func){
       let cache = {}
       return function(arg){
@@ -130,6 +218,12 @@ var rabbitinhat = function(){
 
     // * 使用thisArg作为this绑定, partials作为参数, 调用函数func
     // * _.bind(func, thisArg, [partials])
+    /**
+     * 
+     * @param {Function} func 
+     * @param {Array} thisArg 
+     * @param  {...any} partials 
+     */
     function bind(func, thisArg, ...partials){
       return function(...args){
         return this.func(partials, args)
@@ -138,6 +232,10 @@ var rabbitinhat = function(){
 
     // * 创建一个函数使用相反的arguments调用func
     // * _.flip(func)
+    /**
+     * 
+     * @param {Function} func 
+     */
     function flip(func){
       return function(...args){
         return func(...args.reverse())
@@ -146,6 +244,10 @@ var rabbitinhat = function(){
 
     // * 返回调用predicate的相反结果
     // * _.negate(predicate)
+    /**
+     * 
+     * @param {Function} predicate 
+     */
     function negate(predicate){
       return function(args){
         return !predicate(args)
@@ -154,6 +256,10 @@ var rabbitinhat = function(){
 
     // * 函数只接受一个参数, 忽略多余参数
     // * _.unary(func)
+    /**
+     * 
+     * @param {Function} fn 
+     */
     function unary(fn){
       return function(...args){
         return fn(arguments[0])
