@@ -14,12 +14,13 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function(root) {
-  if(root && !root.left && !root.right){
-    return root.val
+var preorderTraversal = function(root, result=[]) {
+  if(root){
+    result.push(root.val)
+    preorderTraversal(root.left, result)
+    preorderTraversal(root.right, result)
+    return result
   }
-  if(root && (root.left || root.right)){
-    return [] .concat(root.val, (preorderTraversal(root.left)),(preorderTraversal(root.right)))
-  }
+  return result
 };
 
