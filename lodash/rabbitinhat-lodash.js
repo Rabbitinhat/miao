@@ -1,6 +1,27 @@
 // @ts-check
 var rabbitinhat = function(){
-  // ! Array
+  // SECTION  Array
+
+  /**
+   * 将array分割为size长度的数组, 如果数组长度无法完整分割为size大小, 最后一个数组存储剩余的元素
+   * @param {array} array 
+   * @param {number} size
+   * @return `array` 
+   */
+  function chunk(array, size=1){
+    let result = []
+    for(var i=0; i+size<array.length; i+=size){
+      result.push(array.slice(i, i+size))
+    }
+    result.push(array.slice(i))
+    return result
+  }
+
+  /**
+   * 
+   * @param {array} ary
+   * @return `array` 
+   */
   function compact(ary){
     let result = []
     for(let element of ary){
@@ -90,6 +111,7 @@ var rabbitinhat = function(){
     function differenceBy(ary, values, comparator){
       let result = []
       result = ary.slice()
+      // FIXME 
       comparator = x => eval(comparator)
       values.forEach(x => comparator)
       result = result.filter(x => x in values)
@@ -183,30 +205,105 @@ var rabbitinhat = function(){
         return -1
       }
     }
-    // ! Collection
+    // SECTION Collection
 
-    // * predicate对collection中任何值返回true, 中断遍历, some返回true
-    // * _.some(collection, [predicate=_.identity])
     /**
      * 
+     * @param {array} ary 
+     * @param {function} predicate 
+     * @return boolean
+     */
+    function every(ary, predicate){
+      return ary.reduce((result, x, item, val, ary)=>{
+        return result && predicate(item, val, ary)
+      }, true)
+    }
+
+    /**
+     * 调用func时最多传入n个参数, 忽略额外的参数
+     * @param {function} func 
+     * @param {number} n 
+     * @return any
+     */
+    function ary(func, n=func.length){
+      return function(...args){
+        return func(...args.slice(0, n))
+      }
+    }
+
+    /**
+     * predicate对ary中任何元素返回true, every返回true; 如果predicate对ary中的元素返回false, 停止继续运算, 返回false
+     * @param {array[]} ary 
+     * @param {string} predicate
+     * @return boolean
+     */
+    function every(ary, predicate){
+      let predicate_f = eval(predicate)
+      return !some(ary, negate(predicate_f))
+    }
+
+    /**
+     * 遍历collection中每个元素, 对其调用iteratee, 返回调用结果组成的数组
+     * @param {object | array} collection 
+     * @param {function} iteratee
+     * @return {array} 
+     */
+    function map(collection, iteratee){
+      let result = []
+      for(let ele in collection){
+        result.push(iteratee(collection[ele]))
+      }
+      return result
+    }
+
+    /**
+     * 
+     * @param {array} ary 
+     * @param {function} predicate
+     * @return boolean
+     */
+    function some(ary, predicate){
+      return ary.reduce((result, x, item, val, ary)=>{
+        return result || predicate(item, val, ary)
+      }, false)
+    }
+
+    // * _.some(collection, [predicate=_.identity])
+    /**
+     * predicate对collection中任何值返回true, 中断遍历, some返回true
      * @param {Array} ary 
-     * @param {String} predicate 
+     * @param {string} predicate
+     * @return boolean
      */
     function some(ary, predicate){
       // ! eval
-      predicate = eval(predicate)
+      let predicate_f = eval(predicate)
       for(var i=0; i<ary.length; i++){
-        if(predicate(ary[i], i, ary)) return true
+        if(predicate_f(ary[i], i, ary)) return true
       }
       return false
     }
 
-    // ! Function
 
-    // * meoize 记忆f执行后的值, 调用同样参数时, 返回存储在缓存中的值
-    // * _.memoize(func, [resolver])
+
+    // SECTION Function
+
     /**
-     * 
+     * 调用(called)`func`n次或更多时, 才开始调用(invoke)`func`
+     * @param {number} n 
+     * @param {function} func 
+     * the oppsite of _.before
+     */
+    function after(n, func){
+      let times
+      return function(...args){
+        times++
+        if(times >= n) return func(...args)
+      }
+    }
+
+    /**
+     * meoize 记忆f执行后的值, 调用同样参数时, 返回存储在缓存中的值
      * @param {Function} func 
      */
     function memoize(func){
@@ -216,10 +313,24 @@ var rabbitinhat = function(){
       }
     }
 
-    // * 使用thisArg作为this绑定, partials作为参数, 调用函数func
-    // * _.bind(func, thisArg, [partials])
     /**
-     * 
+     * 当func调用超过n(>=n)次时, 不再重新调用func
+     * @param {number} n 
+     * @param {function} func
+     * opposite of _.after
+     */
+    function before(n, func){
+      let times = 0
+      let result
+      return function(...args){
+        times++
+        if(times < n) return result = func(...args)
+        return result
+      }
+    }
+
+    /**
+     * 使用thisArg作为this绑定, 调用函数func, 传入多个参数(保存在partials中)
      * @param {Function} func 
      * @param {Array} thisArg 
      * @param  {...any} partials 
@@ -230,11 +341,10 @@ var rabbitinhat = function(){
       }
     }
 
-    // * 创建一个函数使用相反的arguments调用func
-    // * _.flip(func)
     /**
-     * 
+     * 创建一个函数使用相反的arguments调用func
      * @param {Function} func 
+     * @return any
      */
     function flip(func){
       return function(...args){
@@ -242,11 +352,10 @@ var rabbitinhat = function(){
       }
     }
 
-    // * 返回调用predicate的相反结果
-    // * _.negate(predicate)
     /**
-     * 
-     * @param {Function} predicate 
+     * 返回调用predicate的相反结果
+     * @param {function} predicate
+     * @return function 
      */
     function negate(predicate){
       return function(args){
@@ -254,10 +363,20 @@ var rabbitinhat = function(){
       }
     }
 
-    // * 函数只接受一个参数, 忽略多余参数
-    // * _.unary(func)
     /**
-     * 
+     * * 创建将数组作为参数的函数
+     * @param {function} func
+     * @return `function` 
+     * not use f(...args)
+     */
+    function spread(func){
+      return function(ary){
+        return func.apply(null, ary)
+      }
+    }
+
+    /**
+     * func只接受一个参数, 忽略多余参数
      * @param {Function} fn 
      */
     function unary(fn){
@@ -266,25 +385,51 @@ var rabbitinhat = function(){
       }
     }
 
+    // SECTION Util
+
+    /**
+     * 传入属性值, 返回一个函数, 参数为object, 返回值为object的属性值p 
+     * @param {string} propertyName
+     * @return {*}
+     */
+    function property(propertyName){
+      return function(obj){
+        return obj[propertyName]
+      }
+    }
+
 
   return {
     // * Array
+    chunk,
     compact,
     concat,
     difference,
     differenceBy,
+
+    fill,
+
     flatten,
     flattenDeep,
     flattenDepth,
 
+    head,
+    indexOf,
+
     // * Collection
+    every,
+
     some,
 
     // * Function
+    after,
+    ary,
+    before,
     memoize,
     bind,
     flip,
     negate,
+    spread,
     unary,
   }
 }()
