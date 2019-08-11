@@ -118,20 +118,80 @@ var rabbitinhat = function(){
       return result
     }
 
-    // * flatten flattens array a single level deep
-    // * _.flatten(array)
     /**
-     * 
+     * 返回从头部去掉n个元素后剩余的数组
+     * @param {array} array 
+     * @param {number} n 
+     * @return {array}
+     */
+    function drop(array, n=1){
+      return array.slice(n)
+    }
+
+    /**
+     * 返回从尾部去掉n个元素后剩余的数组
+     * @param {array} array 
+     * @param {number} n 
+     * @return {array}
+     */
+    function dropRight(array, n=1){
+      if(n > array.length) return []
+      else return array.slice(0, array.length-n)
+    }
+
+    /**
+     * 相反方向执行dropWhile
+     * @param {array} array 
+     * @param {function} predicate
+     * @return {array}
+     */
+    function dropRightWhile(array, predicate){
+      let predicate_f = iteratee(predicate)
+      for(let i=array.length-1; i>=0; i--){
+        if(!predicate(array[i])) return dropRight(array, array.length-i-1)
+      }
+      return []
+    }
+
+    /**
+     * 传入一个array和函数, 数组执行drop操作, 直到函数遍历数组元素返回false, 返回剩余的数组
+     * @param {array} array 
+     * @param {function} predicate
+     * @return {array} 
+     */
+    function dropWhile(array, predicate){
+      let predicate_f = iteratee(predicate)
+      for(let i=0; i<array.length; i++){
+        if(!predicate_f(array[i])) return drop(array, i)
+      }
+      return drop(array, array.length)
+    }
+
+    /**
+     * 将array从start, 到end之前的位置的值填充为value
+     * @param {array} array 
+     * @param {*} value 
+     * @param {number} start 
+     * @param {number} end
+     * @return {array} 
+     */
+    function fill(array, value, start=0, end=array.length){
+      for(let i=start; i<end; i++){
+        array[i] = value
+      }
+      return array
+    }
+    
+    /**
+     * 展平一层数组
      * @param {Array} array 
      */
     function flatten(array){
       return [].concat(...array)
     }
 
-    // * flattenDeep 递归展平数组
-    // * _.flatten(array)
     /**
-     * 
+     * 递归展平数组
      * @param {Array} ary 
      */
     function flattenDeep(ary){
@@ -147,10 +207,8 @@ var rabbitinhat = function(){
       return result
     }
 
-    // * flattenDepth 展平给定深度
-    // * _.flattenDepth(array, [depth=1])
     /**
-     * 
+     * 展平给定深度的数组
      * @param {Array} array 
      * @param {Number} depth 
      */
