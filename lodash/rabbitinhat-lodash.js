@@ -1,6 +1,6 @@
 // @ts-check
 var rabbitinhat = function(){
-  // SECTION  Array
+  // ANCHOR  Array
 
   /**
    * 将array分割为size长度的数组, 如果数组长度无法完整分割为size大小, 最后一个数组存储剩余的元素
@@ -32,7 +32,7 @@ var rabbitinhat = function(){
 /**
  * 
  * @param {Array} ary 
- * @param  {...any} values 
+ * @param  {...*} values 
  */
   function concat(ary, ...values){
     let result = []
@@ -59,7 +59,7 @@ var rabbitinhat = function(){
     /**
      * 
      * @param {Array} ary 
-     * @param  {...any} values 
+     * @param  {*} values 
      */
     function difference(ary, ...values){
       let result = []
@@ -163,8 +163,8 @@ var rabbitinhat = function(){
 
     /**
      * 
-     * @param {array[any]} array 
-     * @param {any} value 
+     * @param {array[*]} array 
+     * @param {*} value 
      * @param {number} start 
      * @param {number} end
      */
@@ -186,11 +186,12 @@ var rabbitinhat = function(){
 
     /**
      * 
-     * @param {array[any]} array 
+     * @param {array[*]} array 
      * @param {number} value 
      * @param {number} fromIndex 
      */
     function indexOf(array, value, fromIndex=0){
+      fromIndex = fromIndex % array.length
       if(fromIndex >= 0){
         for(let i=fromIndex; i<array.length; i++){
           if(array[i] === value) return i
@@ -198,14 +199,14 @@ var rabbitinhat = function(){
         return -1
       }else{
         // FIXME 
-        for(let i=fromIndex; i<array.length; i--){
-          let index = array.length - 1 - i
+        for(let i=fromIndex; Math.abs(i)<array.length; i--){
+          let index = array.length - 1 + i
           if(array[index] === value) return index
         }
         return -1
       }
     }
-    // SECTION Collection
+    // ANCHOR Collection
 
     /**
      * 
@@ -223,7 +224,7 @@ var rabbitinhat = function(){
      * 调用func时最多传入n个参数, 忽略额外的参数
      * @param {function} func 
      * @param {number} n 
-     * @return any
+     * @return *
      */
     function ary(func, n=func.length){
       return function(...args){
@@ -238,6 +239,7 @@ var rabbitinhat = function(){
      * @return boolean
      */
     function every(ary, predicate){
+      // FIXME 
       let predicate_f = eval(predicate)
       return !some(ary, negate(predicate_f))
     }
@@ -277,7 +279,7 @@ var rabbitinhat = function(){
      */
     function some(ary, predicate){
       // ! eval
-      let predicate_f = eval(predicate)
+      let predicate_f = new Function(predicate)
       for(var i=0; i<ary.length; i++){
         if(predicate_f(ary[i], i, ary)) return true
       }
@@ -286,7 +288,7 @@ var rabbitinhat = function(){
 
 
 
-    // SECTION Function
+    // ANCHOR Function
 
     /**
      * 调用(called)`func`n次或更多时, 才开始调用(invoke)`func`
@@ -329,22 +331,31 @@ var rabbitinhat = function(){
       }
     }
 
+    // FIXME 
     /**
      * 使用thisArg作为this绑定, 调用函数func, 传入多个参数(保存在partials中)
      * @param {Function} func 
-     * @param {Array} thisArg 
-     * @param  {...any} partials 
+     * @param {object} thisArg 
+     * @param  {*} partials 
      */
     function bind(func, thisArg, ...partials){
       return function(...args){
-        return this.func(partials, args)
+        var actualArgs = [...partials]
+        for(let i=0; i<actualArgs.length; i++){
+          // 找到占位符位置时(占位符为'_')
+          if(actualArgs[i] === '_'){
+            // 将占位符替换为返回函数传入的参数
+            actualArgs[i] = args.shift()
+          }
+        }
+        return func.apply(thisArg, actualArgs)
       }
     }
 
     /**
      * 创建一个函数使用相反的arguments调用func
      * @param {Function} func 
-     * @return any
+     * @return *
      */
     function flip(func){
       return function(...args){
@@ -364,7 +375,7 @@ var rabbitinhat = function(){
     }
 
     /**
-     * * 创建将数组作为参数的函数
+     * 创建将数组作为参数的函数
      * @param {function} func
      * @return `function` 
      * not use f(...args)
@@ -385,8 +396,119 @@ var rabbitinhat = function(){
       }
     }
 
-    // SECTION Util
+    //  ANCHOR Lang
 
+    /**
+     * 比较两个object, 判断source中的属性值和object中的对应属性值相等
+     * @param {object} object 
+     * @param {object} source
+     * @return {boolean}
+     */
+    function isMatch(object, source){
+      if((typeof object !== "object" 
+      && typeof source !== "object") || object === null || source === null){
+        return object === source
+      }
+      for(let obj in source){
+        if(typeof source[obj] === "object" && source[obj] !== null){
+          if(!isMatch(object[obj], source[obj])){
+            return false
+          }
+        }
+        else if(object[obj] !== source[obj]) return false
+      }
+      return true
+    }
+
+    /**
+     * 对两个任意值进行深度比较(`deep comparison`), 判断它们是否相等
+     * @param {*} value 
+     * @param {*} other
+     * @return {boolean} 
+     */
+    function isEqual(value, other){
+      if(typeof value === typeof other){
+        let type = typeof value
+          // * NaN
+          if(value !== value && other !== other){
+            return true
+          }
+        if(type === "object"){
+          if(Object.keys(value).length === Object.keys(other).length){
+            for(let prop in value){
+              if(value.hasOwnProperty(prop) && other.hasOwnProperty(prop)){
+                 if(!isEqual(value[prop], other[prop])) return false
+              }
+            }
+            return true
+          }
+          return false
+        }
+        return value === other
+      }
+    }
+
+
+
+    // ANCHOR Math
+
+    // ANCHOR Number
+
+    // ANCHOR Object
+
+    /**
+     * 
+     * @param {object} object 
+     * @param {array} path 
+     * @param {*} defaultValue 
+     */
+    function get(object, path, defaultValue){
+      if(object === undefined) return defaultValue
+      return get(object[path[0]], path.slice(1), defaultValue)
+    }
+
+
+    /**
+     * 通过path参数得到object中对应的属性, 如果值为undefined, 返回defaultValue
+     * @param {object} object 
+     * @param {string | array} path 
+     * @param {*} defaultValue 
+     */
+    function get(object, path, defaultValue){
+      let pathArray
+      if(typeof path === "string"){
+        pathArray = toPath(path)
+      }else{pathArray = path}
+      for(let i=0; i<pathArray.length; i++){
+        if(object[pathArray[i]] === undefined) return defaultValue
+        object = object[pathArray[i]]
+      }
+      return object
+    }
+
+    // ANCHOR Util
+
+    /**
+     * 根据参数func构建函数, func为属性名时, 函数从传入的object中获取属性值; 
+     * func为object或数组时, 函数当传入的object包含相同的属性时, 返回true, 否则返回false
+     * @param {string | array | object | function} func 
+     * @return {function}
+     */
+    function iteratee(func){
+      if(typeof func === "string"){
+        return property(func)
+      }
+      if(Array.isArray(func)){
+        return matchesProperty(func.slice(0, func.length-1), func[length-1])
+      }
+      if(typeof func === "object"){
+        return matches(func)
+      }
+
+      // * func 为函数
+      return func
+    }
+    
     /**
      * 传入属性值, 返回一个函数, 参数为object, 返回值为object的属性值p 
      * @param {string} propertyName
@@ -398,6 +520,52 @@ var rabbitinhat = function(){
       }
     }
 
+    function matches(source){
+      return bind(isMatch, null, "_", source)
+    }
+    /**
+     * 返回一个函数, 参数为obj, 对obj和source的属性值进行比较
+     * @param {object} source
+     * @return {function}
+     */
+    function matches(source){
+      return function(obj){
+        return isMatch(obj, source)
+      }
+    }
+
+    /**
+     * 返回一个函数, 以object为参数, 深度比较通过path访问到的object的属性值和srcValue是否相等
+     * @param {string | array} path 
+     * @param {*} srcValue
+     * @return {function} 
+     */
+    function matchesProperty(path, srcValue){
+      return function(obj){
+        let provalue = get(obj, path, undefined)
+        return isEqual(provalue, srcValue)
+      }
+    }
+
+    /**
+     * 返回一个函数, 以object为参数, 返回object按照path访问到的值
+     * @param {string | array} path 
+     * @return {*}
+     */
+    function property(path){
+      return function(obj){
+        return get(obj, path, undefined)
+      }
+    }
+
+    /**
+     * 将表示访问属性的路径(property of path)的字符串转换为数组
+     * @param {string} value
+     * @return {array} 
+     */
+    function toPath(value){
+      return value.split(/\.|\[|\][\[\.]/g)
+    }
 
   return {
     // * Array
@@ -431,6 +599,20 @@ var rabbitinhat = function(){
     negate,
     spread,
     unary,
+
+    // * Lang
+    isMatch,
+    isEqual,
+
+    // * Object
+    get,
+
+    // * Util
+    iteratee,
+    property,
+    matches,
+    matchesProperty,
+    toPath,
   }
 }()
 
