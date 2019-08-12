@@ -181,7 +181,51 @@ var rabbitinhat = function(){
       }
       return array
     }
-    
+
+    /**
+     * 迭代collection, 返回第一个执行predicate返回true的元素索引
+     * @param {array} collection 
+     * @param {function} predicate 
+     * @param {number} fromIndex
+     * @return {number | undefined} 
+     */
+    function findIndex(collection, predicate, fromIndex=0){
+      let predicate_F = iteratee(predicate)
+      for(let i=fromIndex; i<collection.length; i++){
+        if(predicate_F(collection[i])) return i
+      }
+      return undefined
+    }
+
+    /**
+     * 从尾部迭代collection, 返回第一个执行predicate返回true的元素索引
+     * @param {array} array 
+     * @param {function} predicate 
+     * @param {number} fromIndex 
+     * @return {number}
+     */
+    function findLastIndex(array, predicate, fromIndex = array.length - 1){
+      let predicate_F = iteratee(predicate)
+      for(let i=fromIndex; i>=0; i--){
+        if(predicate_F(array[i])) return i
+      }
+      return -1
+    }
+
+
+
+    /**
+     * toPairs的翻转, 从[key, value]的数组返回object
+     * @param {array} pairs 
+     */
+    function fromPairs(pairs){
+      let result = {}
+      for(let pair of pairs){
+        result[pair[0]] = pair[1]
+      }
+      return result
+    }
+
     /**
      * 展平一层数组
      * @param {Array} array 
@@ -219,19 +263,6 @@ var rabbitinhat = function(){
       return array
     }
 
-    /**
-     * 
-     * @param {array[*]} array 
-     * @param {*} value 
-     * @param {number} start 
-     * @param {number} end
-     */
-    function fill(array, value, start=0, end=array.length){
-      for(let i=start; i<end; i++){
-        array[i] = value
-      }
-      return array
-    }
 
     /**
      * Gets the first element of `array`
@@ -243,28 +274,132 @@ var rabbitinhat = function(){
     }
 
     /**
-     * 
+     * 从fromIndex位置开始到末尾查找数组中元素值为value的索引
      * @param {array[*]} array 
      * @param {number} value 
      * @param {number} fromIndex 
      */
     function indexOf(array, value, fromIndex=0){
       fromIndex = fromIndex % array.length
-      if(fromIndex >= 0){
-        for(let i=fromIndex; i<array.length; i++){
-          if(array[i] === value) return i
-        }
-        return -1
-      }else{
-        // FIXME 
-        for(let i=fromIndex; Math.abs(i)<array.length; i--){
-          let index = array.length - 1 + i
-          if(array[index] === value) return index
-        }
-        return -1
+      fromIndex = fromIndex >= 0 ? fromIndex : array.length + fromIndex
+      for(let i=fromIndex; i<array.length; i++){
+        if(array[i] === value) return i
       }
+      return -1
     }
+
+    /**
+     * 从fromIndex位置开始到首部, 查找数组中元素值为value的索引
+     * @param {array} array 
+     * @param {*} value 
+     * @param {number} fromIndex 
+     */
+    function lastIndexOf(array, value, fromIndex=array.length-1){
+      fromIndex = fromIndex % array.length
+      fromIndex = fromIndex >= 0 ? fromIndex : array.length + fromIndex
+      for(let i=fromIndex; i>=0; i--){
+        if(array[i] === value) return i
+      }
+      return -1
+    }
+
+
+
+    /**
+     * 返回数组中除了最后一个元素外其他元素
+     * @param {array} array
+     * @return {array} 
+     */
+    function initial(array){
+      return array.slice(0, array.length-1)
+    }
+
+
+    /**
+     * 传入多个array, 返回共有值组成的数组
+     * @param {array[]} arrays
+     * @return {array}
+     */
+    function intersection(...arrays){
+      let result = arrays[0].filter(x=>(arrays.every(val=>val.indexOf(x) > -1)))
+      return result
+    }
+
+    /**
+     * 传入多个array, 返回根据传入iteratee比较后相同的值组成的数组
+     * @param  {...any} args 
+     * @return {array}
+     */
+    function intersectionBy(...args){
+      let iteratee_f = iteratee(args.pop())
+      let arrays = args.slice()
+      return arrays[0].filter(x=>(arrays.every(val=>(iteratee_f(val) === iteratee_f(x)))))
+    }
+
+    /**
+     * 转换array为string, 以separator作为分隔符
+     * @param {array} array 
+     * @param {*} separator
+     * @return {string} 
+     */
+    function join(array, separator){
+      let result = ""
+      for(let ele of array){
+        result += ele + "" + separator
+      }
+      return result
+    }
+
+    /**
+     * 返回数组的末尾元素
+     * @param {array} array
+     * @return {*} 
+     */
+    function last(array){
+      return array[array.length-1]
+    }
+
+
+    /**
+     * 从array中删除values中包含的值, 会改变数组本身
+     * @param {array} array 
+     * @param  {...*} values
+     * @return {array}
+     */
+    function pull(array, ...values){
+      return array = array.filter(x => values.indexOf(x) === -1)
+    }
+
+    /**
+     * 从array中删除调用predicate返回true的值, 返回删除值组成的数组, 会改变数组本身
+     * @param {array} array 
+     * @param {function} predicate
+     * @return {array} 
+     */
+    function remove(array, predicate){
+      let predicate_F = iteratee(predicate)
+      let result = array.filter(x=>predicate(x))
+      pull(array, result)
+      return result
+    }
+    
+
     // ANCHOR Collection
+
+    /**
+     * 迭代collection, 返回第一个执行predicate返回true的元素
+     * @param {array | object} collection 
+     * @param {function} predicate 
+     * @param {number} fromIndex 
+     */
+    function find(collection, predicate, fromIndex=0){
+      let predicate_F = iteratee(predicate)
+      // let keys = collection.keys()
+      for(let i=fromIndex; i<collection.length; i++){
+        if(predicate_F(collection[i])) return collection[i]
+      }
+      return undefined
+    }
 
     /**
      * 
@@ -544,6 +679,34 @@ var rabbitinhat = function(){
       return object
     }
 
+    /**
+     * 返回一个由对象自身拥有的[prop, value]的数组组成的数组
+     * @param {object} obj 
+     * @return {array}
+     */
+    function toPairs(obj){
+      let result = []
+      for(let element in obj){
+        if(obj.hasOwnProperty(element)){
+          result.push([element, obj[element]])
+        }
+      }
+      return result
+    }
+
+    /**
+     * 返回一个对象的所有[prop, value]的数组组成的数组
+     * @param {object} obj 
+     * @return {array}
+     */
+    function toPairsIn(obj){
+      let result = []
+      for(let element in obj){
+        result.push([element, obj[element]])
+      }
+      return result
+    }
+
     // ANCHOR Util
 
     /**
@@ -632,20 +795,33 @@ var rabbitinhat = function(){
     concat,
     difference,
     differenceBy,
-
+    dropRight,
+    drop,
+    dropRightWhile,
     fill,
-
+    findIndex,
+    findLastIndex,
     flatten,
     flattenDeep,
     flattenDepth,
-
+    fromPairs,
     head,
     indexOf,
+    initial,
+    intersection,
+    intersectionBy,
+
+    join,
+    last,
+    lastIndexOf,
+    pull,
+    remove,
 
     // * Collection
     every,
-
+    find,
     some,
+    map,
 
     // * Function
     after,
@@ -664,6 +840,8 @@ var rabbitinhat = function(){
 
     // * Object
     get,
+    toPairs,
+    toPairsIn,
 
     // * Util
     iteratee,
