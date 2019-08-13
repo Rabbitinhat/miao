@@ -295,7 +295,7 @@ var rabbitinhat = function(){
      * @param {number} fromIndex 
      */
     function lastIndexOf(array, value, fromIndex=array.length-1){
-      fromIndex = fromIndex % array.length
+      if(fromIndex > array.length-1) fromIndex = array.length-1
       fromIndex = fromIndex >= 0 ? fromIndex : array.length + fromIndex
       for(let i=fromIndex; i>=0; i--){
         if(array[i] === value) return i
@@ -344,9 +344,10 @@ var rabbitinhat = function(){
      */
     function join(array, separator){
       let result = ""
-      for(let ele of array){
-        result += ele + "" + separator
+      for(let i=0; i<array.length-1; i++){
+        result += array[i] + "" + separator
       }
+      result += array[array.length-1]
       return result
     }
 
@@ -433,7 +434,7 @@ var rabbitinhat = function(){
      */
     function every(ary, predicate){
       // FIXME 
-      let predicate_f = eval(predicate)
+      let predicate_f = iteratee(predicate)
       return !some(ary, negate(predicate_f))
     }
 
@@ -472,7 +473,7 @@ var rabbitinhat = function(){
      */
     function some(ary, predicate){
       // ! eval
-      let predicate_f = new Function(predicate)
+      let predicate_f = iteratee(predicate)
       for(var i=0; i<ary.length; i++){
         if(predicate_f(ary[i], i, ary)) return true
       }
