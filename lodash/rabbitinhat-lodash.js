@@ -148,7 +148,7 @@ var rabbitinhat = function(){
     function dropRightWhile(array, predicate){
       let predicate_f = iteratee(predicate)
       for(let i=array.length-1; i>=0; i--){
-        if(!predicate(array[i])) return dropRight(array, array.length-i-1)
+        if(!predicate_f(array[i])) return dropRight(array, array.length-i-1)
       }
       return []
     }
