@@ -9,14 +9,14 @@
  * @return {number}
  */
 var uniquePaths = function(m, n) {
-    // * 递归
-    // * right bottom 两个分支
-     //* 0->m 0->n
-     if(m==0 && n===0){
-       return null
-     }
-     else if(m === 0){
-       
-     }
+  // * 递归
+  let res = 0
+  let K = m*(n-1)
+  let M = m*n - 1
+  while(true){
+    res++
+    
+  }
 };
 
+console.log(uniquePaths(3, 2))

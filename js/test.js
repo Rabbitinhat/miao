@@ -312,3 +312,21 @@ var t1Closure = template`Hi! ${0}goo${1}d${0}!`
 console.log(t1Closure('Y', 'A'))
 var t2Closure = template`JavaScript ${0}${'foo'}`
 console.log(t2Closure('Hello', {foo: 'World'}))
+
+function isEqual(value, other) {
+  if (value !== value && other !== other) return true;
+  if (isObject(value) && isObject(other)) {
+      const valueKeys = Object.keys(value);
+      const otherKeys = Object.keys(other);
+      if (valueKeys.length !== otherKeys.length) return false;
+      for (let item in value) {
+         if (isEqual(value[item], other[item])) { 
+              continue;
+          } else {
+              return false;
+          }
+      }
+      return true
+  }
+  return value === other;
+}

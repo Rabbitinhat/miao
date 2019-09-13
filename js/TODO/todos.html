@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      html {
+        transition: 0.5s;
+      }
+      h1 {
+        color: rgba(175, 47, 47, 0.15);
+        top: 0px;
+        width: 100%;
+        font-size: 100px;
+        font-weight: 100;
+        text-align: center;
+      }
+      body {
+        line-height: 1.4em;
+        color: #4d4d4d;
+        min-width: 230px;
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+      }
+      div {
+        display: block;
+      }
+      header {
+        display: block;
+      }
+      #nmsl {
+        border: none;
+        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 -2px 1px rgba(95, 61, 61, 0.05);
+        width: 85%;
+        padding: 15px;
+      }
+      #nmms {
+        float: left;
+        height: 40px;
+        width: 40px;
+      }
+      #nmsl::placeholder {
+        font-style: italic;
+        text-align: center;
+      }
+      ul {
+        list-style-type: none;
+      }
+      .list li {
+        height: 40px;
+      }
+      .close {
+        float: right;
+        color: red;
+        display: none;
+        cursor: pointer;
+      }
+      .isli:hover .close {
+        display: block;
+      }
+
+      /* 隐藏类名为dotshow的内容 */
+      .dontshow {
+        overflow: hidden;
+        height: 0px !important;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>todos</h1>
+    <div id="all">
+      <header id="nbysl">
+        <!--全选按钮 绑定checkall事件函数 -->
+        <input type="checkbox" name="" onclick="checkall()" id="nmms" />
+        <input type="text" placeholder="What needs to nmsl?" id="nmsl" />
+      </header>
+      <section id="sec">
+        <ul id="list"></ul>
+      </section>
+      <footer>
+        <div><span id="itemsNumber">0</span> items left</div>
+        <div>
+          <!-- 显示状态，绑定filter事件函数 -->
+          <button onclick="filter('all')">All</button>
+          <button onclick="filter('active')">Active</button>
+          <button onclick="filter('completed')">Completed</button>
+          <!-- 删除全部todo内容, 绑定remove()事件函数 -->
+          <button onclick="remove()" id="xixihaha" class="dontshow">
+            Clear completed
+          </button>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      var nmsl = document.querySelector("#nmsl"); //选择器选择到input
+      // 显示新todo
+      var list = document.querySelector("#list");
+
+      nmsl.addEventListener("keydown", function(e) {
+        // 按下Enter且input不为null时
+        if (e.key == "Enter" && nmsl.value != "") {
+          // 生成新的li(class为xixi)，包含一个checkbox， 输入值， close
+          var temp =
+            `<li class="isli"> <input type="checkbox" class = "xixi">` +
+            nmsl.value +
+            `<i class = "close">X</i> </li>`;
+          // 传入html片段生成相应节点
+          var li = document.createRange().createContextualFragment(temp);
+          // 重置input中的值
+          nmsl.value = "";
+          list.appendChild(li);
+          checklonely();
+        }
+      });
+
+      // todo内容中发生点击事件
+      list.addEventListener("click", e => {
+        // 点击close， 则移除该list
+        if (e.target.classList.contains("close")) {
+          list.removeChild(e.target.parentElement);
+          checklonely();
+        }
+        if (e.target.classList.contains("xixi")) {
+          checklonely();
+        }
+      });
+
+      // 全选操作
+      function checkall() {
+        var nmms = document.querySelector("#nmms");
+        // 获取所有todo内容
+        var xixi = document.querySelectorAll(".xixi");
+        if (xixi.length === 0) nmms.checked = false;
+        else {
+          // console.log(xixi)
+          for (let x = 0; x < xixi.length; x++) {
+            xixi[x].checked = nmms.checked;
+          }
+          checklonely();
+        }
+      }
+
+      // 设置底部选项状态
+      function checklonely() {
+        var xixi = document.querySelectorAll(".xixi");
+        var flag = true;
+        var count = 0;
+        var galf = false;
+        var itemsNumber = document.getElementById("itemsNumber");
+        if (xixi.length === 0) flag = false;
+        else {
+          for (var x = 0; x < xixi.length; x++) {
+            if (xixi[x].checked == false) {
+              flag = false;
+              count++;
+            } else {
+              galf = true;
+            }
+          }
+        }
+        // 判断是否todo内容全部complete
+        // 如果为true(全部todo内容complete)， 全选按钮选中
+        nmms.checked = flag;
+        // 显示未complete的todo内容数量
+        itemsNumber.textContent = count;
+
+        var a = document.querySelector("#xixihaha");
+        // 如果为true(全部todo内容complete)， 显示clear completed按钮
+        if (galf) {
+          a.classList.remove("dontshow");
+        } else {
+          a.classList.add("dontshow");
+        }
+      }
+
+      //
+      function filter(show) {
+        console.log(show);
+        var nmms = document.querySelector("#nmms");
+        var xixi = document.querySelectorAll(".xixi");
+        // 显示全部todo内容
+        if (show == "all") {
+          for (let x = 0; x < xixi.length; x++) {
+            xixi[x].parentElement.classList.remove("dontshow");
+          }
+        }
+
+        // 只显示未complete的todo内容
+        if (show == "active") {
+          for (let x = 0; x < xixi.length; x++) {
+            if (xixi[x].checked == true) {
+              xixi[x].parentElement.classList.add("dontshow");
+              console.dir(xixi[x].parentElement);
+            } else {
+              xixi[x].parentElement.classList.remove("dontshow");
+            }
+          }
+        }
+
+        // 只显示completed的todo内容
+        if (show == "completed") {
+          for (let x = 0; x < xixi.length; x++) {
+            if (xixi[x].checked != true) {
+              xixi[x].parentElement.classList.add("dontshow");
+            } else {
+              xixi[x].parentElement.classList.remove("dontshow");
+            }
+          }
+        }
+      }
+
+      function remove() {
+        // 取得全部todo内容
+        var xixi = document.querySelectorAll(".xixi");
+        // 删除completed的todo内容
+        for (let x = 0; x < xixi.length; x++) {
+          if (xixi[x].checked == true) {
+            list.removeChild(xixi[x].parentElement);
+          }
+        }
+        checklonely();
+      }
+    </script>
+  </body>
+</html>

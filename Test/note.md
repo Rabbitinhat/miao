@@ -1,0 +1,11 @@
+- iterator, 生成器函数
+- this
+- 多态
+- Object.definePorperty(obj, attr-name, {setting})
+- configurable writable
+- Object.seal() Object.freeze() Object.preventDefault()
+- Object.getPrototype
+- new.target
+- double 双精度
+- 最大字串和
+- 快排

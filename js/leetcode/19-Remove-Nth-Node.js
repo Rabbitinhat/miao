@@ -1,3 +1,4 @@
+// @ts-check
 // * 移除倒数n个链表节点
 var removeNthFromEnd = function(head, n) {
   // * 先遍历找出链表长度
