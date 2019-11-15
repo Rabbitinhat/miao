@@ -381,6 +381,202 @@ var rabbitinhat = (function() {
     return result;
   }
 
+
+
+  /**
+   * 反转数组元素的位置
+   * 元素的顺序发生反转, 1, 2 => 2, 1
+   * @param {array} array
+  */
+  function reverse(array){
+    let val = array.length-1
+    for(let i=0; i<array.length/2; i++){
+      let temp = array[i]
+      array[i] = array[val-i]
+      array[val-i] = temp
+    }
+    return array
+  }
+
+  // function reverse(array){
+  //   let len = array.length
+  //   for(let i=0; i<len; i++){
+  //     array.push(array.shift())
+  //   }
+  //   return array
+  // }
+
+
+
+  /**
+   * 返回value应位于array中的最小位置(升序排列)
+   * @param {array} array 
+   * @param {number} value 
+ */
+  function sortedIndex(array, value){
+    for(let i=0; i<array.length; i++){
+      if(value <= array[i]){
+        return i
+      }
+    }
+    return array.length
+  }
+
+
+  /**
+   * 返回参数中所有数组的独特的值(去掉重复项)组成的数组
+   * @param  {...array} arrays 
+   */
+  function union(...arrays){
+    console.log(arrays)
+    let result = []
+    let cache = {}
+    arrays = flatten(arrays)
+    arrays.forEach((item) => {
+      if(!cache[item]){
+        cache[item] = 1
+        result.push(item)
+      }
+    })
+    return result
+  }
+
+/**
+ * 返回一个数组包含所有传入数组的独特项
+ * 携带一个函数, 对传入的数组的每一项进行处理
+ * @param  {...array, function} args
+ * @return {[any]}array         
+ */
+function unionBy(...args){
+  let result = []
+  let cache = new Map()
+  let method = args.pop()
+  args = flatten(args)
+  args.forEach((item) => {
+    // 将iteratee得出的值, 作为缓存, 而非item本身(避免object类型的数组元素)
+    let val = iteratee(method)(item)
+    if(!cache.get(val)){
+      cache.set(val, 1)
+      result.push(item)
+    }
+  })
+  return result
+}
+
+/**
+* 返回传入数组中所有非重复项组成的新数组
+* @param  {[any]} array
+* @return {[any]} [return new array]
+*/
+function uniq(array){
+  let cache = new Map()
+  let result = []
+  array.forEach((item) => {
+    if(!cache.get(item)){
+      cache.set(item, 1)
+      result.push(item)
+    }
+  })
+  return result
+}
+
+/**
+ * 返回传入数组中所有项经过method处理后返回的非重复项组成的新数组
+ * @param  {[any]} array  [description]
+ * @param  {string, object, function} method [对数组中每一项进行处理]
+ * @return {[any]}        [非重复项构成的新数组]
+ */
+function uniqBy(array, method){
+  let cache = new Map()
+  let result = []
+  array.forEach((item) => {
+    let val = iteratee(method)(item)
+    if(!cache.get(val)){
+      cache.set(val, 1)
+      result.push(item)
+    }
+  })
+  return result
+}
+
+/**
+ * 将传入的所有数组进行分组, 返回一个新的二维数组(长度为参数中最大数组长度),返回结果的第一项为所有参数数组第一项元素组成的数组, ...
+ * @param  {...[any]} arrays []
+ * @return {[array]}          [分组后的结果]
+ */
+function zip(...arrays){
+  let result = []
+  let maxLen = arrays.reduce((len, item) => {
+    return len > item.length ? len : item.length
+  }, -1)
+  for(let i=0; i<maxLen; i++){
+    result[i] = []
+    arrays.forEach(array => {
+      result[i].push(array[i])
+    })     
+  }
+  return result
+}
+
+/**
+ * zip的还原操作
+ * @param  {[array]} arrays [分组后的二维数组]
+ * @return {[array]}        [返回一个新数组]
+ */
+function unzip(arrays){
+  let result = []
+  arrays[0].forEach((item, idx) => {
+      result[idx] = []
+      arrays.forEach((array, i) => {
+        if(arrays[i][idx] !== undefined){
+          result[idx].push(array[idx])
+        }
+      })
+  })
+  return result
+}
+
+/**
+ * 传入一个目标数组, 和过滤值, 返回一个由非过滤值组成的新数组
+ * @param  {[any]}    array [description]
+ * @param  {...[vals]} vals  [description]
+ * @return {[any]}          [description]
+ */
+function without(array, ...vals){
+  return array.filter((item) => {
+    return vals.indexOf(item) === -1 ? true : false
+  })
+}
+
+
+/**
+ * 返回包含所有只出现一次元素的新数组
+ * @param  {...[any]} arrays 
+ * @return {[type]}
+ */
+function xor(...arrays){
+  let cache = new Map()
+  arrays = flatten(arrays)
+  arrays.forEach((item) => {
+    let count = cache.get(item)
+    if(count){
+      cache.set(item, ++count)
+    }else{
+      cache.set(item, 1)
+    }
+  })
+  let result = []
+  console.log(cache)
+  for(let item of cache){
+    console.log(item)
+    if(item[1] === 1){
+      result.push(item[0])
+    }
+  }
+  return result
+}
+
+
   // ANCHOR Collection
 
   /**
@@ -721,7 +917,6 @@ var rabbitinhat = (function() {
     if (typeof func === "object") {
       return matches(func);
     }
-
     // * func 为函数
     return func;
   }
