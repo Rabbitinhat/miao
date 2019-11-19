@@ -1,0 +1,157 @@
+              <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style rel="stylesheet">
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  </style>
+</head>
+<body>
+  <input type="text" value="1111">
+
+  <script>
+  // debounce
+  // setTimout
+  // let textarea = document.querySelector('textarea')
+  // let timeout
+  // textarea.addEventListener('input', () => {
+  //   clearTimeout(timeout)
+  //   timeout = setTimout(() => console.log('Typed!'), 500)
+  // }) 
+
+  window.addEventListener('mousemove', throttleEJ(() => {console.log('Moving!!!')}, 600))
+
+  // 节流 throttle
+  // 确保事件处理函数按照一定的时间间隔触发
+  function throttle(f, duration){
+    let timerId
+    let lastRunTime = 0
+    return function(...args){
+      clearTimeout(timerId)
+      let now = Date.now()
+      if(now - lastRunTime > duration){
+        console.log('now')
+        f(...args)
+        lastRunTime = now
+      }else{
+        // 间隔时间小于或等于duration
+        // 最后触发一次事件时, 触发处理函数
+        timerId = setTimeout(() => {
+          console.log('after duration')
+          f(...args)
+          lastRunTime = Date.now()
+        }, duration)
+      }
+    }
+  }
+
+  // 防抖
+  // 避免事件过多触发时, 事件处理函数减少处理次数
+  function debounce(f, duration){
+    let timerID
+    return function(...args){
+      clearTimeout(timerID)
+      timerID = setTimeout(() => {f(...args)}, duration)
+    }
+  }
+  
+
+  function throttleEJ(f, duration){
+    let sign = 0
+    return function(...args){
+      let timestamp = Date.now()
+      if(!sign){
+        setTimeout(
+          ()=>{f(...args)
+          let after = Date.now()
+          console.log('after', after - timestamp)
+          sign = 0
+        }, duration)
+      }
+      sign = 1
+    }
+  }
+
+
+  function myAssign(target, source){
+    for(let item in source){
+      if(source.hasOwnProperty(item)){
+        target[item] = source[item]
+      }
+    }
+  }
+
+
+  function cloneDeep(obj){
+    let result = {}
+    for(let per in obj){
+      if(obj.hasOwnProperty(per)){
+        if(typeof obj[per] === 'object'){
+          result[per] = cloneDeep(obj[per])
+        }else{
+          result[per] = obj[per]
+        }
+      }
+    }
+    return result
+  }
+
+  function cloneDeepC(obj){
+    let cache = new Map()
+
+    function clone(obj){
+      console.log(cache)
+      // 缓存时, 要判断对象是否存在, 而非对象属性名
+      if(cache.has(obj)){
+        return cache.get(obj)
+      }
+      // obj 映射 新的 {}
+      let result = {}
+      cache.set(obj, result)
+      for(let per in obj){
+        if(obj.hasOwnProperty(per)){
+          if(typeof obj[per] === 'object'){
+            cache.set(per, obj[per])
+            result[per] = clone(obj[per])
+          }else{
+            result[per] = obj[per]
+          }
+        }
+        return result
+      }
+    }
+    return clone(obj)
+  }
+
+  // 最长递增子序列
+  function LIS(ary){
+    if(ary.length = 1) return 1
+    if(ary.length = 0) return 0
+
+    let status = new Array(ary.length)
+    let max = 0
+
+    for(let i=0; i<ary.length; i++){
+      status[i] = [ary[i]]
+      if(max < status[i].length){
+        max = status[i].length
+      }
+      for(let j=i-1; j>0; j--){
+        if(ary[i] > ary[j]){
+          if(max < status[j].length + 1){
+            status[i] = [...status[j], ary[i]]
+            max = max + 1
+          }
+        }
+      }
+    }
+    return max
+  }
+
+  </script>
+</body>
+</html>

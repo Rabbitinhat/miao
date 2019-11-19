@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="example" @click="updateMsg">
+    {{message[0]}}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    let vm = new Vue({
+      el: '#example',
+      data: {
+        message: ['hi']
+      },
+      methods: {
+        async updateMsg(){
+          // this.message[0] = 'good'
+          this.message[0] = 'good'
+          console.log(this.$el.textContent)
+          await this.$forceUpdate()
+          console.log(this.$el.textContent)
+        }
+
+      }
+    })
+
+
+  </script>
+</body>
+</html>

@@ -580,6 +580,66 @@ function xor(...arrays){
   // ANCHOR Collection
 
   /**
+   * 返回一个对象, 属性名为collection的每一项经过iteratee处理后的结果, 属性值为属性名出现的次数
+   * @param  {Array, Object} collection
+   * @param  {} iter       [description]
+   * @return {Object}            [description]
+   */
+  function countBy(collection, iter){
+    let result = {}
+    if(Array.isArray(collection)){
+      collection.forEach((item) => {
+        let val = iteratee(iter)(item)
+        if(result[val] === undefined){
+          result[val] = 1
+        }else{
+          result[val]++
+        }
+      })  
+    }else{
+      for(let item of collection){
+        if(collection.hasOwnProperty(item)){
+          let val = iteratee(iter)(item)
+          if(result[val] === undefined){
+            result[val] = 1
+          }else{
+            result[val]++
+          }
+        }
+      }
+    }
+    return result
+  }
+
+  /**
+   * 返回经过pre处理后collection元素组成的数组
+   */
+  function filter(collection, pre){
+    let predicate = iteratee(pre)
+    let result = []
+    if(Array.isArray(collection)){
+      for(let i=0; i<collection.length; i++){
+        if(predicate(collection[i], i, collection)){
+          result.push(collection[i])
+        }
+      }
+    }else{
+      for(let item in collection){
+        if(collection.hasOwnProperty(item)){
+          if(predicate(collection[item], item, collection)){
+            result.push(collection)
+          }
+        }
+      }
+    }
+
+    return result
+  }
+
+
+
+
+  /**
    * 迭代collection, 返回第一个执行predicate返回true的元素
    * @param {array | object} collection
    * @param {function} predicate

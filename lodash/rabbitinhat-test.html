@@ -613,7 +613,7 @@
         }
       })  
     }else{
-      for(let item of collection){
+      for(let item in collection){
         if(collection.hasOwnProperty(item)){
           let val = iteratee(iter)(item)
           if(result[val] === undefined){

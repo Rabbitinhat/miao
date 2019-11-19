@@ -8,19 +8,24 @@
  * @return {number}
  */
 var lengthOfLIS = function(nums) {
+  if(nums.length === 1) return 1
   if(nums.length === 0) return 0
-  let status = [1]
-  let maxSta = 1
-  for(let i = 1; i<nums.length; i++){
-    let max = status[0]
-    for(let j = 0; j<i; j++){
-      if(nums[i] > nums[j]){
-        max = Math.max(max, status[j]+1)
+
+  let status = new Array(nums.length)
+  let max = 0
+
+  for(let i=0; i<nums.length; i++){
+    status[i] = 1
+    if(max < status[i]){
+      max = status[i]
+    }
+    for(let j=i-1; j>=0; j--){
+      if(nums[i] > nums[j] && status[j] + 1 > status[i]){
+        status[i] = status[j] + 1
+        max = Math.max(max, status[i])
       }
     }
-    status[i] = max
-    maxSta = Math.max(max, maxSta)
   }
-  return maxSta
+  return max
 };
 
